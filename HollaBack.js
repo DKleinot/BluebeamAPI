@@ -30,6 +30,11 @@ function AutoLoad() {
     log(pocket);
 
 
+    log("Parse that shit.");
+    for (var i = 0; i < pocket.length; i++) {
+        log(pocket[i]);
+    }
+
 
     /*
     var parser = document.createElement('a'), searchObject = {}, queries, split, i;
