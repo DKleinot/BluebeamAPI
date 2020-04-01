@@ -56,9 +56,9 @@ function Athuenticate() {
 
     args = "https://authserver.bluebeam.com/auth/oauth/authorize?response_type=";
     args += response_type;
-    args += "& client_id=";
+    args += "&client_id=";
     args += ClientID;
-    args += " & redirect_uri=";
+    args += " &redirect_uri=";
     args += redirect_uri;
     args += "&scope=";
     args += scope;
