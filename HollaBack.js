@@ -32,7 +32,7 @@ function AutoLoad() {
 
     log("Parse that shit.");
     for (var i = 0; i < pocket.length; i++) {
-        log(pocket[i]);
+        log(pocket[i].split('='));
     }
 
 
