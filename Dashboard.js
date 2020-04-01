@@ -34,7 +34,7 @@ var _ClientID = '0dc1f1ba-32a5-4a18-aee2-baafe1cc2ea1';
 
 //In an effort to clean up code, the API calls will be built on the fly.  Just concatinate the API key onto the end of the call.
 //Example:  API_GetAllSessions + API_KEY
-var API_KEY = 'api_key=' + _APIKEY;
+//var API_KEY = 'api_key=' + _APIKEY;
 
 //This will return all sessions.
 var API_GET_AllSessions = 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=false&';
