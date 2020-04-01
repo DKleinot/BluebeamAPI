@@ -7,6 +7,7 @@
 
 //This will make it easier to turn off debugging
 var bDebug = true;
+var access_token;
 
 function log(Val) {
     //Simple function to help log stuff to the console.
@@ -32,10 +33,11 @@ function AutoLoad() {
 
     log("Parse that shit.");
     for (var i = 0; i < pocket.length; i++) {
+        //Appears to go access_token, token_type, expires_in, state
         log(pocket[i].split('='));
     }
-
-
+    access_token = pocket(0).split('=')(1);
+    log(access_token);
     /*
     var parser = document.createElement('a'), searchObject = {}, queries, split, i;
 
