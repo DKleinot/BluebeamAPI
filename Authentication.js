@@ -32,6 +32,13 @@ const scope = "full_prime full_user jobs read_prime";
 
 //  Variables
 
+//This will make it easier to turn off debugging
+var bDebug = true;
+function log(Val) {
+    //Simple function to help log stuff to the console.
+    if (bDebug) { console.log(Val); }
+}
+
 var state = "";
 
 function GenerateState() {
@@ -47,10 +54,6 @@ function GenerateState() {
     state += "-" + Math.random().toString(Math.floor(Math.random() * (36 - 2 + 1) + 2)).slice(2);
 
     log(state);
-}
-
-function Authenticate2() {
-    var ClientOAuth2 = oau
 }
 
 function Athuenticate() {
