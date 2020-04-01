@@ -66,7 +66,7 @@ function Athuenticate() {
 
     var Request = new XMLHttpRequest();
 
-    log("returning a website?");
+    log("returning a website????????????????????");
 
     //return ("GET " + args);
 
