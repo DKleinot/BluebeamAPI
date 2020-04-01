@@ -28,6 +28,7 @@ function AutoLoad() {
         split = queries[i].split('=');
         searchObject[split[0]] = split[1];
     }
+
     log(parser.protocol);
     log(parser.host);
     log(parser.hostname);
@@ -35,6 +36,8 @@ function AutoLoad() {
     log(parser.pathname);
     log(parser.search);
     log(searchObject);
+
+    log("Hash");
     log(parser.hash);
 
 }
