@@ -66,19 +66,19 @@ function Athuenticate() {
 
     var Request = new XMLHttpRequest();
 
+    log(args);
     log("returning a website????????????????????");
 
-    log(args);
 
     //return ("GET " + args);
 
-    window.location.href = args;
+    //window.location.href = args;
     //window.location.replace("GET " + args);
     //window.open("GET " + args);
 
     //window.location.href ="GET" + args;
 
-    log("Link done..1.");
+    log("Link done..0.");
 
     //Request.open('GET', API_GET_Session + '843-381-486' + '?' + API_KEY , true)
     /*
