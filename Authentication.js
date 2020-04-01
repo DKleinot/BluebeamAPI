@@ -66,10 +66,14 @@ function Athuenticate() {
 
     var Request = new XMLHttpRequest();
 
-    log("args=" + args);
+    log("returning a website?");
+
+    return ("GET" + args);
+
+
 
     //Request.open('GET', API_GET_Session + '843-381-486' + '?' + API_KEY , true)
-    
+    /*
     Request.open('GET', args, true);
     
     Request.onload = function () {
@@ -87,7 +91,7 @@ function Athuenticate() {
     }
 
     Request.send();
-
+    */
 
 
 }
