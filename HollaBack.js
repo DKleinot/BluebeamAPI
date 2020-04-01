@@ -20,9 +20,9 @@ function AutoLoad() {
 
     log(MyURL);
 
-    log("URL..");
+    log("Hash Brown:");
 
-    log(MyURL.toJSON);
+    log(MyURL.hash);
 
     /*
     var parser = document.createElement('a'), searchObject = {}, queries, split, i;
