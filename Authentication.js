@@ -77,7 +77,7 @@ function Athuenticate() {
 
     //return ("GET " + args);
 
-    window.location.href = args;
+    //window.location.href = args;
 
     //window.location.href ="GET" + args;
 
