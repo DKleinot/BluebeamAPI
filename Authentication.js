@@ -70,14 +70,14 @@ function Athuenticate() {
 
     //Request.open('GET', API_GET_Session + '843-381-486' + '?' + API_KEY , true)
     
-    Request.open(args, true);
+    Request.open('GET', args, true);
     Request.send();
-    /*
+    
     Request.onload = function () {
         // Begin accessing JSON data here
-        var data = JSON.parse(this.response);
+        //var data = JSON.parse(this.response);
 
-        log(data);
+        log(this.response);
 
 
         if (Request.status = 200) {
@@ -88,7 +88,7 @@ function Athuenticate() {
     }
 
     Request.send();
-    */
+ 
 
 
 
