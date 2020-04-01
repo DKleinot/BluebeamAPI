@@ -36,7 +36,7 @@ function AutoLoad() {
         //Appears to go access_token, token_type, expires_in, state
         log(pocket[i].split('='));
     }
-    access_token = pocket(0).split('=')(1);
+    access_token = pocket[0].split('=')[1];
     log(access_token);
     /*
     var parser = document.createElement('a'), searchObject = {}, queries, split, i;
