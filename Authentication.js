@@ -66,7 +66,12 @@ function Athuenticate() {
     args += redirect_uri;
     args += "&scope=";
     args += scope;
-    args += GenerateState();
+
+    GenerateState();
+
+    args += "&state";
+    args += state;
+
 
 
     var Request = new XMLHttpRequest();
