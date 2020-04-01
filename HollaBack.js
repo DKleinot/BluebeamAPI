@@ -4,7 +4,6 @@
 // Date:		04/01/2020
 // Purpose:		This will handle the call back from authentication.
 
-
 //This will make it easier to turn off debugging
 var bDebug = true;
 var access_token;
@@ -36,8 +35,14 @@ function AutoLoad() {
         //Appears to go access_token, token_type, expires_in, state
         log(pocket[i].split('='));
     }
+
     access_token = pocket[0].split('=')[1];
     log(access_token);
+
+    sessionStorage.setItem("Access_Token", access_token);
+
+    window.location.href = "https://thirsty-kepler-b52ade.netlify.com/Dashboard.html";
+
     /*
     var parser = document.createElement('a'), searchObject = {}, queries, split, i;
 
