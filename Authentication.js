@@ -49,12 +49,16 @@ function GenerateState() {
     log(state);
 }
 
+function Authenticate2() {
+    var ClientOAuth2 = oau
+}
+
 function Athuenticate() {
     log("This will Authenticate the user?");
 
     var args = "";
 
-    args = "GET https://authserver.bluebeam.com/auth/oauth/authorize?response_type=";
+    args = "https://authserver.bluebeam.com/auth/oauth/authorize?response_type=";
     args += response_type;
     args += "&client_id=";
     args += ClientID;
