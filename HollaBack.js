@@ -14,8 +14,17 @@ function log(Val) {
 }
 
 function AutoLoad() {
-    log("Hey hey hey?");
+    log("Load");
 
+    var MyURL = new URL(window.location.href);
+
+    log(MyURL);
+
+    log("URL..");
+
+    log(MyURL.toJSON);
+
+    /*
     var parser = document.createElement('a'), searchObject = {}, queries, split, i;
 
     // Let the browser do the work
@@ -39,5 +48,5 @@ function AutoLoad() {
 
     log("Hash");
     log(parser.hash);
-
+    */
 }
