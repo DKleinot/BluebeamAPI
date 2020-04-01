@@ -54,7 +54,7 @@ function Athuenticate() {
 
     var args = "";
 
-    args = "https://authserver.bluebeam.com/auth/oauth/authorize?response_type=";
+    args = "GET https://authserver.bluebeam.com/auth/oauth/authorize?response_type=";
     args += response_type;
     args += "&client_id=";
     args += ClientID;
@@ -71,7 +71,7 @@ function Athuenticate() {
     //return ("GET " + args);
 
     //window.location.href = "GET " + args;
-    window.location.replace("GET " + args);
+    //window.location.replace("GET " + args);
     //window.open("GET " + args);
 
     //window.location.href ="GET" + args;
