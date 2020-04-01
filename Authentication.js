@@ -89,7 +89,7 @@ function Athuenticate() {
     log("Link done...");
 
     //Request.open('GET', API_GET_Session + '843-381-486' + '?' + API_KEY , true)
-    /*
+    
     Request.open('GET', args, true);
     
     Request.onload = function () {
@@ -107,7 +107,7 @@ function Athuenticate() {
     }
 
     Request.send();
-    */
+    
 
 
 }
