@@ -69,7 +69,7 @@ function Athuenticate() {
 
     GenerateState();
 
-    args += "&state";
+    args += "&state=";
     args += state;
 
 
