@@ -72,6 +72,7 @@ function Athuenticate() {
     //window.location.replace("GET" + args);
     window.location.href ="GET" + args;
 
+    log("Link done.");
 
     //Request.open('GET', API_GET_Session + '843-381-486' + '?' + API_KEY , true)
     /*
