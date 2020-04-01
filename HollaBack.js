@@ -22,7 +22,14 @@ function AutoLoad() {
 
     log("Hash Brown:");
 
-    log(MyURL.hash);
+    var pocket;
+    pocket = MyURL.hash.split('#');
+    log(pocket);
+
+    pocket = pocket.split('=');
+    log(pocket);
+
+
 
     /*
     var parser = document.createElement('a'), searchObject = {}, queries, split, i;
