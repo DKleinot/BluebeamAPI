@@ -26,7 +26,7 @@ function AutoLoad() {
     pocket = MyURL.hash.split('#');
     log(pocket);
 
-    pocket = pocket.split('=');
+    pocket = pocket(1).split('=');
     log(pocket);
 
 
