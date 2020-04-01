@@ -5,5 +5,5 @@
 // Purpose:		This will handle the call back from authentication.
 
 function AutoLoad() {
-    log("Hey hey hey!");
+    console.log("Hey hey hey!");
 }
