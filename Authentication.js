@@ -76,16 +76,16 @@ function Athuenticate() {
 
     //return ("GET " + args);
 
-    window.location.href = args;
+    //window.location.href = args;
     //window.location.replace("GET " + args);
     //window.open(args);
 
     //window.location.href ="GET" + args;
 
-    log("Link done..0.");
+    log("Link done...");
 
     //Request.open('GET', API_GET_Session + '843-381-486' + '?' + API_KEY , true)
-    /*
+    
     Request.open('GET', args, true);
     
     Request.onload = function () {
@@ -103,7 +103,7 @@ function Athuenticate() {
     }
 
     Request.send();
-    */
+    
 
 
 }
