@@ -58,7 +58,7 @@ function Athuenticate() {
     args += response_type;
     args += "&client_id=";
     args += ClientID;
-    args += " &redirect_uri=";
+    args += "&redirect_uri=";
     args += redirect_uri;
     args += "&scope=";
     args += scope;
@@ -72,13 +72,13 @@ function Athuenticate() {
 
     //return ("GET " + args);
 
-    //window.location.href = "GET " + args;
+    window.location.href = args;
     //window.location.replace("GET " + args);
     //window.open("GET " + args);
 
     //window.location.href ="GET" + args;
 
-    log("Link done..2.");
+    log("Link done..1.");
 
     //Request.open('GET', API_GET_Session + '843-381-486' + '?' + API_KEY , true)
     /*
