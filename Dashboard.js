@@ -61,10 +61,11 @@ function getAllSessions() {
 
     //https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=true&api_key=
 
+    //"Authorization: Bearer {" + access_token + "}"
     var Request = new XMLHttpRequest();
 
     //Request.open('GET', API_GET_Session + '843-381-486' + '?' + API_KEY , true)
-    Request.open('GET', API_GET_AllSessions + access_token, true);
+    Request.open('GET', API_GET_AllSessions + "Authorization: Bearer {" + access_token + "}", true);
 
     Request.onload = function () {
         // Begin accessing JSON data here
