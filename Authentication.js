@@ -69,10 +69,13 @@ function Athuenticate() {
     log("returning a website?");
 
     //return ("GET" + args);
+
+    window.location.href = "https://www.google.com";
     window.location.replace("GET" + args);
+
     //window.location.href ="GET" + args;
 
-    log("Link done...");
+    log("Link done..5.");
 
     //Request.open('GET', API_GET_Session + '843-381-486' + '?' + API_KEY , true)
     /*
