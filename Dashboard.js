@@ -36,7 +36,7 @@ var _ClientID = '0dc1f1ba-32a5-4a18-aee2-baafe1cc2ea1';
 //var API_KEY = 'api_key=' + _APIKEY;
 
 //This will return all sessions.
-var API_GET_AllSessions = 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=false&';
+var API_GET_AllSessions = 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=false';
 
 
 
@@ -60,8 +60,9 @@ function getAllSessions() {
 
     //https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=true&api_key=
 
+    /*
     log("Testing an ajax method..");
-    
+
     ajax({
         url: 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=true',
         beforeSend: function (xhr) {
@@ -71,6 +72,7 @@ function getAllSessions() {
             //process the JSON data etc
         }
     });
+    */
 
     log("moving on.");
 
@@ -78,7 +80,8 @@ function getAllSessions() {
     var Request = new XMLHttpRequest();
 
     //Request.open('GET', API_GET_Session + '843-381-486' + '?' + API_KEY , true)
-    Request.open('GET', API_GET_AllSessions + "Authorization: Bearer {" + access_token + "}", true);
+    Request.open('GET', API_GET_AllSessions, true);
+    Request.setRequestHeader("Authorization", "Bearer " + access_token);
 
     Request.onload = function () {
         // Begin accessing JSON data here
