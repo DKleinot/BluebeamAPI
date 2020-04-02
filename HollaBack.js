@@ -37,6 +37,7 @@ function AutoLoad() {
         log("True");
     } else {
         log("False");
+        log(state + " <> " + sessionStorage.getItem("state", state));
     }
 
     log("Hash Brown2:");
