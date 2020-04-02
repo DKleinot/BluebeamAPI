@@ -67,7 +67,7 @@ function getAllSessions() {
         beforeSend: function (xhr) {
             xhr.setRequestHeader("Authorization", "Bearer " + access_token);
         }, success: function (data) {
-            log(data);
+            log(":::" + data);
             //process the JSON data etc
         }
     });
