@@ -18,7 +18,7 @@ function log(Val) {
 var access_token = "";
 
 function AutoLoad() {
-    log("Ok, lets load that access token.");
+    log("Ok, lets load that access token..");
     access_token = sessionStorage.getItem('Access_Token');
     log(access_token);
 
