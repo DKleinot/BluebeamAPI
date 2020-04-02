@@ -25,9 +25,13 @@ function AutoLoad() {
 
     log(MyURL);
 
-    log(
-        MyURL.search.split("?")[1].split("&")
-    );
+    pocket = MyURL.search.split("?")[1].split("&");
+
+    code = pocket[0].split("=")[1];
+    state = pocket[1].split("=")[1];
+
+    log(code);
+    log(state);
 
     log("Hash Brown2:");
 
