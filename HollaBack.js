@@ -21,7 +21,7 @@ function AutoLoad() {
     var MyURL = new URL(window.location.href);
 
     state = sessionStorage.getItem("state", state);
-
+    /*
 
     log(MyURL);
 
@@ -36,9 +36,27 @@ function AutoLoad() {
     if (state == sessionStorage.getItem("state", state)) {
         log("True");
     } else {
-        log(state);
+        //Need to do something about this.  Why would they not be the same?
         log(state + " <> " + sessionStorage.getItem("state", state));
     }
+
+    //Ok, now we need to exchange the Code for an Access Token...
+
+    args = "";
+    args = "https://authserver.bluebeam.com/auth/token"
+
+    
+
+    $.ajax({
+        url: 'https://authserver.bluebeam.com/auth/token',
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer 6QXNMEMFHNY4FJ5ELNFMP5KRW52WFXN5")
+        }, success: function (data) {
+            alert(data);
+            //process the JSON data etc
+        }
+    })
+    */
 
     log("Hash Brown2:");
 
