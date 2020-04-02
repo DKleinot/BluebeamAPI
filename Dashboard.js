@@ -65,12 +65,12 @@ function getAllSessions() {
     $.ajax({
         url: 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=true',
         beforeSend: function (xhr) {
-            xhr.setRequestHeader("Authorization", "Bearer 6QXNMEMFHNY4FJ5ELNFMP5KRW52WFXN5")
+            xhr.setRequestHeader("Authorization", "Bearer " + access_token);
         }, success: function (data) {
             log(data);
             //process the JSON data etc
         }
-    })
+    });
 
     log("moving on.");
 
