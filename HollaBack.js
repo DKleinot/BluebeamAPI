@@ -8,6 +8,7 @@
 var bDebug = true;
 var access_token;
 var code;
+var state;
 
 function log(Val) {
     //Simple function to help log stuff to the console.
@@ -19,7 +20,12 @@ function AutoLoad() {
 
     var MyURL = new URL(window.location.href);
 
+    state = sessionStorage.getitem("state", state);
+
+
     log(MyURL);
+
+    log(MyURL.search.split("?"));
 
     log("Hash Brown2:");
 

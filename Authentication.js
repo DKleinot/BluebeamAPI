@@ -54,7 +54,9 @@ function GenerateState() {
     state += "-" + Math.random().toString(Math.floor(Math.random() * (36 - 2 + 1) + 2)).slice(2);
     state += "-" + Math.random().toString(Math.floor(Math.random() * (36 - 2 + 1) + 2)).slice(2);
 
-    log(state);
+
+    sessionStorage.setItem("state", state);
+    //log(state);
 }
 
 function Athuenticate() {
