@@ -25,7 +25,9 @@ function AutoLoad() {
 
     log(MyURL);
 
-    log(MyURL.search.split("?"));
+    log(
+        MyURL.search.split("?")[1].split("&")
+    );
 
     log("Hash Brown2:");
 
