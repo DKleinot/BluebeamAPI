@@ -7,6 +7,7 @@
 //This will make it easier to turn off debugging
 var bDebug = true;
 var access_token;
+var code;
 
 function log(Val) {
     //Simple function to help log stuff to the console.
