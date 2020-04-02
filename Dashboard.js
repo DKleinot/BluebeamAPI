@@ -60,9 +60,9 @@ function getAllSessions() {
 
     //https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=true&api_key=
 
-    log("Testing an ajax method.");
-
-    $.ajax({
+    log("Testing an ajax method..");
+    
+    ajax({
         url: 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=true',
         beforeSend: function (xhr) {
             xhr.setRequestHeader("Authorization", "Bearer " + access_token);
