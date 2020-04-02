@@ -20,7 +20,7 @@ function AutoLoad() {
 
     var MyURL = new URL(window.location.href);
 
-    state = sessionStorage.getitem("state", state);
+    state = sessionStorage.getItem("state", state);
 
 
     log(MyURL);
