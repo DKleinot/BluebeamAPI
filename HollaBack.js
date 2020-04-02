@@ -33,6 +33,12 @@ function AutoLoad() {
     log(code);
     log(state);
 
+    if (state = sessionStorage.getItem("state", state)) {
+        log("True");
+    } else {
+        log("False");
+    }
+
     log("Hash Brown2:");
 
     var pocket;
