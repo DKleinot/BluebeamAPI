@@ -36,7 +36,7 @@ function AutoLoad() {
     if (state = sessionStorage.getItem("state", state)) {
         log("True");
     } else {
-        log("False");
+        log(state);
         log(state + " <> " + sessionStorage.getItem("state", state));
     }
 
