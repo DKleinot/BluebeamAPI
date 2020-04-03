@@ -34,8 +34,9 @@ function DashboardStructure() {
         log("Getting sessions");
         this.GetSessions();
 
-        log("Loading each Session");
-        this.loadSessions();
+        //Looks like this is running async..  will call this when the status comes back inside the previous one...
+        //log("Loading each Session");
+        //this.loadSessions();
     }
 
     this.loadSessions = function(){
@@ -68,10 +69,9 @@ function DashboardStructure() {
             log("RequestStatus" + Request.status);
 
             if (Request.status = 200) {
-                //data.$id
-                //data.forEach(sesh => {
-                //    console.log(sesh.Id)
-                //})
+
+                log("Loading each Session");
+                this.loadSessions();
 
             } else {
                 log('error');
