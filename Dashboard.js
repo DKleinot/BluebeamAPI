@@ -37,9 +37,11 @@ function DashboardStructure() {
         log("Loading each Session");
         loadSessions();
     }
+
     function loadSessions(){
 
     }
+
     function GetSessions() {
         var Request = new XMLHttpRequest();
         var i = 0;
@@ -81,7 +83,7 @@ function DashboardStructure() {
 var access_token = "";
 
 //Constants
-const dsDashboard = DashboardStructure();
+const dsDashboard = new DashboardStructure();
 
 
 
@@ -107,6 +109,7 @@ function AutoLoad() {
     log(access_token);
 
     log("Initialize!");
+    dsDashboard.initialize
     dsDashboard.initialize();
 
 
