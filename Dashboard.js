@@ -5,9 +5,6 @@
 // Purpose:		To aid users in managing Bluebeam Studio sessions.
 
 
-//This is the Key that is provided before the Explore button.  Copy and paste here.
-//var _APIKEY = 'TaXR6Zg9LpUGw9uQ9ScFi4fOuavge5UP7OXFCMGP5nQk5gTN7YhSer2hD51shEierHs8xp4mdqR43oPkzro85i9ah_9X-3jNm7LGAk06alytMWr9JYTfzhZR5RrfZa7W44j6RYgiDu1Ti9RToL680R2bViaxW2YczpTjT1V9g5VRIcwL0yenfLvgt3JVfoMaGVIF-3n3rlqIJaTR9YCq8ucEPPGobS5v_erVst7fxoEjckab1CMisjqsQp6XrdQTZE-1FaxTW9b_N73MlnEedJlr83CHgniQ-UJQY52q03-p91jkCpauoN2Ri6HHqXgbpu-GVA0R8FpZbJn3m6upT0egugAuGj8cOG9vroTWSQQ_FxmLJrM-lqGR4iNxlc0rGFxD2Q0P5mYQdllIXU6L8amNGkQMDWFg87MrcH6-4PMP7G89n85h6PQeqffZm1mC1EzO8WxN5faYX1xfmenaOsZPv7qMC0Fxs6-P09woZhopJZCvZ8KysNg1yZKpUOnfddTXadSLx9obQs-P4IobrZ2VbcXdxc9EhugxHF-eJTfa3yGCy-65iMh-PTN0xds4mm-5-dsF92E_REP9f2sxjY6t8kDDz40FWSPGwUf-qD140NfE9-xdMbF-RiDBuj1DCX81z27ADZffglR30K0SUYJ_FW8h1hzDLEXwzm90FczAVjmY6kdcbhUvB0i0IyMcV2foLQ'
-
 //This will make it easier to turn off debugging
 var bDebug = true;
 function log(Val) {
@@ -15,21 +12,58 @@ function log(Val) {
     if (bDebug) { console.log(Val); }
 }
 
+
+//Datastructure
+function DashboardStructure() {
+    /*This will house the data structure
+     *  and calls for filling it out?
+
+    */
+    
+    //This will hold all the sessions
+    var Sessions = [];
+    function getSessionCount() { return Sessions.length; }
+
+    function Users() {
+
+    }
+}
+
+//Variables
 var access_token = "";
+
+//Constants
+const dsDashboard = DashboardStructure();
+
+
+
+
+function LoadDashboardData() {
+    /*Ok, here's the workflow
+     *  Get all session data, and grab the IDs
+     *  Iterate on all the IDs and grab the users inside it.
+     *  Fill out the data structure.
+
+
+    */
+}
+
+
+
+
+
 
 function AutoLoad() {
     log("Ok, lets load that access token..");
     access_token = sessionStorage.getItem('Access_Token');
     log(access_token);
 
+    
+
+
 }
 
-var _SessionTest1 = '843-381-486';
-var _SessionTest2 = '914-950-052';
 
-//Not sure how this works yet.
-var _Secret = '46da9150-1a07-49d0-a33a-1a2728cc6c45';
-var _ClientID = '0dc1f1ba-32a5-4a18-aee2-baafe1cc2ea1';
 
 //In an effort to clean up code, the API calls will be built on the fly.  Just concatinate the API key onto the end of the call.
 //Example:  API_GetAllSessions + API_KEY
@@ -55,9 +89,8 @@ function API_GET_Session_Users(ID) {
 }
 
 
-
 function getAllSessions() {
-
+    
 
     log("moving on.");
 
