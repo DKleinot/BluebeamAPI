@@ -44,7 +44,7 @@ function DashboardStructure() {
         if (this.getSessionCount() <= 0) {
             log('error');
         } else {
-            log("Have more then 0, lets continue!")
+            log("Have " + this.getSessionCount() + " sessions, lets continue!")
         }
             
     }
