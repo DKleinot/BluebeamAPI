@@ -41,7 +41,12 @@ function DashboardStructure() {
 
     this.loadSessions = function(){
         log("In loadSessions, lets look and see what we have");
-        log(this.getSessionCount());
+        if (this.getSessionCount() <= 0) {
+            log('error');
+        } else {
+            log("Have more then 0, lets continue!")
+        }
+            
     }
 
     this.GetSessions = function() {
@@ -72,7 +77,7 @@ function DashboardStructure() {
 
             if (Request.status = 200) {
 
-                log("Loading each Session...12.");
+                log("Loading each Session.");
                 
                 parent.loadSessions();
 
