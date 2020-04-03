@@ -13,13 +13,14 @@ function log(Val) {
 }
 
 
+
 //Datastructure
 function DashboardStructure() {
     /*This will house the data structure
      *  and calls for filling it out?
 
     */
-    
+
     //This will hold all the sessions
     var Sessions = [];
     function getSessionCount() { return Sessions.length; }
@@ -27,6 +28,53 @@ function DashboardStructure() {
     function Users() {
 
     }
+
+    function initialize() {
+
+        log("Getting sessions");
+        GetSessions();
+
+        log("Loading each Session");
+        loadSessions();
+    }
+    function loadSessions(){
+
+    }
+    function GetSessions() {
+        var Request = new XMLHttpRequest();
+        var i = 0;
+
+        Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=false', true);
+        Request.setRequestHeader("Authorization", "Bearer " + access_token);
+
+        Request.onload = function () {
+            // Begin accessing JSON data here
+            var data = JSON.parse(this.response);
+
+            log(data);
+
+            //To get individual sessions from the all sessions command:
+            data.Sessions.forEach(Session => {
+                Sessions[i] = Session.Id;
+                i++;
+            });
+
+            log(Sessions);
+
+            if (Request.status = 200) {
+                //data.$id
+                //data.forEach(sesh => {
+                //    console.log(sesh.Id)
+                //})
+
+            } else {
+                console.log('error');
+            }
+        }
+
+        Request.send();
+    }
+
 }
 
 //Variables
@@ -58,7 +106,9 @@ function AutoLoad() {
     access_token = sessionStorage.getItem('Access_Token');
     log(access_token);
 
-    
+    log("Initialize!");
+    dsDashboard.initialize();
+
 
 
 }
