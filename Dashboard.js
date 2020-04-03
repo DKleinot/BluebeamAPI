@@ -99,7 +99,6 @@ function DashboardStructure() {
         Request.send();
 
     }
-    }
 
     this.GetSessions = function() {
         var Request = new XMLHttpRequest();
