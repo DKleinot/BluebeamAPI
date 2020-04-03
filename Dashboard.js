@@ -57,7 +57,7 @@ function DashboardStructure() {
 
             //To get individual sessions from the all sessions command:
             data.Sessions.forEach(Session => {
-                Sessions[i+1] = Session.Id;
+                Sessions[i] = Session.Id;
                 i++;
             });
 
