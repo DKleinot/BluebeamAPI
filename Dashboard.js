@@ -46,9 +46,10 @@ function DashboardStructure() {
     this.GetSessions = function() {
         var Request = new XMLHttpRequest();
         var i = 0;
-
+        
         Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=false', true);
         Request.setRequestHeader("Authorization", "Bearer " + access_token);
+        
 
         Request.onload = function () {
             // Begin accessing JSON data here
@@ -64,6 +65,8 @@ function DashboardStructure() {
 
             log(Sessions);
 
+            log("RequestStatus" + Request.status);
+
             if (Request.status = 200) {
                 //data.$id
                 //data.forEach(sesh => {
@@ -76,6 +79,7 @@ function DashboardStructure() {
         }
 
         Request.send();
+        
     }
 
 }
