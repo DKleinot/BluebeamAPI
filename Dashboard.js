@@ -109,7 +109,6 @@ function AutoLoad() {
     log(access_token);
 
     log("Initialize!");
-    dsDashboard.initialize
     dsDashboard.initialize();
 
 
