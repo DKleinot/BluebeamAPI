@@ -40,7 +40,7 @@ function DashboardStructure() {
 
     this.loadSessions = function(){
         log("In loadSessions, lets look and see what we have");
-        log(this.getSessionCount);
+        log(this.getSessionCount());
     }
 
     this.GetSessions = function() {
