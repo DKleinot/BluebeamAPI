@@ -23,13 +23,13 @@ function DashboardStructure() {
 
     //This will hold all the sessions
     var Sessions = [];
-    function getSessionCount() { return Sessions.length; }
+    this.getSessionCount = function() { return Sessions.length; }
 
-    function Users() {
+    this.Users = function() {
 
     }
 
-    function initialize() {
+    this.initialize = function() {
 
         log("Getting sessions");
         GetSessions();
@@ -38,11 +38,11 @@ function DashboardStructure() {
         loadSessions();
     }
 
-    function loadSessions(){
+    this.loadSessions = function(){
 
     }
 
-    function GetSessions() {
+    this.GetSessions = function() {
         var Request = new XMLHttpRequest();
         var i = 0;
 
