@@ -48,7 +48,7 @@ function DashboardStructure() {
         var Request = new XMLHttpRequest();
         var i = 0;
 
-        //parents = this;
+        parent = this;
 
         Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=false', true);
         Request.setRequestHeader("Authorization", "Bearer " + access_token);
