@@ -48,8 +48,6 @@ function DashboardStructure() {
         var Request = new XMLHttpRequest();
         var i = 0;
 
-        var temp = this.loadSessions();
-
         Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=false', true);
         Request.setRequestHeader("Authorization", "Bearer " + access_token);
         
@@ -74,7 +72,7 @@ function DashboardStructure() {
 
                 log("Loading each Session..");
                 
-                temp();
+                loadSessions();
 
             } else {
                 log('error');
