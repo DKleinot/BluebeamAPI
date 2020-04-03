@@ -32,10 +32,10 @@ function DashboardStructure() {
     this.initialize = function() {
 
         log("Getting sessions");
-        GetSessions();
+        this.GetSessions();
 
         log("Loading each Session");
-        loadSessions();
+        this.loadSessions();
     }
 
     this.loadSessions = function(){
@@ -57,11 +57,11 @@ function DashboardStructure() {
 
             //To get individual sessions from the all sessions command:
             data.Sessions.forEach(Session => {
-                Sessions[i] = Session.Id;
+                this.Sessions[i] = Session.Id;
                 i++;
             });
 
-            log(Sessions);
+            log(this.Sessions);
 
             if (Request.status = 200) {
                 //data.$id
@@ -70,7 +70,7 @@ function DashboardStructure() {
                 //})
 
             } else {
-                console.log('error');
+                log('error');
             }
         }
 
