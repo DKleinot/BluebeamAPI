@@ -72,7 +72,7 @@ function DashboardStructure() {
 
             if (Request.status = 200) {
 
-                log("Loading each Session");
+                log("Loading each Session..");
                 
                 temp();
 
