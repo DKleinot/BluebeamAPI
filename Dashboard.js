@@ -58,28 +58,11 @@ function API_GET_Session_Users(ID) {
 
 function getAllSessions() {
 
-    //https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=true&api_key=
-
-    /*
-    log("Testing an ajax method..");
-
-    ajax({
-        url: 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=true',
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader("Authorization", "Bearer " + access_token);
-        }, success: function (data) {
-            log(":::" + data);
-            //process the JSON data etc
-        }
-    });
-    */
 
     log("moving on.");
 
-    //"Authorization: Bearer {" + access_token + "}"
     var Request = new XMLHttpRequest();
 
-    //Request.open('GET', API_GET_Session + '843-381-486' + '?' + API_KEY , true)
     Request.open('GET', API_GET_AllSessions, true);
     Request.setRequestHeader("Authorization", "Bearer " + access_token);
 
@@ -90,22 +73,15 @@ function getAllSessions() {
         log(data);
 
         //To get individual sessions from the all sessions command:
-        //data.Sessions.forEach(Session =>
-        //    console.log(Session.Id)
-        //)
-
-
-
-        //console.log(data.Sessions[2].Name)
-
-        //The following allows me to 
-        //console.log(data.Sessions[2].Name)
+        data.Sessions.forEach(Session =>
+            console.log(Session.Id)
+        )
 
         if (Request.status = 200) {
-            //data.$id
-            //data.forEach(sesh => {
-            //    console.log(sesh.Id)
-            //})
+            data.$id
+            data.forEach(sesh => {
+                console.log(sesh.Id)
+            })
         
         } else {
             console.log('error');
