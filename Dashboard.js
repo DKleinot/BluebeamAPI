@@ -39,14 +39,66 @@ function DashboardStructure() {
         //this.loadSessions();
     }
 
-    this.loadSessions = function(){
+    this.loadAllSessions = function(){
         log("In loadSessions, lets look and see what we have");
         if (this.getSessionCount() <= 0) {
             log('error');
         } else {
             log("Have " + this.getSessionCount() + " sessions, lets continue!")
         }
+        for (i = 0; i < this.getSessionCount(); i++) {
+            //Couldn't I just do this in the GetSessions function?
+            this.loadSession(Sessions[i]);
+        }
             
+    }
+
+    this.loadSession = function (ID) {
+
+        //https://studioapi.bluebeam.com:443/publicapi/v1/sessions/' + ID
+        log("Loading session " + ID);
+
+        var Request = new XMLHttpRequest();
+        var i = 0;
+
+        parent = this;
+
+        Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions/' + ID + '/users', true);
+        Request.setRequestHeader("Authorization", "Bearer " + access_token);
+
+
+        Request.onload = function () {
+            // Begin accessing JSON data here
+            var data = JSON.parse(this.response);
+
+            log("Session date for " + ID);
+            log(data);
+            /*
+            //To get individual sessions from the all sessions command:
+            data.Sessions.forEach(Session => {
+                Sessions[i] = Session.Id;
+                i++;
+            });
+
+            log(Sessions);
+
+            log("RequestStatus" + Request.status);
+
+            if (Request.status = 200) {
+
+                log("Loading each Session.");
+
+                parent.loadAllSessions();
+
+            } else {
+                log('error');
+            }
+            */
+        }
+
+        Request.send();
+
+    }
     }
 
     this.GetSessions = function() {
@@ -79,7 +131,7 @@ function DashboardStructure() {
 
                 log("Loading each Session.");
                 
-                parent.loadSessions();
+                parent.loadAllSessions();
 
             } else {
                 log('error');
