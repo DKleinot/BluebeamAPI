@@ -30,6 +30,11 @@ function Main() {
 
     AddSession("123-456-789", "T123456789", "Yesterday", "Tomorrow", "URL", "Active");
     AddUsertoSession(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
+    AddUsertoSession(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
+    AddUsertoSession(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
+    AddUsertoSession(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
+    AddUsertoSession(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
+    AddUsertoSession(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
 
     log(Sessions[0]);
 }
@@ -48,7 +53,7 @@ function AddSession(id, name, createddate, expirationdate, url, status) {
 }
 
 function AddUsertoSession(s, id, name, email, status) {
-    Sessions[s].Users[iUsers] = {
+    Sessions[s].Users[iUsers++] = {
         ID: id,
         Name: name,
         Email: email,
