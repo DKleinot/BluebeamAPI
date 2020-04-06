@@ -41,7 +41,7 @@ function Main() {
     log(SessionExists("123-456-779"));
     AddUsertoSessionByID("123-456-779", "qwertyuio", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished")
 
-    log(Sessions[0]);
+    log(Sessions);
 }
 
 
