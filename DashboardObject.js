@@ -33,7 +33,7 @@ function Main() {
     Sessions[0].ID = "123-456-789";
     Sessions[0].Name = "T123456789";
 
-    Sessions[0].Users[0] = new SessionStruct.UsersStruct();
+    //Sessions[0].Users[0] = new SessionStruct.UsersStruct();
     Sessions[0].Users[0].ID = "123456789";
     Sessions[0].Users[0].Email = "D@d.com";
 
