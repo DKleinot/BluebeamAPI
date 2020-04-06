@@ -37,6 +37,8 @@ function Main() {
     AddUsertoSessionByIndex(0, "123456789d", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
     AddUsertoSessionByIndex(0, "123456789e", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
 
+    AddUsertoSessionByID("123-456-789", "qwertyuio", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished")
+
     log(Sessions[0]);
 }
 
