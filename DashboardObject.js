@@ -24,7 +24,7 @@ const Sessions = [];
 
 function Main() {
 
-    log("Loading main function.123");
+    log("Loading main function.12");
 
     //var Sessions = new SessionStruct();
 
@@ -35,9 +35,9 @@ function Main() {
 
     //Sessions[0].Users[0] = new SessionStruct().UsersStruct();
 
-    Sessions[0].addUser();
-    Sessions[0].Users[0].ID = "123456789";
-    Sessions[0].Users[0].Email = "D@d.com";
+    //Sessions[0].addUser();
+    //Sessions[0].Users[0].ID = "123456789";
+    //Sessions[0].Users[0].Email = "D@d.com";
 
     log(Sessions[0]);
 }
