@@ -21,7 +21,7 @@ function log(Val) {
 }
 
 function Main() {
-    log("Loading main function....");
+    log("Loading main function");
     var Sessions = new SessionStruct();
     Sessions[0].ID = "123-456-789";
     Sessions[0].Name = "T123456789";
@@ -29,7 +29,7 @@ function Main() {
     log(Sessions[0]);
 }
 
-var SessionStruct = function () {
+SessionStruct = function () {
     var ID
     var Name
 }
