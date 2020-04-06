@@ -43,13 +43,12 @@ function Main() {
 function SessionStruct() {
     var ID, Name, CreatedDate, ExpirationDate, URL, Status;
 
-    const Users = {
-        ID:"",
-        Name:"",
-        Email:"",
-        MyStatus:""
+    var Users = [];
+    var iUsers = 0;
 
-    };
+    this.addUser = function () {
+        this.Users[this.iUsers] = new UsersStruct();
+    }
 
     this.UsersStruct = function () {
         var ID, Name, Email, MyStatus;
