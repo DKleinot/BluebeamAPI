@@ -24,7 +24,7 @@ const Sessions = [];
 
 function Main() {
 
-    log("Loading main function...");
+    log("Loading main function");
 
     //var Sessions = new SessionStruct();
 
@@ -33,13 +33,17 @@ function Main() {
     Sessions[0].ID = "123-456-789";
     Sessions[0].Name = "T123456789";
 
+    Sessions[0].Users[0] = new SessionStruct.UsersStruct();
+    Sessions[0].Users[0].ID = "123456789";
+    Sessions[0].Users[0].Email = "D@d.com";
+
     log(Sessions[0]);
 }
 
 function SessionStruct() {
     var ID, Name, CreatedDate, ExpirationDate, URL, Status;
 
-    //const Users = new UsersStruct();
+    const Users = [];
 
     this.UsersStruct = function () {
         var ID, Name, Email, MyStatus;
