@@ -34,6 +34,8 @@ function Main() {
     Sessions[0].Name = "T123456789";
 
     //Sessions[0].Users[0] = new SessionStruct().UsersStruct();
+
+    Session[0].addUser();
     Sessions[0].Users[0].ID = "123456789";
     Sessions[0].Users[0].Email = "D@d.com";
 
