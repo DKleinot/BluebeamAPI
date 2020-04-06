@@ -29,6 +29,7 @@ function Main() {
     log("Loading main function");
 
     AddSession("123-456-789", "T123456789", "Yesterday", "Tomorrow", "URL", "Active");
+    AddSession("123-456-779", "T123456789", "Yesterday", "Tomorrow", "URL", "Active");
 
     AddUsertoSessionByIndex(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
     AddUsertoSessionByIndex(0, "123456789a", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
