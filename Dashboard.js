@@ -17,18 +17,58 @@ function log(Val) {
 //Datastructure
 function DashboardStructure() {
     /*This will house the data structure
-     *  and calls for filling it out?
+     * 
+     *  Sessions[]
+     *      ID
+     *      Name
+     *      Created date
+     *      Expiration date
+     *      URL
+     *      Status (ie active, or closed)
+     *      Users[]
+     *          ID
+     *          Name
+     *          email
+     *          MyStatus
+     *  
+     *  Examples:
+     *      Sessions[i].ID = "123-456-789"
+     *      Sessions[i].Users[i].ID = "123456789"
+     *      Sessions[i].Users[i].Name = "David.Kleinot"
+     *      Sessions[i].Users[i].MyStatus = "Finished"
+     *  
+     * 
+     *  Users[]
+     *      ID
+     *      Name
+     *      Email
+     *      Sessions[]
+     *          ID
+     *          MyStatus
+     *          
+     *  Examples:
+     *      Users[i].ID = "123456789"
+     *      Users[i].Name = "David.Kleinot"
+     *      Users[i].Sessions[i].ID = "123-456-789"
+     *      Users[i].Sessions[i].MyStatus = "Finished"
 
     */
-
+    
     //This will hold all the sessions
-    var Sessions = [];
+    var Sessions = this.SessionsStructure();
+
+    this.SessionsStructure = function () {
+        SessionParent = this;
+        this.id
+    }
     this.getSessionCount = function() { return Sessions.length; }
 
-    this.Users = function() {
-
+    this.Users = function () {
+        //This is all the sessions the user is currently a part of.
+        var mySessions = [];
     }
 
+    //Initializes the class
     this.initialize = function() {
 
         log("Getting sessions");
@@ -39,6 +79,7 @@ function DashboardStructure() {
         //this.loadSessions();
     }
 
+    //This loads all sessions listed in Sessions[]
     this.loadAllSessions = function(){
         log("In loadSessions, lets look and see what we have");
         if (this.getSessionCount() <= 0) {
@@ -53,6 +94,7 @@ function DashboardStructure() {
             
     }
 
+    //This will load an individual session based on the passed in ID
     this.loadSession = function (ID) {
 
         //https://studioapi.bluebeam.com:443/publicapi/v1/sessions/' + ID

@@ -20,57 +20,44 @@ function log(Val) {
     if (bDebug) { console.log(Val); }
 }
 
+var Sessions = function () {
 
-//Datastructure
-function DashboardStructure() {
-    /*This will house the data structure
-     *  and calls for filling it out?
+}
+
+/*This will house the data structure
+     *
+     *  Sessions[]
+     *      ID
+     *      Name
+     *      Created date
+     *      Expiration date
+     *      URL
+     *      Status (ie active, or closed)
+     *      Users[]
+     *          ID
+     *          Name
+     *          email
+     *          MyStatus
+     *
+     *  Examples:
+     *      Sessions[i].ID = "123-456-789"
+     *      Sessions[i].Users[i].ID = "123456789"
+     *      Sessions[i].Users[i].Name = "David.Kleinot"
+     *      Sessions[i].Users[i].MyStatus = "Finished"
+     *
+     *
+     *  Users[]
+     *      ID
+     *      Name
+     *      Email
+     *      Sessions[]
+     *          ID
+     *          MyStatus
+     *
+     *  Examples:
+     *      Users[i].ID = "123456789"
+     *      Users[i].Name = "David.Kleinot"
+     *      Users[i].Sessions[i].ID = "123-456-789"
+     *      Users[i].Sessions[i].MyStatus = "Finished"
 
     */
-    
-    //This will hold all the sessions
-    var Sessions = [];
-    function getSessionCount() { return Sessions.length; }
-
-    
-    function Users() {
-
-    }
-
-    function initialize() {
-        var Request = new XMLHttpRequest();
-        var i = 0;
-
-        Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=false', true);
-        Request.setRequestHeader("Authorization", "Bearer " + access_token);
-
-        Request.onload = function () {
-            // Begin accessing JSON data here
-            var data = JSON.parse(this.response);
-
-            log(data);
-
-            //To get individual sessions from the all sessions command:
-            data.Sessions.forEach(Session => {
-                    Sessions[i] = Session.Id;
-                    i++;
-                }
-            )
-
-            log(Sessions);
-
-            if (Request.status = 200) {
-                //data.$id
-                //data.forEach(sesh => {
-                //    console.log(sesh.Id)
-                //})
-
-            } else {
-                console.log('error');
-            }
-        }
-
-        Request.send();
-    }
-    
-}
