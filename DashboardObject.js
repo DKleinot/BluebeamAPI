@@ -29,12 +29,13 @@ function Main() {
     log("Loading main function");
 
     AddSession("123-456-789", "T123456789", "Yesterday", "Tomorrow", "URL", "Active");
-    AddUsertoSession(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
-    AddUsertoSession(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
-    AddUsertoSession(1, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
-    AddUsertoSession(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
-    AddUsertoSession(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
-    AddUsertoSession(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
+
+    AddUsertoSessionByIndex(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
+    AddUsertoSessionByIndex(0, "123456789a", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
+    AddUsertoSessionByIndex(0, "123456789b", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
+    AddUsertoSessionByIndex(0, "123456789c", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
+    AddUsertoSessionByIndex(0, "123456789d", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
+    AddUsertoSessionByIndex(0, "123456789e", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
 
     log(Sessions[0]);
 }
@@ -52,15 +53,27 @@ function AddSession(id, name, createddate, expirationdate, url, status) {
     }
 }
 
-function AddUsertoSession(s, id, name, email, status) {
+function AddUsertoSessionByID(sID, id, name, email, status) {
+    for (i = 0; i < Sessions.length; i++) {
+        if (Sessions[i].ID == sID) {
+            Sessions[i].Users[iUsers++] = {
+                ID: id,
+                Name: name,
+                Email: email,
+                Status:status
+            }
+        }
+    }
+}
+
+function AddUsertoSessionByIndex(s, id, name, email, status) {
     Sessions[s].Users[iUsers++] = {
         ID: id,
         Name: name,
         Email: email,
-        Status:status
+        Status: status
     }
 }
-
 
 function SessionStruct() {
     var ID, Name, CreatedDate, ExpirationDate, URL, Status;
