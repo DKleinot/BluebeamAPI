@@ -24,7 +24,7 @@ const Sessions = [];
 
 function Main() {
 
-    log("Loading main function.12");
+    log("Loading main function.1");
 
     //var Sessions = new SessionStruct();
 
@@ -49,6 +49,7 @@ function SessionStruct() {
     var iUsers = 0;
 
     this.addUser = function () {
+        log(iUsers);
         this.Users[this.iUsers] = new this.UsersStruct();
     }
 
