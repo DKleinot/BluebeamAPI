@@ -24,7 +24,7 @@ const Sessions = [];
 
 function Main() {
 
-    log("Loading main function..");
+    log("Loading main function....");
 
     //var Sessions = new SessionStruct();
 
