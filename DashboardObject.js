@@ -49,13 +49,11 @@ function SessionStruct() {
     var iUsers = 0;
 
     this.addUser = function () {
-        log(iUsers);
-        this.Users[this.iUsers] = new this.UsersStruct();
+        this.Users[this.iUsers] = function () {
+            var ID, Name, Email, MyStatus;
+        };
     }
 
-    this.UsersStruct = function () {
-        var ID, Name, Email, MyStatus;
-    }
     
 }
 
