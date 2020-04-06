@@ -31,7 +31,7 @@ function Main() {
     AddSession("123-456-789", "T123456789", "Yesterday", "Tomorrow", "URL", "Active");
     AddUsertoSession(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
     AddUsertoSession(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
-    AddUsertoSession(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
+    AddUsertoSession(1, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
     AddUsertoSession(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
     AddUsertoSession(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
     AddUsertoSession(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
