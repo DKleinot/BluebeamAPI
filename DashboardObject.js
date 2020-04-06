@@ -42,6 +42,11 @@ function Main() {
     AddUsertoSessionByID("123-456-779", "qwertyuio", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished")
 
     log(Sessions);
+    log("");
+    log("");
+
+    log(Sessions[0].User[3]);
+    log(Sessions[0].User[3].Email);
 }
 
 
