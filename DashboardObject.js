@@ -20,11 +20,13 @@ function log(Val) {
     if (bDebug) { console.log(Val); }
 }
 
+const Sessions = new SessionStruct();
+
 function Main() {
 
     log("Loading main function.");
 
-    var Sessions = new SessionStruct();
+    //var Sessions = new SessionStruct();
 
     Sessions[0].ID = "123-456-789";
     Sessions[0].Name = "T123456789";
