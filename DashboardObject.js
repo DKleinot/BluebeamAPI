@@ -42,6 +42,8 @@ function Main() {
     log(Sessions[0]);
 }
 
+
+
 function SessionStruct() {
     var ID, Name, CreatedDate, ExpirationDate, URL, Status;
 
