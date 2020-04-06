@@ -28,6 +28,8 @@ function Main() {
 
     //var Sessions = new SessionStruct();
 
+    Sessions[0] = new SessionStruct();
+
     Sessions[0].ID = "123-456-789";
     Sessions[0].Name = "T123456789";
 
