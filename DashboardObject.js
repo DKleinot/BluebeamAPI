@@ -81,7 +81,7 @@ function AddUsertoSessionByID(sID, id, name, email, status) {
 }
 
 function AddUsertoSessionByIndex(s, id, name, email, status) {
-    Sessions[s].Users[Sessions[i].Users.length] = {
+    Sessions[s].Users[Sessions[s].Users.length] = {
         ID: id,
         Name: name,
         Email: email,
