@@ -34,7 +34,7 @@ function Main() {
     log(Sessions[0]);
 }
 
-this.SessionStruct = function () {
+function SessionStruct() {
     var ID
     var Name
 }
