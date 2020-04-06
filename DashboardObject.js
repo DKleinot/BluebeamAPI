@@ -70,7 +70,7 @@ function SessionExists(sID) {
 function AddUsertoSessionByID(sID, id, name, email, status) {
     for (i = 0; i < Sessions.length; i++) {
         if (Sessions[i].ID == sID) {
-            Sessions[i].Users[iUsers++] = {
+            Sessions[i].Users[iUsers.length] = {
                 ID: id,
                 Name: name,
                 Email: email,
@@ -81,27 +81,12 @@ function AddUsertoSessionByID(sID, id, name, email, status) {
 }
 
 function AddUsertoSessionByIndex(s, id, name, email, status) {
-    Sessions[s].Users[iUsers++] = {
+    Sessions[s].Users[iUsers.length] = {
         ID: id,
         Name: name,
         Email: email,
         Status: status
     }
-}
-
-function SessionStruct() {
-    var ID, Name, CreatedDate, ExpirationDate, URL, Status;
-
-    var Users = [];
-    var iUsers = 0;
-
-    this.addUser = function () {
-        this.Users[this.iUsers] = function () {
-            var ID, Name, Email, MyStatus;
-        };
-    }
-
-    
 }
 
 /*This will house the data structure
