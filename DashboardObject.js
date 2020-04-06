@@ -24,11 +24,11 @@ const Sessions = [];
 
 function Main() {
 
-    log("Loading main function.");
+    log("Loading main function.123");
 
     //var Sessions = new SessionStruct();
 
-    Sessions[0] = new SessionStruct();
+    Sessions[0] = SessionStruct();
 
     Sessions[0].ID = "123-456-789";
     Sessions[0].Name = "T123456789";
@@ -49,7 +49,7 @@ function SessionStruct() {
     var iUsers = 0;
 
     this.addUser = function () {
-        this.Users[this.iUsers] = new UsersStruct();
+        this.Users[this.iUsers] = this.UsersStruct();
     }
 
     this.UsersStruct = function () {
