@@ -37,8 +37,12 @@ function Main() {
 }
 
 function SessionStruct() {
-    var ID
-    var Name
+    var ID, Name, CreatedDate, ExpirationDate, URL, Status;
+    const Users = new UsersStruct();
+    this.UsersStruct = function () {
+        var ID, Name, Email, MyStatus;
+    }
+    
 }
 
 /*This will house the data structure
