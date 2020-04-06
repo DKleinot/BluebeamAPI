@@ -20,6 +20,10 @@ function log(Val) {
     if (bDebug) { console.log(Val); }
 }
 
+function Main() {
+    log("Loading main function");
+}
+
 var Sessions = function () {
 
 }
