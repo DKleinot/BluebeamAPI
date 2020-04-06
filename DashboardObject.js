@@ -21,27 +21,40 @@ function log(Val) {
 }
 
 const Sessions = [];
+var iSessions = 0;
+var iUsers = 0;
 
 function Main() {
 
     log("Loading main function");
 
-    //var Sessions = new SessionStruct();
-
-    Sessions[0] = new SessionStruct();
-
-    Sessions[0].ID = "123-456-789";
-    Sessions[0].Name = "T123456789";
-
-    //Sessions[0].Users[0] = new SessionStruct().UsersStruct();
-
-    //Sessions[0].addUser();
-    //Sessions[0].Users[0].ID = "123456789";
-    //Sessions[0].Users[0].Email = "D@d.com";
+    AddSession("123-456-789", "T123456789", "Yesterday", "Tomorrow", "URL", "Active");
+    AddUsertoSession(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
 
     log(Sessions[0]);
 }
 
+
+function AddSession(id, name, createddate, expirationdate, url, status) {
+    Sessions[iSessions++] = {
+        ID: id,
+        Name: name,
+        CreatedDate: createddate,
+        ExpirationDate: expirationdate,
+        URL: url,
+        Status: status,
+        Users: []
+    }
+}
+
+function AddUsertoSession(s, id, name, email, status) {
+    Sessions[s].Users[iUsers] = {
+        ID: id,
+        Name: name,
+        Email: email,
+        Status:status
+    }
+}
 
 
 function SessionStruct() {
