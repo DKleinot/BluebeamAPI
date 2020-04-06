@@ -70,7 +70,7 @@ function SessionExists(sID) {
 function AddUsertoSessionByID(sID, id, name, email, status) {
     for (i = 0; i < Sessions.length; i++) {
         if (Sessions[i].ID == sID) {
-            Sessions[i].Users[iUsers.length] = {
+            Sessions[i].Users[iUsers.length+1] = {
                 ID: id,
                 Name: name,
                 Email: email,
@@ -81,7 +81,7 @@ function AddUsertoSessionByID(sID, id, name, email, status) {
 }
 
 function AddUsertoSessionByIndex(s, id, name, email, status) {
-    Sessions[s].Users[iUsers.length] = {
+    Sessions[s].Users[iUsers.length+1] = {
         ID: id,
         Name: name,
         Email: email,
