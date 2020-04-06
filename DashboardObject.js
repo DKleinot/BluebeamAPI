@@ -37,6 +37,7 @@ function Main() {
     AddUsertoSessionByIndex(0, "123456789d", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
     AddUsertoSessionByIndex(0, "123456789e", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
 
+    log(SessionExists("123-456-779"));
     AddUsertoSessionByID("123-456-779", "qwertyuio", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished")
 
     log(Sessions[0]);
@@ -53,6 +54,16 @@ function AddSession(id, name, createddate, expirationdate, url, status) {
         Status: status,
         Users: []
     }
+}
+
+function SessionExists(sID) {
+    //This isn't super efficient, but whatever.
+    for (i = 0; i < Sessions.length; i++) {
+        if (Sessions[i].ID == sID) {
+            return true;
+        }
+    }
+    return false;
 }
 
 function AddUsertoSessionByID(sID, id, name, email, status) {
