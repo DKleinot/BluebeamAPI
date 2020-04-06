@@ -45,8 +45,8 @@ function Main() {
     log("");
     log("");
 
-    log(Sessions[0].User[3]);
-    log(Sessions[0].User[3].Email);
+    log(Sessions[0].Users[3]);
+    log(Sessions[0].Users[3].Email);
 }
 
 
