@@ -24,7 +24,7 @@ const Sessions = new SessionStruct();
 
 function Main() {
 
-    log("Loading main function.");
+    log("Loading main function...");
 
     //var Sessions = new SessionStruct();
 
@@ -38,7 +38,7 @@ function Main() {
 
 function SessionStruct() {
     var ID, Name, CreatedDate, ExpirationDate, URL, Status;
-    const Users = new UsersStruct();
+    const Users = new this.UsersStruct();
     this.UsersStruct = function () {
         var ID, Name, Email, MyStatus;
     }
