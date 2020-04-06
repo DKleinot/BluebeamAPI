@@ -20,7 +20,7 @@ function log(Val) {
     if (bDebug) { console.log(Val); }
 }
 
-const Sessions = new SessionStruct();
+const Sessions = [];
 
 function Main() {
 
@@ -38,7 +38,9 @@ function Main() {
 
 function SessionStruct() {
     var ID, Name, CreatedDate, ExpirationDate, URL, Status;
-    const Users = new this.UsersStruct();
+
+    //const Users = new UsersStruct();
+
     this.UsersStruct = function () {
         var ID, Name, Email, MyStatus;
     }
