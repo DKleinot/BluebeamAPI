@@ -30,11 +30,8 @@ function Main() {
 
     log("Loading main function...");
 
-    var event = new Event('API_Data_Pulled');
-    
     pullDatafromAPI().then();
 
-    //Need to create an event listener...
     log("Data Pulled, lets do something with it now!!");
 
 }
@@ -110,8 +107,9 @@ async function pullDatafromAPI() {
 
         if (Request.status = 200) {
 
-            log("Loading each Session:");
-            log(data);
+            //log("Loading each Session:");
+            //log(data);
+
             //To get individual sessions from the all sessions command:
             data.Sessions.forEach(s => {
                 //Sessions[i] = Session.Id;
@@ -123,23 +121,12 @@ async function pullDatafromAPI() {
         }
     }
     Request.send();
-
-    //Don't fully understand this...
-    /*
-    return new Promise(resolve => {
-        setTimeout(() => {
-            resolve();
-        }, 10000);
-    });
-    */
 }
 
 function pullUsers() {
     //This will pull all the users from the sessions stored and store them locally.
-    log("Inside pullUsers.  Session count is " + Sessions.length);
-    log(Sessions);
-
-    //https://studioapi.bluebeam.com:443/publicapi/v1/sessions/843-381-486/users?
+    //log("Inside pullUsers.  Session count is " + Sessions.length);
+    //log(Sessions);
 
     var Request = new XMLHttpRequest();
     var i = 0;
@@ -148,7 +135,7 @@ function pullUsers() {
 
     for (i = 0; i < Sessions.length; i++) {
 
-        log("Prepping to extract user data for Session " + Sessions[i].ID);
+        //log("Prepping to extract user data for Session " + Sessions[i].ID);
 
         arg = "https://studioapi.bluebeam.com:443/publicapi/v1/sessions/" + Sessions[i].ID + "/users?";
         Request.open('GET', arg, false);
@@ -160,8 +147,8 @@ function pullUsers() {
 
             if (Request.status = 200) {
 
-                log("Loading user data for Session " + Sessions[i].ID);
-                log(data);
+                //log("Loading user data for Session " + Sessions[i].ID);
+                //log(data);
 
                 sID = getSessionIndex(Sessions[i].ID);
 
