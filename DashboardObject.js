@@ -146,7 +146,7 @@ function pullUsers() {
         log("Prepping to extract user data for Session " + Sessions[i].ID);
 
         arg = "https://studioapi.bluebeam.com:443/publicapi/v1/sessions/" + Sessions[i].ID + "/users?";
-        Request.open('GET', arg, true);
+        Request.open('GET', arg, false);
         Request.setRequestHeader("Authorization", "Bearer " + access_token);
 
         Request.onload = function () {
