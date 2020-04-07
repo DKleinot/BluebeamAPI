@@ -101,7 +101,7 @@ async function pullDatafromAPI() {
     var Request = new XMLHttpRequest();
     var i = 0;
 
-    Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=false', true);
+    Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=false', false);
     Request.setRequestHeader("Authorization", "Bearer " + access_token);
 
     Request.onload = function () {
