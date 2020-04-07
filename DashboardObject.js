@@ -35,7 +35,7 @@ function Main() {
     pullDatafromAPI().then();
 
     //Need to create an event listener...
-    log("Data Pulled, lets do something with it now!");
+    log("Data Pulled, lets do something with it now!!");
 
 }
 
