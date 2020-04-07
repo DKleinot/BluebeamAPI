@@ -26,14 +26,13 @@ var iSessions = 0;
 var iUsers = 0;
 var access_token = sessionStorage.getItem('Access_Token');
 
-function Main() {
+async function Main() {
 
     log("Loading main function");
 
-    pullDatafromAPI();
+    await pullDatafromAPI();
 
     log("Data Pulled, lets do something with it now!");
-
 
 }
 
@@ -92,6 +91,8 @@ function AddUsertoSessionByIndex(s, id, name, email, status) {
     }
 }
 
+//
+
 function pullDatafromAPI() {
     //Pull all sessions from the API and store them locally.
     var Request = new XMLHttpRequest();
@@ -119,6 +120,13 @@ function pullDatafromAPI() {
         }
     }
     Request.send();
+
+    //Don't fully understand this...
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve();
+        }, 2000);
+    });
 }
 
 function pullUsers() {
