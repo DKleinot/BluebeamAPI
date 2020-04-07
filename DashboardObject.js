@@ -125,7 +125,7 @@ function pullDatafromAPI() {
     return new Promise(resolve => {
         setTimeout(() => {
             resolve();
-        }, 2000);
+        }, 10000);
     });
 }
 
