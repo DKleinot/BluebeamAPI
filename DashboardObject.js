@@ -30,7 +30,7 @@ function Main() {
 
     log("Loading main function");
 
-    pullSessions();
+    pullDatafromAPI();
 
 
 }
@@ -82,7 +82,7 @@ function AddUsertoSessionByIndex(s, id, name, email, status) {
 
 
 
-function pullSessions() {
+function pullDatafromAPI() {
     //Pull all sessions from the API and store them locally.
     var Request = new XMLHttpRequest();
     var i = 0;
@@ -99,11 +99,11 @@ function pullSessions() {
             log("Loading each Session:");
             log(data);
             //To get individual sessions from the all sessions command:
-            data.Sessions.forEach(Session => {
+            data.Sessions.forEach(s => {
                 //Sessions[i] = Session.Id;
-                
+                AddSession(s.Id, s.Name, s.Created, s.ExpirationDate, s.InviteUrl, s.Status);
             });
-
+            pullUsers();
         } else {
             log('error');
         }
@@ -111,8 +111,8 @@ function pullSessions() {
     Request.send();
 }
 
-function pullUsersInSession(sID) {
-    //This will pull all the users from a session and store them locally.
-
+function pullUsers() {
+    //This will pull all the users from the sessions stored and store them locally.
+    log("Inside pullUsers.  Session count is " + Sessions.length);
 
 }
