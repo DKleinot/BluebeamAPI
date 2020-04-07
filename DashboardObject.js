@@ -28,7 +28,7 @@ var access_token = sessionStorage.getItem('Access_Token');
 
 async function Main() {
 
-    log("Loading main function");
+    log("Loading main function...");
 
     await pullDatafromAPI();
 
@@ -122,13 +122,11 @@ function pullDatafromAPI() {
     Request.send();
 
     //Don't fully understand this...
-    /*
     return new Promise(resolve => {
         setTimeout(() => {
             resolve();
         }, 2000);
     });
-    */
 }
 
 function pullUsers() {
