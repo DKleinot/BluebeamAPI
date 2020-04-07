@@ -122,11 +122,13 @@ function pullDatafromAPI() {
     Request.send();
 
     //Don't fully understand this...
+    /*
     return new Promise(resolve => {
         setTimeout(() => {
             resolve();
         }, 2000);
     });
+    */
 }
 
 function pullUsers() {
