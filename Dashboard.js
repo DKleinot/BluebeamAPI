@@ -14,179 +14,9 @@ function log(Val) {
 
 
 
-//Datastructure
-function DashboardStructure() {
-    /*This will house the data structure
-     * 
-     *  Sessions[]
-     *      ID
-     *      Name
-     *      Created date
-     *      Expiration date
-     *      URL
-     *      Status (ie active, or closed)
-     *      Users[]
-     *          ID
-     *          Name
-     *          email
-     *          MyStatus
-     *  
-     *  Examples:
-     *      Sessions[i].ID = "123-456-789"
-     *      Sessions[i].Users[i].ID = "123456789"
-     *      Sessions[i].Users[i].Name = "David.Kleinot"
-     *      Sessions[i].Users[i].MyStatus = "Finished"
-     *  
-     * 
-     *  Users[]
-     *      ID
-     *      Name
-     *      Email
-     *      Sessions[]
-     *          ID
-     *          MyStatus
-     *          
-     *  Examples:
-     *      Users[i].ID = "123456789"
-     *      Users[i].Name = "David.Kleinot"
-     *      Users[i].Sessions[i].ID = "123-456-789"
-     *      Users[i].Sessions[i].MyStatus = "Finished"
-
-    */
-    
-    //This will hold all the sessions
-    var Sessions = this.SessionsStructure();
-
-    this.SessionsStructure = function () {
-        SessionParent = this;
-        this.id
-    }
-    this.getSessionCount = function() { return Sessions.length; }
-
-    this.Users = function () {
-        //This is all the sessions the user is currently a part of.
-        var mySessions = [];
-    }
-
-    //Initializes the class
-    this.initialize = function() {
-
-        log("Getting sessions");
-        this.GetSessions();
-
-        //Looks like this is running async..  will call this when the status comes back inside the previous one...
-        //log("Loading each Session");
-        //this.loadSessions();
-    }
-
-    //This loads all sessions listed in Sessions[]
-    this.loadAllSessions = function(){
-        log("In loadSessions, lets look and see what we have");
-        if (this.getSessionCount() <= 0) {
-            log('error');
-        } else {
-            log("Have " + this.getSessionCount() + " sessions, lets continue!")
-        }
-        for (i = 0; i < this.getSessionCount(); i++) {
-            //Couldn't I just do this in the GetSessions function?
-            this.loadSession(Sessions[i]);
-        }
-            
-    }
-
-    //This will load an individual session based on the passed in ID
-    this.loadSession = function (ID) {
-
-        //https://studioapi.bluebeam.com:443/publicapi/v1/sessions/' + ID
-        log("Loading session " + ID);
-
-        var Request = new XMLHttpRequest();
-        var i = 0;
-
-        parent = this;
-
-        Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions/' + ID + '/users', true);
-        Request.setRequestHeader("Authorization", "Bearer " + access_token);
-
-
-        Request.onload = function () {
-            // Begin accessing JSON data here
-            var data = JSON.parse(this.response);
-
-            log("Session date for " + ID);
-            log(data);
-            /*
-            //To get individual sessions from the all sessions command:
-            data.Sessions.forEach(Session => {
-                Sessions[i] = Session.Id;
-                i++;
-            });
-
-            log(Sessions);
-
-            log("RequestStatus" + Request.status);
-
-            if (Request.status = 200) {
-
-                log("Loading each Session.");
-
-                parent.loadAllSessions();
-
-            } else {
-                log('error');
-            }
-            */
-        }
-
-        Request.send();
-
-    }
-
-    this.GetSessions = function() {
-        var Request = new XMLHttpRequest();
-        var i = 0;
-
-        parent = this;
-
-        Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=false', true);
-        Request.setRequestHeader("Authorization", "Bearer " + access_token);
-        
-
-        Request.onload = function () {
-            // Begin accessing JSON data here
-            var data = JSON.parse(this.response);
-
-            log(data);
-
-            //To get individual sessions from the all sessions command:
-            data.Sessions.forEach(Session => {
-                Sessions[i] = Session.Id;
-                i++;
-            });
-
-            log(Sessions);
-
-            log("RequestStatus" + Request.status);
-
-            if (Request.status = 200) {
-
-                log("Loading each Session.");
-                
-                parent.loadAllSessions();
-
-            } else {
-                log('error');
-            }
-        }
-
-        Request.send();
-        
-    }
-
-}
 
 //Variables
-var access_token = "";
+
 
 //Constants
 const dsDashboard = new DashboardStructure();
@@ -194,15 +24,6 @@ const dsDashboard = new DashboardStructure();
 
 
 
-function LoadDashboardData() {
-    /*Ok, here's the workflow
-     *  Get all session data, and grab the IDs
-     *  Iterate on all the IDs and grab the users inside it.
-     *  Fill out the data structure.
-
-
-    */
-}
 
 
 
@@ -213,10 +34,6 @@ function AutoLoad() {
     log("Ok, lets load that access token..");
     access_token = sessionStorage.getItem('Access_Token');
     log(access_token);
-
-    log("Initialize!");
-    dsDashboard.initialize();
-
 
 
 }
@@ -247,37 +64,3 @@ function API_GET_Session_Users(ID) {
 }
 
 
-function getAllSessions() {
-    
-
-    log("moving on.");
-
-    var Request = new XMLHttpRequest();
-
-    Request.open('GET', API_GET_AllSessions, true);
-    Request.setRequestHeader("Authorization", "Bearer " + access_token);
-
-    Request.onload = function () {
-        // Begin accessing JSON data here
-        var data = JSON.parse(this.response);
-
-        log(data);
-
-        //To get individual sessions from the all sessions command:
-        data.Sessions.forEach(Session =>
-            console.log(Session.Id)
-        )
-
-        if (Request.status = 200) {
-            data.$id
-            data.forEach(sesh => {
-                console.log(sesh.Id)
-            })
-        
-        } else {
-            console.log('error');
-        }
-    }
-
-    Request.send();
-}

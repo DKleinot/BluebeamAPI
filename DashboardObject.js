@@ -20,33 +20,19 @@ function log(Val) {
     if (bDebug) { console.log(Val); }
 }
 
+//Variables
 const Sessions = [];
 var iSessions = 0;
 var iUsers = 0;
+var access_token = sessionStorage.getItem('Access_Token');
 
 function Main() {
 
     log("Loading main function");
 
-    AddSession("123-456-789", "T123456789", "Yesterday", "Tomorrow", "URL", "Active");
-    AddSession("123-456-779", "T123456789", "Yesterday", "Tomorrow", "URL", "Active");
+    pullSessions();
 
-    AddUsertoSessionByIndex(0, "123456789", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
-    AddUsertoSessionByIndex(0, "123456789a", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
-    AddUsertoSessionByIndex(0, "123456789b", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
-    AddUsertoSessionByIndex(0, "123456789c", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
-    AddUsertoSessionByIndex(0, "123456789d", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
-    AddUsertoSessionByIndex(0, "123456789e", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished");
 
-    log(SessionExists("123-456-779"));
-    AddUsertoSessionByID("123-456-779", "qwertyuio", "David.Kleinot", "David.Kleinot@delaware.gov", "Finished")
-
-    log(Sessions);
-    log("");
-    log("");
-
-    log(Sessions[0].Users[3]);
-    log(Sessions[0].Users[3].Email);
 }
 
 
@@ -94,40 +80,39 @@ function AddUsertoSessionByIndex(s, id, name, email, status) {
     }
 }
 
-/*This will house the data structure
-     *
-     *  Sessions[]
-     *      ID
-     *      Name
-     *      Created date
-     *      Expiration date
-     *      URL
-     *      Status (ie active, or closed)
-     *      Users[]
-     *          ID
-     *          Name
-     *          email
-     *          MyStatus
-     *
-     *  Examples:
-     *      Sessions[i].ID = "123-456-789"
-     *      Sessions[i].Users[i].ID = "123456789"
-     *      Sessions[i].Users[i].Name = "David.Kleinot"
-     *      Sessions[i].Users[i].MyStatus = "Finished"
-     *
-     *
-     *  Users[]
-     *      ID
-     *      Name
-     *      Email
-     *      Sessions[]
-     *          ID
-     *          MyStatus
-     *
-     *  Examples:
-     *      Users[i].ID = "123456789"
-     *      Users[i].Name = "David.Kleinot"
-     *      Users[i].Sessions[i].ID = "123-456-789"
-     *      Users[i].Sessions[i].MyStatus = "Finished"
 
-    */
+
+function pullSessions() {
+    //Pull all sessions from the API and store them locally.
+    var Request = new XMLHttpRequest();
+    var i = 0;
+
+    Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=false', true);
+    Request.setRequestHeader("Authorization", "Bearer " + access_token);
+
+    Request.onload = function () {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response);
+
+        if (Request.status = 200) {
+
+            log("Loading each Session:");
+            log(data);
+            //To get individual sessions from the all sessions command:
+            data.Sessions.forEach(Session => {
+                //Sessions[i] = Session.Id;
+                
+            });
+
+        } else {
+            log('error');
+        }
+    }
+    Request.send();
+}
+
+function pullUsersInSession(sID) {
+    //This will pull all the users from a session and store them locally.
+
+
+}
