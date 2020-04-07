@@ -114,5 +114,6 @@ function pullDatafromAPI() {
 function pullUsers() {
     //This will pull all the users from the sessions stored and store them locally.
     log("Inside pullUsers.  Session count is " + Sessions.length);
+    log(Sessions);
 
 }
