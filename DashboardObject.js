@@ -32,6 +32,8 @@ function Main() {
 
     pullDatafromAPI();
 
+    log("Data Pulled, lets do something with it now!");
+
 
 }
 
@@ -160,8 +162,8 @@ function pullUsers() {
         }
         Request.send();
     }
+
     log("Done...");
     log(Sessions);
     
-
 }
