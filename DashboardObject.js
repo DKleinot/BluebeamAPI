@@ -14,7 +14,7 @@
 */
 
 //This will make it easier to turn off debugging
-var bDebug = true;
+var bDebug = false;
 function log(Val) {
     //Simple function to help log stuff to the console.
     if (bDebug) { console.log(Val); }
@@ -28,7 +28,7 @@ var access_token = sessionStorage.getItem('Access_Token');
 
 function Main() {
 
-    log("Loading main function...");
+    //log("Loading main function...");
 
     pullDatafromAPI().then();
 
