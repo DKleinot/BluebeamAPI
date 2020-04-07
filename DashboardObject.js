@@ -152,7 +152,7 @@ function pullUsers() {
 
                 //To get individual sessions from the all sessions command:
                 data.SessionUsers.forEach(u => {
-                    AddUsertoSessionByIndex(sID, u.Id, u.Name, u.Email, u.Status);
+                    AddUsertoSessionByIndex(sID, u.Id, u.Name, u.Email, u.StatusMessage);
                 });
             } else {
                 log('error');
