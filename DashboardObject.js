@@ -67,6 +67,16 @@ function AddUsertoSessionByID(sID, id, name, email, status) {
                 Email: email,
                 Status:status
             }
+            //No point continuing, exit out of function.
+            return;
+        }
+    }
+}
+
+function getSessionIndex(sID) {
+    for (i = 0; i < Sessions.length; i++) {
+        if (Sessions[i].ID == sID) {
+            return i;
         }
     }
 }
@@ -79,8 +89,6 @@ function AddUsertoSessionByIndex(s, id, name, email, status) {
         Status: status
     }
 }
-
-
 
 function pullDatafromAPI() {
     //Pull all sessions from the API and store them locally.
@@ -115,5 +123,44 @@ function pullUsers() {
     //This will pull all the users from the sessions stored and store them locally.
     log("Inside pullUsers.  Session count is " + Sessions.length);
     log(Sessions);
+
+    //https://studioapi.bluebeam.com:443/publicapi/v1/sessions/843-381-486/users?
+
+    var Request = new XMLHttpRequest();
+    var i = 0;
+    var arg = "";
+    var sID = "";
+
+    for (i = 0; i < Sessions.length; i++) {
+
+        log("Prepping to extract user data for Session " + Sessions[i].ID);
+
+        arg = "https://studioapi.bluebeam.com:443/publicapi/v1/sessions/" + Sessions[i].ID + "/users?";
+        Request.open('GET', arg, false);
+        Request.setRequestHeader("Authorization", "Bearer " + access_token);
+
+        Request.onload = function () {
+            // Begin accessing JSON data here
+            var data = JSON.parse(this.response);
+
+            if (Request.status = 200) {
+
+                log("Loading user data for Session " + Sessions[i].ID);
+                log(data);
+
+                sID = getSessionIndex(Sessions[i].ID);
+
+                //To get individual sessions from the all sessions command:
+                data.SessionUsers.forEach(u => {
+                    AddUsertoSessionByIndex(sID, u.Id, u.Name, u.Email, u.Status);
+                });
+            } else {
+                log('error');
+            }
+        }
+        Request.send();
+    }
+
+    
 
 }
