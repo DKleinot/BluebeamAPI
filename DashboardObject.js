@@ -160,7 +160,8 @@ function pullUsers() {
         }
         Request.send();
     }
-
+    log("Done...");
+    log(Sessions);
     
 
 }
