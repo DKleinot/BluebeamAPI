@@ -123,10 +123,16 @@ function UserExists(uName) {
     }
     return false;
 }
+function UsersSessionListed(uName, sID) {
+    //This will check to see if 
+}
 
 async function PopulateUsers() {
     //This will create the Users data structure
+    log("Populating users");
+    for (i = 0; i < Sessions[i].length; i++) {
 
+    }
 }
 
 //API functions
@@ -146,6 +152,7 @@ async function checkAuthentication() {
             if (data.Message == "Authorization has been denied for this request.") {
                 alert("Need to reauthenticate");
                 //Need to reauthenticate.
+                Athuenticate();
             }
         }
     }
