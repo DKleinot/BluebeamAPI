@@ -115,6 +115,9 @@ function checkAuthentication() {
         var data = JSON.parse(this.response);
 
         if (Request.status = 200) {
+            if (Request.statusText = "Unauthorized") {
+                log("Uninfagited");
+            }
             log(data);
             if (data.Message == "Authorization has been denied for this request.") {
                 log("error");
