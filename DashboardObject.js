@@ -115,6 +115,12 @@ function checkAuthentication() {
             log(data);
         }
     }
+    Request.onerror = function () {
+        var data = JSON.parse(this.response);
+        log(data);
+        Request.abort();
+    }
+    
     Request.send();
 
 }
