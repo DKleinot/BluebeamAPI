@@ -105,6 +105,11 @@ function checkAuthentication() {
     Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/users/me', false);
     Request.setRequestHeader("Authorization", "Bearer " + access_token);
 
+    Request.onreadystatechange = function () {
+        log("readystate change");
+        log(Request);
+    }
+
     Request.onload = function () {
         // Begin accessing JSON data here
         var data = JSON.parse(this.response);
