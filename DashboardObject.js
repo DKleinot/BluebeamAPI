@@ -110,7 +110,7 @@ function checkAuthentication() {
         var data = JSON.parse(this.response);
 
         if (Request.status = 200) {
-
+            log(data);
         } else {
             log(Request.status);
             log(data);
