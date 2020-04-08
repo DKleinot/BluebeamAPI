@@ -95,12 +95,7 @@ function AddUsertoSessionByIndex(s, id, name, email, status) {
 
 function checkAuthentication() {
     //This will check to see if the Authentication is still valid.
-
-    //https://studioapi.bluebeam.com:443/publicapi/v1/users/me
-
-
     var Request = new XMLHttpRequest();
-    var i = 0;
 
     Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/users/me', false);
     Request.setRequestHeader("Authorization", "Bearer " + access_token);
@@ -116,9 +111,7 @@ function checkAuthentication() {
             }
         }
     }
-
     Request.send();
-
 }
 
 async function pullDatafromAPI() {
