@@ -99,7 +99,7 @@ function getSessionIndex(sID) {
 
 function AddUser(id, name, email) {
     //This will add a user to the database
-    if (!UserExists(uName)) {
+    if (!UserExists(name)) {
         Users[iUsers] = {
             ID: id,
             Name: name,
@@ -167,7 +167,7 @@ function AddSessionToUser(uName, sID) {
 async function PopulateUsers() {
     //This will create the Users data structure
 
-    log("Populating users.1.");
+    log("Populating users.2.");
     log(Users);
     AddUser("1063724", "David Kleinot", "DOT_CADDSupport@delaware.gov");
     AddSessionToUser("David Kleinot", "914-950-052");
