@@ -102,39 +102,23 @@ function checkAuthentication() {
     var Request = new XMLHttpRequest();
     var i = 0;
 
-    Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/users/me', false);
+    Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/healthcheck', false);
     Request.setRequestHeader("Authorization", "Bearer " + access_token);
-
-    Request.onreadystatechange = function () {
-        log("readystate change");
-        log(Request);
-    }
 
     Request.onload = function () {
         // Begin accessing JSON data here
         var data = JSON.parse(this.response);
 
         if (Request.status = 200) {
-            if (Request.statusText = "Unauthorized") {
-                log("Uninfagited");
-            }
             log(data);
             if (data.Message == "Authorization has been denied for this request.") {
                 log("error");
+                //Need to reauthenticate.
             }
-        } else {
-            log(Request.status);
-            log(data);
         }
     }
-    try {
-        log("try");
-        Request.send();
-    }
-    catch (err) {
-        log(err);
-    }
-    
+
+    Request.send();
 
 }
 
