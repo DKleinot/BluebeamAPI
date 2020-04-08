@@ -40,6 +40,7 @@ function Main() {
 }
 
 //Datastructure functions
+//  Sessions
 
 function AddSession(id, name, createddate, expirationdate, url, status) {
     Sessions[iSessions++] = {
@@ -95,7 +96,7 @@ function getSessionIndex(sID) {
     }
 }
 
-
+//  Users
 
 function AddUser(id, name, email) {
     //This will add a user to the database
@@ -144,18 +145,21 @@ function AddSessionToUser(uName, sID) {
     //  If so, it will add that session ID to the Users list of Sessions
 
     if (UserExists(uName)) {
-        //User exists already
+        log("User exists already");
         if (SessionExists(sID)) {
-            //Check to see if mySessions is empty
+            log("Check to see if mySessions is empty");
             if (Users[getUserIndex(uName)].mySessions.length > 0) {
+                log("Sessions greater then 0");
                 for (i = 0; i < Users[getUserIndex(uName)].mySessions.length; i++) {
                     if (Users[getUserIndex(uName)].mySessions[i].ID = sID) {
-                        //already has it, do nothing
+                        log("already has it, do nothing");
                     } else {
-                        //This should set the actual session to the users list of sessions...
+                        log("This should set the actual session to the users list of sessions...");
                         Users[getUserIndex(uName)].mySessions[i] = Sessions[getSessionIndex(sID)];
                     }
                 }
+            } else {
+                log("Sessions less then 0");
             }
         }
     } else {
@@ -169,6 +173,7 @@ async function PopulateUsers() {
 
     log("Populating users.2.");
     log(Users);
+
     AddUser("1063724", "David Kleinot", "DOT_CADDSupport@delaware.gov");
     AddSessionToUser("David Kleinot", "914-950-052");
     /*
