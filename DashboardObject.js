@@ -27,7 +27,7 @@ var iUsers = 0;
 var access_token = sessionStorage.getItem('Access_Token');
 
 function Main() {
-
+    checkAuthentication();
     //log("Loading main function...");
 
     pullDatafromAPI().then();
@@ -92,6 +92,32 @@ function AddUsertoSessionByIndex(s, id, name, email, status) {
 }
 
 //
+
+function checkAuthentication() {
+    //This will check to see if the Authentication is still valid.
+
+    //https://studioapi.bluebeam.com:443/publicapi/v1/users/me
+
+    var Request = new XMLHttpRequest();
+    var i = 0;
+
+    Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/users/me', false);
+    Request.setRequestHeader("Authorization", "Bearer " + access_token);
+
+    Request.onload = function () {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response);
+
+        if (Request.status = 200) {
+
+        } else {
+            log(Request.status);
+            log(data);
+        }
+    }
+    Request.send();
+
+}
 
 async function pullDatafromAPI() {
     //Pull all sessions from the API and store them locally.
