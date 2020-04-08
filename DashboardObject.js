@@ -28,7 +28,7 @@ var iUsers = 0;
 var access_token = sessionStorage.getItem('Access_Token');
 
 function Main() {
-    checkAuthentication();
+    checkAuthentication().then();
     //log("Loading main function...");
 
     pullDatafromAPI().then();
@@ -129,7 +129,7 @@ function PopulateUsers() {
 
 //API functions
 
-function checkAuthentication() {
+async function checkAuthentication() {
     //This will check to see if the Authentication is still valid.
     var Request = new XMLHttpRequest();
 
