@@ -22,6 +22,7 @@ function log(Val) {
 
 //Variables
 const Sessions = [];
+const Users = [];
 var iSessions = 0;
 var iUsers = 0;
 var access_token = sessionStorage.getItem('Access_Token');
@@ -36,6 +37,7 @@ function Main() {
 
 }
 
+//Datastructure functions
 
 function AddSession(id, name, createddate, expirationdate, url, status) {
     Sessions[iSessions++] = {
@@ -47,16 +49,6 @@ function AddSession(id, name, createddate, expirationdate, url, status) {
         Status: status,
         Users: []
     }
-}
-
-function SessionExists(sID) {
-    //This isn't super efficient, but whatever.
-    for (i = 0; i < Sessions.length; i++) {
-        if (Sessions[i].ID == sID) {
-            return true;
-        }
-    }
-    return false;
 }
 
 function AddUsertoSessionByID(sID, id, name, email, status) {
@@ -74,14 +66,6 @@ function AddUsertoSessionByID(sID, id, name, email, status) {
     }
 }
 
-function getSessionIndex(sID) {
-    for (i = 0; i < Sessions.length; i++) {
-        if (Sessions[i].ID == sID) {
-            return i;
-        }
-    }
-}
-
 function AddUsertoSessionByIndex(s, id, name, email, status) {
     Sessions[s].Users[Sessions[s].Users.length] = {
         ID: id,
@@ -91,7 +75,59 @@ function AddUsertoSessionByIndex(s, id, name, email, status) {
     }
 }
 
-//
+function SessionExists(sID) {
+    //This isn't super efficient, but whatever.
+    for (i = 0; i < Sessions.length; i++) {
+        if (Sessions[i].ID == sID) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function getSessionIndex(sID) {
+    for (i = 0; i < Sessions.length; i++) {
+        if (Sessions[i].ID == sID) {
+            return i;
+        }
+    }
+}
+
+
+
+function AddUser(id, name, email, sessionsIDs) {
+    //This will add a user to the database
+    Users[iUsers] = {
+        ID: id,
+        Name: name,
+        Email: email,
+        mySessionCount: 0,
+        mySessions: []
+    }
+
+    for (i = 0; i < sessionsIDs.length; i++) {
+        if (SessionExists(sessionIDs[i])) {
+            Users[iUsers].mySessions[Users[iUsers].mySessionCount++] = Sessions[getSessionIndex(sessionIDs[i])];
+        }
+    }
+}
+
+function UserExists(uName) {
+    //Checks to see if a user exists
+    for (i = 0; i < Users.length; i++) {
+        if (Users[i].Name == uName) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function PopulateUsers() {
+    //This will create the Users data structure
+
+}
+
+//API functions
 
 function checkAuthentication() {
     //This will check to see if the Authentication is still valid.
@@ -106,7 +142,7 @@ function checkAuthentication() {
 
         if (Request.status = 200) {
             if (data.Message == "Authorization has been denied for this request.") {
-                log("error");
+                alert("Need to reauthenticate");
                 //Need to reauthenticate.
             }
         }
@@ -183,8 +219,12 @@ function pullUsers() {
         }
         Request.send();
     }
-
-    log("Done...");
     log(Sessions);
-    
+}
+
+//Dashboard Functions
+
+function displayUserByName(uName) {
+    //This will pull the user from the database and display data about them.
+
 }
