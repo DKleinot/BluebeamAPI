@@ -160,6 +160,7 @@ function AddSessionToUser(uName, sID) {
                 }
             } else {
                 log("Sessions less then 0");
+                Users[getUserIndex(uName)].mySessions[i] = Sessions[getSessionIndex(sID)];
             }
         }
     } else {
@@ -171,7 +172,7 @@ function AddSessionToUser(uName, sID) {
 async function PopulateUsers() {
     //This will create the Users data structure
 
-    log("Populating users.3.");
+    log("Populating users.4.");
     log(Users);
 
     AddUser("1063724", "David Kleinot", "DOT_CADDSupport@delaware.gov");
