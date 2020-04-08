@@ -116,13 +116,16 @@ function checkAuthentication() {
 
         if (Request.status = 200) {
             log(data);
+            if (data.Message == "Authorization has been denied for this request.") {
+                log("error");
+            }
         } else {
             log(Request.status);
             log(data);
         }
     }
     try {
-        log("in");
+        log("try");
         Request.send();
     }
     catch (err) {
