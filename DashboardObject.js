@@ -97,21 +97,26 @@ function getSessionIndex(sID) {
 
 
 
-function AddUser(id, name, email, sessionsIDs) {
+function AddUser(id, name, email) {
     //This will add a user to the database
-    Users[iUsers] = {
-        ID: id,
-        Name: name,
-        Email: email,
-        mySessionCount: 0,
-        mySessions: []
+    if (!UserExists(uName)) {
+        Users[iUsers] = {
+            ID: id,
+            Name: name,
+            Email: email,
+            mySessionCount: 0,
+            mySessions: []
+        }
+    } else {
+        log("User already exists");
     }
-
+    /*
     for (i = 0; i < sessionsIDs.length; i++) {
         if (SessionExists(sessionIDs[i])) {
             Users[iUsers].mySessions[Users[iUsers].mySessionCount++] = Sessions[getSessionIndex(sessionIDs[i])];
         }
     }
+    */
 }
 
 function UserExists(uName) {
@@ -123,16 +128,56 @@ function UserExists(uName) {
     }
     return false;
 }
-function UsersSessionListed(uName, sID) {
-    //This will check to see if 
+
+function getUserIndex(uName) {
+    //Returns the Index of the user.
+    for (i = 0; i < Users.length; i++) {
+        if (Users[i].Name == uName) {
+            return i;
+        }
+    }
+}
+
+function AddSessionToUser(uName, sID) {
+    //This will check to see if the User exists
+    //This will check to see if the Session exists
+    //  If so, it will add that session ID to the Users list of Sessions
+
+    if (UserExists(uName)) {
+        //User exists already
+        if (SessionExists(sID)) {
+            //Check to see if mySessions is empty
+            if (Users[getUserIndex(uName)].mySessions.length > 0) {
+                for (i = 0; i < Users[getUserIndex(uName)].mySessions.length; i++) {
+                    if (Users[getUserIndex(uName)].mySessions[i].ID = sID) {
+                        //already has it, do nothing
+                    } else {
+                        //This should set the actual session to the users list of sessions...
+                        Users[getUserIndex(uName)].mySessions[i] = Sessions[getSessionIndex(sID)];
+                    }
+                }
+            }
+        }
+    } else {
+        //User does not exist.
+        log("Hey, the user does not exist!");
+    }
 }
 
 async function PopulateUsers() {
     //This will create the Users data structure
+
     log("Populating users");
+
+    /*
+    //Iterate through each session
     for (i = 0; i < Sessions[i].length; i++) {
 
-    }
+        //Iterate throught each user in a session
+        for (j = 0; j < Sessions[i].Users[j].length; j++) {
+
+        }
+    }*/
 }
 
 //API functions
