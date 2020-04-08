@@ -14,7 +14,7 @@
 */
 
 //This will make it easier to turn off debugging
-var bDebug = false;
+var bDebug = true;
 function log(Val) {
     //Simple function to help log stuff to the console.
     if (bDebug) { console.log(Val); }
