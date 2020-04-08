@@ -167,9 +167,9 @@ function AddSessionToUser(uName, sID) {
 async function PopulateUsers() {
     //This will create the Users data structure
 
-    log("Populating users.0.");
+    log("Populating users.1.");
     log(Users);
-
+    AddUser("1063724", "David Kleinot", "DOT_CADDSupport@delaware.gov");
     AddSessionToUser("David Kleinot", "914-950-052");
     /*
     //Iterate through each session
