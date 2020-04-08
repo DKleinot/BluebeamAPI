@@ -97,7 +97,7 @@ function checkAuthentication() {
     //This will check to see if the Authentication is still valid.
 
     //https://studioapi.bluebeam.com:443/publicapi/v1/users/me
-    log("in");
+
 
     var Request = new XMLHttpRequest();
     var i = 0;
@@ -117,6 +117,7 @@ function checkAuthentication() {
         }
     }
     try {
+        log("in");
         Request.send();
     }
     catch (err) {
