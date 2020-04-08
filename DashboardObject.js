@@ -33,7 +33,9 @@ function Main() {
 
     pullDatafromAPI().then();
 
-    log("Data Pulled, lets do something with it now!!");
+    log("Pull users");
+
+    PopulateUsers().then();
 
 }
 
@@ -122,7 +124,7 @@ function UserExists(uName) {
     return false;
 }
 
-function PopulateUsers() {
+async function PopulateUsers() {
     //This will create the Users data structure
 
 }
