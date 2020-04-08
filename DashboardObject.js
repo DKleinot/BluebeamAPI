@@ -102,7 +102,7 @@ function checkAuthentication() {
     var Request = new XMLHttpRequest();
     var i = 0;
 
-    Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/healthcheck', false);
+    Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/users/me', false);
     Request.setRequestHeader("Authorization", "Bearer " + access_token);
 
     Request.onload = function () {
@@ -110,7 +110,6 @@ function checkAuthentication() {
         var data = JSON.parse(this.response);
 
         if (Request.status = 200) {
-            log(data);
             if (data.Message == "Authorization has been denied for this request.") {
                 log("error");
                 //Need to reauthenticate.
