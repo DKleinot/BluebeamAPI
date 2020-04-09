@@ -23,8 +23,7 @@ function log(Val) {
 //Variables
 const Sessions = [];
 const Users = [];
-var iSessions = 0;
-var iUsers = 0;
+
 var access_token = sessionStorage.getItem('Access_Token');
 
 function Main() {
@@ -43,7 +42,7 @@ function Main() {
 //  Sessions
 
 function AddSession(id, name, createddate, expirationdate, url, status) {
-    Sessions[iSessions++] = {
+    Sessions[Sessions.length++] = {
         ID: id,
         Name: name,
         CreatedDate: createddate,
@@ -104,7 +103,7 @@ function AddUser(id, name, email) {
     log("Adding " + name);
 
     if (!UserExists(name)) {
-        Users[iUsers] = {
+        Users[Users.length++] = {
             ID: id,
             Name: name,
             Email: email,
@@ -141,23 +140,24 @@ function AddSessionToUser(uName, sID) {
     //This will check to see if the Session exists
     //  If so, it will add that session ID to the Users list of Sessions
 
+    var iMySessions;
+
     if (UserExists(uName)) {
-        log("User exists already");
         if (SessionExists(sID)) {
-            log("Check to see if mySessions is empty");
-            if (Users[getUserIndex(uName)].mySessions.length > 0) {
-                log("Sessions greater then 0");
-                for (i = 0; i < Users[getUserIndex(uName)].mySessions.length; i++) {
-                    if (Users[getUserIndex(uName)].mySessions[i].ID = sID) {
+            //Ok, the user exists and the session exists, lets store this to make things easier to understand
+            iMySessions = Users[getUserIndex(uName)].mySessions
+            if (iMySessions.length > 0) {
+                for (i = 0; i < iMySessions.length; i++) {
+                    if (iMySessions[i].ID = sID) {
                         log("already has it, do nothing");
                     } else {
                         log("This should set the actual session to the users list of sessions...");
-                        Users[getUserIndex(uName)].mySessions[i] = Sessions[getSessionIndex(sID)];
+                        iMySessions[iMySessions++] = Sessions[getSessionIndex(sID)];
                     }
                 }
             } else {
                 log("Sessions less then 0");
-                Users[getUserIndex(uName)].mySessions[i] = Sessions[getSessionIndex(sID)];
+                iMySessions[iMySessions.length++] = Sessions[getSessionIndex(sID)];
             }
         }
     } else {
@@ -170,15 +170,13 @@ async function PopulateUsers() {
     //This will create the Users data structure
     var i = 0, j = 0;
 
-    log("Populating users0.");
+    log("Populating users");
 
     //I feel like this is going to be very inefficient...
     //Iterate through each session
     for (i = 0; i < Sessions.length; i++) {
         //Iterate throught each user in a session
-        log("Session check123");
         for (j = 0; j < Sessions[i].Users.length; j++) {
-            log("user check123");
             AddUser(Sessions[i].Users[j].ID, Sessions[i].Users[j].Name, Sessions[i].Users[j].Email);
             AddSessionToUser(Sessions[i].Users[j].Name, Sessions[i].ID);
         }
