@@ -100,6 +100,9 @@ function getSessionIndex(sID) {
 
 function AddUser(id, name, email) {
     //This will add a user to the database
+
+    log("Adding " + name);
+
     if (!UserExists(name)) {
         Users[iUsers] = {
             ID: id,
@@ -109,7 +112,8 @@ function AddUser(id, name, email) {
             mySessions: []
         }
     } else {
-        //log("User already exists");
+        log("User already exists");
+        log("");
     }
 }
 
@@ -172,6 +176,7 @@ async function PopulateUsers() {
     for (i = 0; i < Sessions[i].length; i++) {
         //Iterate throught each user in a session
         for (j = 0; j < Sessions[i].Users[j].length; j++) {
+            log("user check123");
             AddUser(Sessions[i].Users[j].ID, Sessions[i].Users[j].Name, Sessions[i].Users[j].Email);
             AddSessionToUser(Sessions[i].Users[j].Name, Sessions[i].ID);
         }
