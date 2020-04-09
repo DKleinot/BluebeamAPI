@@ -143,8 +143,8 @@ function AddSessionToUser(uName, sID) {
         if (SessionExists(sID)) {
             //Ok, the user exists and the session exists, lets store this to make things easier to understand
             iMySessions = Users[getUserIndex(uName)].mySessions
-            if ("Sessionslength" + iMySessions.length > 0) {
-                log(iMySessions.length);
+            if (iMySessions.length > 0) {
+                log("Sessionslength" + iMySessions.length);
                 for (i = 0; i < iMySessions.length; i++) {
                     if (iMySessions[i].ID = sID) {
                         log("already has it, do nothing");
