@@ -275,12 +275,12 @@ function pullUsers() {
                     AddUsertoSessionByIndex(sID, u.Id, u.Name, u.Email, u.StatusMessage);
                 });
             } else {
-                log('error');
+                //log('error');
             }
         }
         Request.send();
     }
-    log(Sessions);
+    //log(Sessions);
 }
 
 //Dashboard Functions
