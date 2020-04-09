@@ -6,10 +6,9 @@
 
 
 //This will make it easier to turn off debugging
-var bDebug = true;
-function log(Val) {
+function log(Val, verbose = false) {
     //Simple function to help log stuff to the console.
-    if (bDebug) { console.log(Val); }
+    if (verbose) { console.log(Val); }
 }
 
 

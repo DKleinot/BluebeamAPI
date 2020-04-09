@@ -14,10 +14,9 @@
 */
 
 //This will make it easier to turn off debugging
-var bDebug = true;
-function log(Val) {
+function log(Val, verbose = false) {
     //Simple function to help log stuff to the console.
-    if (bDebug) { console.log(Val); }
+    if (verbose) { console.log(Val); }
 }
 
 //Variables
@@ -32,7 +31,7 @@ function Main() {
 
     pullDatafromAPI().then();
 
-    log("Pull users");
+    log("Pull users", true);
 
     PopulateUsers().then();
 
@@ -132,45 +131,45 @@ function getUserIndex(uName) {
     }
 }
 
-function AddSessionToUser(uName, sID) {
+function AddSessionToUser(uName, sID, verbose = false) {
     //This will check to see if the User exists
     //This will check to see if the Session exists
     //  If so, it will add that session ID to the Users list of Sessions
 
     var iMySessions;
 
-    //log(">Adding " + sID + " to " + uName + "'s sessions list");
+    log(">Adding " + sID + " to " + uName + "'s sessions list", verbose);
 
     if (UserExists(uName)) {
         if (SessionExists(sID)) {
             //Ok, the user exists and the session exists, lets store this to make things easier to understand
             iMySessions = Users[getUserIndex(uName)].mySessions
             if (iMySessions.length > 0) {
-                //log(uName + " has " + iMySessions.length + " sessions");
-                //log(Users[getUserIndex(uName)].mySessions);
+                log(uName + " has " + iMySessions.length + " sessions", verbose);
+                log(Users[getUserIndex(uName)].mySessions, verbose);
                 for (i = 0; i < iMySessions.length; i++) {
                     if (iMySessions[i].ID == sID) {
-                        //log("already has it, do nothing");
+                        log("already has it, do nothing", verbose);
                     } else {
                         iMySessions[iMySessions.length++] = Sessions[getSessionIndex(sID)];
                     }
                 }
             } else {
-                //log(uName + "'s Session count is 0");
+                log(uName + "'s Session count is 0", verbose);
                 iMySessions[iMySessions.length++] = Sessions[getSessionIndex(sID)];
             }
         }
     } else {
         //User does not exist.
-        //log("Hey, the user does not exist!");
+        log("Hey, the user does not exist!", verbose);
     }
 }
 
-async function PopulateUsers() {
+async function PopulateUsers(verbose = false) {
     //This will create the Users data structure
     var i = 0, j = 0;
 
-    log("Populating users");
+    log("Populating users", verbose);
 
     //I feel like this is going to be very inefficient...
     //Iterate through each session
@@ -178,18 +177,21 @@ async function PopulateUsers() {
         //Iterate throught each user in a session
         for (j = 0; j < Sessions[i].Users.length; j++) {
             AddUser(Sessions[i].Users[j].ID, Sessions[i].Users[j].Name, Sessions[i].Users[j].Email);
-            //log("Adding " + Sessions[i].ID + " to " + Sessions[i].Users[j].Name + "'s sessions list");
-            AddSessionToUser(Sessions[i].Users[j].Name, Sessions[i].ID);
+
+            if (verbose) {
+                log("Adding " + Sessions[i].ID + " to " + Sessions[i].Users[j].Name + "'s sessions list", verbose);
+
+                AddSessionToUser(Sessions[i].Users[j].Name, Sessions[i].ID);
+            }
         }
+
+        log("Done, lets check", verbose);
+        log(Users, verbose);
     }
-
-    log("Done, lets check");
-    log(Users);
 }
-
 //API functions
 
-async function checkAuthentication() {
+async function checkAuthentication(verbose = false) {
     //This will check to see if the Authentication is still valid.
     var Request = new XMLHttpRequest();
 
@@ -211,7 +213,7 @@ async function checkAuthentication() {
     Request.send();
 }
 
-async function pullDatafromAPI() {
+async function pullDatafromAPI(verbose = false) {
     //Pull all sessions from the API and store them locally.
     var Request = new XMLHttpRequest();
     var i = 0;
@@ -225,8 +227,8 @@ async function pullDatafromAPI() {
 
         if (Request.status = 200) {
 
-            //log("Loading each Session:");
-            //log(data);
+            log("Loading each Session:", verbose);
+            log(data, verbose);
 
             //To get individual sessions from the all sessions command:
             data.Sessions.forEach(s => {
@@ -235,7 +237,7 @@ async function pullDatafromAPI() {
             });
             pullUsers();
         } else {
-            log('error');
+            log('error', verbose);
         }
     }
     Request.send();
@@ -285,7 +287,7 @@ function pullUsers() {
 
 //Dashboard Functions
 
-function displayUserByName(uName) {
+function displayUserByName(uName, verbose = false) {
     //This will pull the user from the database and display data about them.
 
 }

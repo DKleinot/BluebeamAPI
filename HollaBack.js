@@ -10,9 +10,10 @@ var access_token;
 var code;
 var state;
 
-function log(Val) {
+//This will make it easier to turn off debugging
+function log(Val, verbose = false) {
     //Simple function to help log stuff to the console.
-    if (bDebug) { console.log(Val); }
+    if (verbose) { console.log(Val); }
 }
 
 function AutoLoad() {
