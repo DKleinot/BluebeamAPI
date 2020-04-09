@@ -139,6 +139,8 @@ function AddSessionToUser(uName, sID) {
 
     var iMySessions;
 
+    log("Adding " + sID + " to " + uName + "'s sessions list");
+
     if (UserExists(uName)) {
         if (SessionExists(sID)) {
             //Ok, the user exists and the session exists, lets store this to make things easier to understand
@@ -176,7 +178,7 @@ async function PopulateUsers() {
         //Iterate throught each user in a session
         for (j = 0; j < Sessions[i].Users.length; j++) {
             AddUser(Sessions[i].Users[j].ID, Sessions[i].Users[j].Name, Sessions[i].Users[j].Email);
-            log("Adding " + Sessions[i].ID + " to " + Sessions[i].Users[j].Name + "'s sessions list");
+            //log("Adding " + Sessions[i].ID + " to " + Sessions[i].Users[j].Name + "'s sessions list");
             AddSessionToUser(Sessions[i].Users[j].Name, Sessions[i].ID);
         }
     }
