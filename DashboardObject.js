@@ -168,14 +168,15 @@ function AddSessionToUser(uName, sID) {
 
 async function PopulateUsers() {
     //This will create the Users data structure
-    var i, j;
-    log("Populating users.");
-    log(Sessions);
+    var i = 0, j = 0;
+
+    log("Populating users0.");
 
     //I feel like this is going to be very inefficient...
     //Iterate through each session
     for (i = 0; i < Sessions[i].length; i++) {
         //Iterate throught each user in a session
+        log("Session check123");
         for (j = 0; j < Sessions[i].Users[j].length; j++) {
             log("user check123");
             AddUser(Sessions[i].Users[j].ID, Sessions[i].Users[j].Name, Sessions[i].Users[j].Email);
