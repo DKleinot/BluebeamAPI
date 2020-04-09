@@ -100,8 +100,6 @@ function getSessionIndex(sID) {
 function AddUser(id, name, email) {
     //This will add a user to the database
 
-    log("Adding " + name);
-
     if (!UserExists(name)) {
         Users[Users.length++] = {
             ID: id,
@@ -111,8 +109,7 @@ function AddUser(id, name, email) {
             mySessions: []
         }
     } else {
-        log("User already exists");
-        log("");
+        //log("User already exists");
     }
 }
 
@@ -149,7 +146,7 @@ function AddSessionToUser(uName, sID) {
             if (iMySessions.length > 0) {
                 for (i = 0; i < iMySessions.length; i++) {
                     if (iMySessions[i].ID = sID) {
-                        log("already has it, do nothing");
+                        //log("already has it, do nothing");
                     } else {
                         log("This should set the actual session to the users list of sessions...");
                         iMySessions[iMySessions++] = Sessions[getSessionIndex(sID)];
