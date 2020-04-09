@@ -33,7 +33,7 @@ function Main() {
 
     log("Pull users", true);
 
-    PopulateUsers().then();
+    PopulateUsers(true).then();
 
 }
 
