@@ -169,7 +169,8 @@ function AddSessionToUser(uName, sID) {
 async function PopulateUsers() {
     //This will create the Users data structure
     var i, j;
-    log("Populating users...");
+    log("Populating users.");
+    log(Sessions);
 
     //I feel like this is going to be very inefficient...
     //Iterate through each session
