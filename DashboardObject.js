@@ -143,13 +143,14 @@ function AddSessionToUser(uName, sID) {
         if (SessionExists(sID)) {
             //Ok, the user exists and the session exists, lets store this to make things easier to understand
             iMySessions = Users[getUserIndex(uName)].mySessions
-            if (iMySessions.length > 0) {
+            if ("Sessionslength" + iMySessions.length > 0) {
+                log(iMySessions.length);
                 for (i = 0; i < iMySessions.length; i++) {
                     if (iMySessions[i].ID = sID) {
-                        //log("already has it, do nothing");
+                        log("already has it, do nothing");
                     } else {
                         log("This should set the actual session to the users list of sessions...");
-                        iMySessions[iMySessions++] = Sessions[getSessionIndex(sID)];
+                        iMySessions[iMySessions.length++] = Sessions[getSessionIndex(sID)];
                     }
                 }
             } else {
