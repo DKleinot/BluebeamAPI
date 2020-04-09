@@ -139,7 +139,7 @@ function AddSessionToUser(uName, sID) {
 
     var iMySessions;
 
-    log("Adding " + sID + " to " + uName + "'s sessions list");
+    log(">Adding " + sID + " to " + uName + "'s sessions list");
 
     if (UserExists(uName)) {
         if (SessionExists(sID)) {
