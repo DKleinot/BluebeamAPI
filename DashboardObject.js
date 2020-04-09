@@ -147,7 +147,7 @@ function AddSessionToUser(uName, sID) {
                 //log(Users[getUserIndex(uName)].mySessions);
                 for (i = 0; i < iMySessions.length; i++) {
                     if (iMySessions[i].ID = sID) {
-                        log(">>>>>>>>>>>>>>>>>>>>>already has it, do nothing");
+                        log(">>>>>>>>>>>>>>>>>>>>>already has it, do nothing>>>>>>>>>>>>>>>>>>>>>");
                     } else {
                         log(">>>>>>>>>>>>>>>>>>>>>This should set the actual session to the users list of sessions...");
                         iMySessions[iMySessions.length++] = Sessions[getSessionIndex(sID)];
