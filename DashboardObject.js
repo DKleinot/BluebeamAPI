@@ -27,10 +27,10 @@ const Users = [];
 var access_token = sessionStorage.getItem('Access_Token');
 
 function Main(verbose = false) {
-    checkAuthentication().then();
+    checkAuthentication(verbose).then();
     //log("Loading main function...");
 
-    pullDatafromAPI().then();
+    pullDatafromAPI(verbose).then();
 
     log("Pull users", verbose);
 
