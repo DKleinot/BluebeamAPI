@@ -23,17 +23,18 @@ function log(Val, verbose = false) {
 const Sessions = [];
 const Users = [];
 
+
 var access_token = sessionStorage.getItem('Access_Token');
 
-function Main() {
+function Main(verbose = false) {
     checkAuthentication().then();
     //log("Loading main function...");
 
     pullDatafromAPI().then();
 
-    log("Pull users", true);
+    log("Pull users", verbose);
 
-    PopulateUsers(true).then();
+    PopulateUsers(verbose).then();
 
 }
 
