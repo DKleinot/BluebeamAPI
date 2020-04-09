@@ -174,10 +174,10 @@ async function PopulateUsers() {
 
     //I feel like this is going to be very inefficient...
     //Iterate through each session
-    for (i = 0; i < Sessions[i].length; i++) {
+    for (i = 0; i < Sessions.length; i++) {
         //Iterate throught each user in a session
         log("Session check123");
-        for (j = 0; j < Sessions[i].Users[j].length; j++) {
+        for (j = 0; j < Sessions[i].Users.length; j++) {
             log("user check123");
             AddUser(Sessions[i].Users[j].ID, Sessions[i].Users[j].Name, Sessions[i].Users[j].Email);
             AddSessionToUser(Sessions[i].Users[j].Name, Sessions[i].ID);
