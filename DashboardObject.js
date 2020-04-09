@@ -109,15 +109,8 @@ function AddUser(id, name, email) {
             mySessions: []
         }
     } else {
-        log("User already exists");
+        //log("User already exists");
     }
-    /*
-    for (i = 0; i < sessionsIDs.length; i++) {
-        if (SessionExists(sessionIDs[i])) {
-            Users[iUsers].mySessions[Users[iUsers].mySessionCount++] = Sessions[getSessionIndex(sessionIDs[i])];
-        }
-    }
-    */
 }
 
 function UserExists(uName) {
@@ -172,20 +165,20 @@ function AddSessionToUser(uName, sID) {
 async function PopulateUsers() {
     //This will create the Users data structure
 
-    log("Populating users.4.");
-    log(Users);
+    log("Populating users");
 
-    AddUser("1063724", "David Kleinot", "DOT_CADDSupport@delaware.gov");
-    AddSessionToUser("David Kleinot", "914-950-052");
-    /*
+    //I feel like this is going to be very inefficient...
     //Iterate through each session
     for (i = 0; i < Sessions[i].length; i++) {
-
         //Iterate throught each user in a session
         for (j = 0; j < Sessions[i].Users[j].length; j++) {
-
+            AddUser(Sessions[i].Users[j].ID, Sessions[i].Users[j].Name, Sessions[i].Users[j].Email);
+            AddSessionToUser(Sessions[i].Users[j].Name, Sessions[i].ID);
         }
-    }*/
+    }
+
+    log("Done, lets check");
+    log(Users);
 }
 
 //API functions
