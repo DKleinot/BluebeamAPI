@@ -146,8 +146,11 @@ function AddSessionToUser(uName, sID) {
             //Ok, the user exists and the session exists, lets store this to make things easier to understand
             iMySessions = Users[getUserIndex(uName)].mySessions
             if (iMySessions.length > 0) {
+                log(uName + " has " + iMySessions.length + " sessions");
                 //log(Users[getUserIndex(uName)].mySessions);
                 for (i = 0; i < iMySessions.length; i++) {
+
+                    log("Iterating on " + iMySessions[i].ID);
                     if (iMySessions[i].ID = sID) {
                         log("already has it, do nothing");
                     } else {
@@ -156,7 +159,7 @@ function AddSessionToUser(uName, sID) {
                     }
                 }
             } else {
-                log("Sessions less then 0");
+                log(uName + "'s Session count is 0");
                 iMySessions[iMySessions.length++] = Sessions[getSessionIndex(sID)];
             }
         }
