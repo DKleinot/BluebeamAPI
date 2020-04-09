@@ -147,7 +147,7 @@ function AddSessionToUser(uName, sID) {
                 //log(Users[getUserIndex(uName)].mySessions);
                 for (i = 0; i < iMySessions.length; i++) {
                     if (iMySessions[i].ID = sID) {
-                        log(">>>>>>>>>>>>>>>>>>>>>already has it, do nothing>>>>>>>>>>>>>>>>>>>>>");
+                        log("already has it, do nothing");
                     } else {
                         log(">>>>>>>>>>>>>>>>>>>>>This should set the actual session to the users list of sessions...");
                         iMySessions[iMySessions.length++] = Sessions[getSessionIndex(sID)];
@@ -176,6 +176,7 @@ async function PopulateUsers() {
         //Iterate throught each user in a session
         for (j = 0; j < Sessions[i].Users.length; j++) {
             AddUser(Sessions[i].Users[j].ID, Sessions[i].Users[j].Name, Sessions[i].Users[j].Email);
+            log("Adding " + Sessions[i].ID + " to " + Sessions[i].Users[j].Name + "'s sessions list");
             AddSessionToUser(Sessions[i].Users[j].Name, Sessions[i].ID);
         }
     }
