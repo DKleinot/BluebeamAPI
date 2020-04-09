@@ -150,7 +150,8 @@ function AddSessionToUser(uName, sID) {
                 //log(Users[getUserIndex(uName)].mySessions);
                 for (i = 0; i < iMySessions.length; i++) {
 
-                    log("Iterating on " + iMySessions[i].ID + ": current is " + sID + " == " + iMySessions[i].ID == sID);
+                    log("Iterating on " + iMySessions[i].ID + ": current is " + sID);
+                    log(iMySessions[i].ID == sID);
                     if (iMySessions[i].ID = sID) {
                         log("already has it, do nothing");
                     } else {
