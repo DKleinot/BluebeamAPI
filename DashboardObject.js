@@ -372,9 +372,10 @@ function displaySessionDataByUser(uName,verbose = false) {
             //Bar start
             htmlCode += "<div style=\"width:" + dDiff;
             htmlCode += "%;background-color:";
+            log(dDiff, true);
             switch (true) {
-                case dDiff < 33: htmlCode += "green";
-                case dDiff < 66: htmlCode += "orange";
+                case dDiff < 33: htmlCode += "green"; break;
+                case dDiff < 66: htmlCode += "orange"; break;
                 default: htmlCode += "red";
             }
             htmlCode += ";align-items:center;display:flex;padding-left:20px\">";
