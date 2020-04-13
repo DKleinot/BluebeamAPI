@@ -297,7 +297,7 @@ function displaySessionDataByUser(uName,verbose = false) {
     if (UserExists(uName)) {
         log(Users[getUserIndex(uName)], verbose);
     } else {
-        DisplayError("User <b>" + uName + "</b> not found");
+        DisplayError("User " + uName + " not found");
     }
 }
 
