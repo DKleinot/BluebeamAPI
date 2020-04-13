@@ -187,8 +187,9 @@ async function PopulateUsers(verbose = false) {
         }
 
     }
-        log("Done, lets check", verbose);
-        log(Users, verbose);
+
+    log("Done, lets check", verbose);
+    log(Users, verbose);
 }
 
 //API functions
