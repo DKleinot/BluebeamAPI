@@ -198,6 +198,8 @@ async function checkAuthentication(verbose = false) {
     //This will check to see if the Authentication is still valid.
     var Request = new XMLHttpRequest();
 
+    log("Checking Auth.", verbose);
+
     Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/users/me', false);
     Request.setRequestHeader("Authorization", "Bearer " + access_token);
 
