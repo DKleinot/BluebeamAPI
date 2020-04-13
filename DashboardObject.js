@@ -389,6 +389,7 @@ function displaySessionDataByUser(uName,verbose = false) {
 
             //Outter wrapper close
             htmlCode += "</div>"
+            htmlCode += "</div>"
 
         }
         log(htmlCode,true);
