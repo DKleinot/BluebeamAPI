@@ -295,7 +295,7 @@ function displayUserByName(uName, verbose = false) {
 }
 
 function SelectText(txtBox, verbose = false) {
-    console.log(txtBox);
+    log(txtBox,verbose);
     //This will select the text of the box on click
     const input = document.getElementById(txtBox);
     input.focus();
