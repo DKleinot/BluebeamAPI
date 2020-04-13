@@ -293,11 +293,64 @@ function pullUsers() {
 
 function displaySessionDataByUser(uName,verbose = false) {
     //This will pull the user from the database and display data about them.
+
+    var i = 0;
+
     log(uName, verbose);
     if (UserExists(uName)) {
-        log(Users[getUserIndex(uName)], verbose);
+
+        var me = Users[getUserIndex(uName)];
+        log(me, verbose);
+
         DisplayError("Displaying data for " + uName);
 
+        //Check to see if they have any sessions
+        if (me.mySessions.length == 0) { DisplayError("No sessions found for " + uName); return;}
+
+        //Ok, user exists and has sessions, lets do this.
+        var htmlCode = "";
+        var RowColor = "";
+
+        /* This is the HTML code that I need to emulate.
+        <div class="w3-bar" style="width:100%;background-color:lightgrey;display:flex;border:1px solid darkgray">                               //Outter wrapper.
+            <div class="w3-bar-item" style="width:25%">                                                                                         //Title Wrapper
+                T123456789 - This is the name of the session, it is very long.  What will happen if its this long?
+            </div>
+            <div class="w3-bar-item" style="width:75%;padding:3px 10px 3px 10px;display:flex;border-left:3px solid darkgray">                   //Bar outter wrapper
+                <div class="w3-bar-item" style="width:100%;display:flex;border:2px solid black;padding:0px">                                    //Bar inner wrapper
+                    <div style="width:20%;background-color:green;align-items:center;display:flex;padding-left:20px">This is some content</div>  //Bar
+                </div>
+            </div>
+        </div>
+        */
+
+        for (i = 0; i < me.mySessions.length; i++) {
+            //Outter wrapper start.
+            htmlCode += "<div class=\"w3-bar\" style=\"width:100%;";
+            if (i % 2 == 0) { htmlCode += "background-color:lightgrey;"; }//If its an even row, make it grey.
+            htmlCode += "display:flex;border:1px solid darkgray\">";
+
+            //Title wrapper start
+            htmlCode += "<div class=\"w3-bar-item\" style=\"width:25%\">";
+            htmlCode += me.mySessions[i].Name;
+
+            //Title wrapper close
+            htmlCode += "</div>"
+
+            //Bar outter wrapper start
+            htmlCode += "<div class=\"w3-bar-item\" style=\"width:75%;padding:3px 10px 3px 10px;display:flex;border-left:3px solid darkgray\">"
+
+            //Bar inner wrapper start
+            htmlCode += "<div class=\"w3-bar-item\" style=\"width:100%;display:flex;border:2px solid black;padding:0px\">"
+
+            //Bar start
+            htmlCode += "<div style=\"width:20%;background-color:green;align-items:center;display:flex;padding-left:20px\">"
+
+            htmlCode += me.mySessions[i].Status;
+
+            //Bar close
+            htmlCode += "</div>"
+        }
 
 
     } else {
@@ -324,3 +377,6 @@ function KeyPress(id, verbose = false) {
 function DisplayError(val) {
     document.getElementById('ErrorMessage').innerHTML = val;
 }
+
+
+

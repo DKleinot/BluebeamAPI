@@ -6,31 +6,49 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Welcome to the Bluebeam Dashboard v0.1</title>
+    <title>Bluebeam Dashboard v0.1</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-<body onload="AutoLoad(false)">
-    <a href="https://thirsty-kepler-b52ade.netlify.com/">Home</a>
+<body style="margin:5px">
+    <!-- onload="AutoLoad(false)">-->
+    <!--<a href="https://thirsty-kepler-b52ade.netlify.com/">Home</a>-->
 
     <form id="fmMain">
+        <h1>This is still in the testing phase and should not be used.</h1>
+
+        <h4>For questions, comments, suggestions or more information, contact
+            <a href="mailto:David.Kleinot@delaware.gov?subject=BluebeamDashboard&body=[Enter your message here.  Please be specific]">
+                David.Kleinot@delaware.gov
+            </a>
+        </h4>
+
         <br />
-        <a id="ErrorMessage">No Errors</a>
+        <i><a id="ErrorMessage">No Errors</a></i>
         <br />
         <br />
         User Name (First Last):  <input type="text" id="UserName" name="UserName" value="David Kleinot" onclick="SelectText('UserName',false)">
 
         <button id="btnMain" type="button" onclick="displaySessionDataByUser(document.getElementById('UserName').value,true)">Get Session data for user</button>
 
-        <!--User Name (First Last):  <input type="text" id="UserName" name="UserName" value="Amanda Hugandkiss" onclick="SelectText('UserName',false)" onkeypress="KeyPress('UserName',true)">-->
     </form>
 
     <br />
     <br />
 
-    <!--This is the area that javascript will be adding information to.-->
-    <div id="DashboardDisplay" class="w3-bar" style="width:100%;height:100px;background-color:lightgrey">
-        <div class="w3-bar-item" style="height:50px;width:200px;background-color:blue"></div>
-        <div class="w3-bar-item" style="height:50px;width:200px;background-color:yellow"></div>
+    <!--This is the area that javascript will be adding information to-->
+    <div id="DashboardDisplayArea" style="width:100%;border:3px solid black">
+
+        <div class="w3-bar" style="width:100%;background-color:lightgrey;display:flex;border:1px solid darkgray">
+            <div class="w3-bar-item" style="width:25%">
+                T123456789 - This is the name of the session, it is very long.  What will happen if its this long?
+            </div>
+            <div class="w3-bar-item" style="width:75%;padding:3px 10px 3px 10px;display:flex;border-left:3px solid darkgray">
+                <div class="w3-bar-item" style="width:100%;display:flex;border:2px solid black;padding:0px">
+                    <div style="width:20%;background-color:green;align-items:center;display:flex;padding-left:20px">This is some content</div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 
