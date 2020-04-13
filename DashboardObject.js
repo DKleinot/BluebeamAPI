@@ -188,7 +188,7 @@ async function PopulateUsers(verbose = false) {
 
     }
 
-    log("Done, lets check", verbose);
+    log("Done, lets check it", verbose);
     log(Users, verbose);
 }
 
