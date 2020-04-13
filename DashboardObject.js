@@ -39,6 +39,7 @@ function AutoLoad(verbose = false) {
 }
 
 //Datastructure functions
+
 //  Sessions
 
 function AddSession(id, name, createddate, expirationdate, url, status) {
@@ -178,7 +179,9 @@ async function PopulateUsers(verbose = false) {
         //Iterate throught each user in a session
         for (j = 0; j < Sessions[i].Users.length; j++) {
             AddUser(Sessions[i].Users[j].ID, Sessions[i].Users[j].Name, Sessions[i].Users[j].Email);
+
             log("Adding " + Sessions[i].ID + " to " + Sessions[i].Users[j].Name + "'s sessions list", verbose);
+
             AddSessionToUser(Sessions[i].Users[j].Name, Sessions[i].ID);
         }
 
