@@ -26,9 +26,8 @@ const Users = [];
 
 var access_token = sessionStorage.getItem('Access_Token');
 
-function Main(verbose = false) {
+function AutoLoad(verbose = false) {
     checkAuthentication(verbose).then();
-    //log("Loading main function...");
 
     pullDatafromAPI(verbose).then();
 
