@@ -289,9 +289,9 @@ function pullUsers() {
 
 //Dashboard Functions
 
-function displaySessionDataByUser(verbose = false) {
+function displaySessionDataByUser(uName,verbose = false) {
     //This will pull the user from the database and display data about them.
-    log(document.getElementById('UserName').value, verbose);
+    log(uName, verbose);
 }
 
 function SelectText(id, verbose = false) {
