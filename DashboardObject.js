@@ -292,6 +292,11 @@ function pullUsers() {
 function displaySessionDataByUser(uName,verbose = false) {
     //This will pull the user from the database and display data about them.
     log(uName, verbose);
+    if (UserExists(uName)) {
+        log(User[getUserIndex(uName)], verbose);
+    } else {
+
+    }
 }
 
 function SelectText(id, verbose = false) {
