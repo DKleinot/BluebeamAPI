@@ -361,6 +361,10 @@ function displaySessionDataByUser(uName,verbose = false) {
             //Need to calc some stuff.
             dStart = me.mySessions[i].CreatedDate;
             dEnd = me.mySessions[i].ExpirationDate;
+
+            log(dStart);
+            log(dEnd);
+
             dDiff = Math.ceil((dEnd.getTime() - dStart.getTime()) / dEnd.getTime() * 100);
 
             
