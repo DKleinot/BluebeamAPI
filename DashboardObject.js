@@ -323,7 +323,7 @@ function displaySessionDataByUser(uName,verbose = false) {
         var BarWidth = 0;
         var dStart = new Date();
         var dEnd = new Date();
-        var dDiff;
+        var dDiff = 67;
 
 
         /* This is the HTML code that I need to emulate.
@@ -379,7 +379,7 @@ function displaySessionDataByUser(uName,verbose = false) {
             }
             htmlCode += ";align-items:center;display:flex;padding-left:20px\">";
 
-            htmlCode +="Status: " + getUserStatusInSession(uName, me.mySessions[i].ID);
+            htmlCode +="\"Status: " + getUserStatusInSession(uName, me.mySessions[i].ID) + "\"";
 
             //Bar close
             htmlCode += "</div>"
