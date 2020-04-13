@@ -289,9 +289,9 @@ function pullUsers() {
 
 //Dashboard Functions
 
-function displayUserByName(uName, verbose = false) {
+function displaySessionDataByUser(uName, verbose = false) {
     //This will pull the user from the database and display data about them.
-
+    lot(uName, verbose);
 }
 
 function SelectText(id, verbose = false) {

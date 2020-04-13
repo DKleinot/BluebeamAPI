@@ -13,7 +13,9 @@
 
     <form id="fmMain">
         User Name (First Last):  <input type="text" id="UserName" name="UserName" value="Amanda Hugandkiss" onclick="SelectText('UserName',false)">
-        <button id="btnMain" type="button" onclick="getAllSessions()">Get Session data for user</button>
+        <button id="btnMain" type="button" onclick="displaySessionDataByUser(
+            'document.getElementById(UserName).value',true
+        )">Get Session data for user</button>
         <!--User Name (First Last):  <input type="text" id="UserName" name="UserName" value="Amanda Hugandkiss" onclick="SelectText('UserName',false)" onkeypress="KeyPress('UserName',true)">-->
     </form>
     
