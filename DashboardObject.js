@@ -297,7 +297,7 @@ function displaySessionDataByUser(uName,verbose = false) {
     if (UserExists(uName)) {
         log(Users[getUserIndex(uName)], verbose);
     } else {
-
+        DisplayError("User not found");
     }
 }
 
@@ -315,4 +315,8 @@ function KeyPress(id, verbose = false) {
     log(document.getElementById(id).value, verbose);
 
     document.getElementById('btnMain').textContent = "Get Session data for " + document.getElementById(id).value
+}
+
+function DisplayError(val) {
+    document.getElementById('ErrorMessage').textContent = val;
 }
