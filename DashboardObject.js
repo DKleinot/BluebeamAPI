@@ -298,7 +298,7 @@ function displaySessionDataByUser(uName,verbose = false) {
         log(Users[getUserIndex(uName)], verbose);
         DisplayError("Displaying data for " + uName);
     } else {
-        DisplayError("User " + uName + " not found");
+        DisplayError("User <b>" + uName + "</b> not found");
     }
 }
 
@@ -319,5 +319,5 @@ function KeyPress(id, verbose = false) {
 }
 
 function DisplayError(val) {
-    document.getElementById('ErrorMessage').textContent = val;
+    document.getElementById('ErrorMessage').innerHTML = val;
 }
