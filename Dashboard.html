@@ -12,11 +12,12 @@
     <a href="https://thirsty-kepler-b52ade.netlify.com/">Home</a>
 
     <form id="fmMain">
+        <br />
+        <label id="ErrorMessage">No Errors</label>
+        <br />
         User Name (First Last):  <input type="text" id="UserName" name="UserName" value="David Kleinot" onclick="SelectText('UserName',false)">
 
         <button id="btnMain" type="button" onclick="displaySessionDataByUser(document.getElementById('UserName').value,true)">Get Session data for user</button>
-        <br />
-        <label id="ErrorMessage"></label>
 
         <!--User Name (First Last):  <input type="text" id="UserName" name="UserName" value="Amanda Hugandkiss" onclick="SelectText('UserName',false)" onkeypress="KeyPress('UserName',true)">-->
     </form>
