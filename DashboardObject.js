@@ -190,6 +190,7 @@ async function PopulateUsers(verbose = false) {
         log(Users, verbose);
     }
 }
+
 //API functions
 
 async function checkAuthentication(verbose = false) {
@@ -291,4 +292,11 @@ function pullUsers() {
 function displayUserByName(uName, verbose = false) {
     //This will pull the user from the database and display data about them.
 
+}
+
+function SelectText(txtBox, verbose = false) {
+    //This will select the text of the box on click
+    const input = document.getElementById(txtBox);
+    input.focus();
+    input.select();
 }

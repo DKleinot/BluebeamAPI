@@ -6,14 +6,20 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Welcome to the Bluebeam Dashboard v0.0.0.0.1</title>
+    <title>Welcome to the Bluebeam Dashboard v0.1</title>
 </head>
 <body onload="AutoLoad()">
     <a href="https://thirsty-kepler-b52ade.netlify.com/">Home</a>
 
+    <form id="fmMain">
+        User Name (First Last):<input type="text" id="UserName" name="UserName" onclick="SelectText(UserName)">
+    </form>
+    
+
     <button id="btnMain" type="button" onclick="getAllSessions()">
         Get all sessions
     </button>
+
 
 </body>
 </html>
