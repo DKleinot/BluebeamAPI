@@ -35,6 +35,7 @@ function AutoLoad(verbose = false) {
 
     PopulateUsers(verbose).then();
 
+    console.log(Users);
     console.log("Ready");
 }
 
