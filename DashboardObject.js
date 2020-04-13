@@ -306,5 +306,5 @@ function KeyPress(id, verbose = false) {
     //This will modify the title of the button when a name is entered in.
     log(document.getElementById(id).value, verbose);
 
-    document.getElementById('btnMain').value = "Get Session data for " + document.getElementById(id).value
+    document.getElementById('btnMain').text = "Get Session data for " + document.getElementById(id).value
 }
