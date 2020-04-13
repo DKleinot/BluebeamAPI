@@ -365,7 +365,7 @@ function displaySessionDataByUser(uName,verbose = false) {
             log(dStart);
             log(dEnd);
 
-            dDiff = Math.ceil((dEnd.getTime() - dStart.getTime()) / dEnd.getTime() * 100);
+            //dDiff = Math.ceil((dEnd.getTime() - dStart.getTime()) / dEnd.getTime() * 100);
 
             
 
