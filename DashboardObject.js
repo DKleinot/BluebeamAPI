@@ -391,7 +391,7 @@ function displaySessionDataByUser(uName,verbose = false) {
             htmlCode += "</div>"
 
         }
-
+        log(htmlCode,true);
         document.getElementById('DashboardDisplayArea').innerHTML = htmlCode;
 
     } else {
