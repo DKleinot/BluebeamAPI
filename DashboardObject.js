@@ -294,10 +294,17 @@ function displayUserByName(uName, verbose = false) {
 
 }
 
-function SelectText(txtBox, verbose = false) {
-    log(txtBox,verbose);
+function SelectText(id, verbose = false) {
     //This will select the text of the box on click
-    const input = document.getElementById(txtBox);
+    log(id, verbose);
+
+    const input = document.getElementById(id);
     input.focus();
     input.select();
+}
+function KeyPress(id, verbose = false) {
+    //This will modify the title of the button when a name is entered in.
+    log(id, verbose);
+
+    document.getElementById('btnMain').value = "Get Session data for " + document.getElementById(id).value
 }
