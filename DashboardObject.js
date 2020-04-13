@@ -302,6 +302,7 @@ function SelectText(id, verbose = false) {
     input.focus();
     input.select();
 }
+
 function KeyPress(id, verbose = false) {
     //This will modify the title of the button when a name is entered in.
     log(document.getElementById(id).value, verbose);
