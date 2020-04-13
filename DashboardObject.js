@@ -178,12 +178,8 @@ async function PopulateUsers(verbose = false) {
         //Iterate throught each user in a session
         for (j = 0; j < Sessions[i].Users.length; j++) {
             AddUser(Sessions[i].Users[j].ID, Sessions[i].Users[j].Name, Sessions[i].Users[j].Email);
-
-            if (verbose) {
-                log("Adding " + Sessions[i].ID + " to " + Sessions[i].Users[j].Name + "'s sessions list", verbose);
-
-                AddSessionToUser(Sessions[i].Users[j].Name, Sessions[i].ID);
-            }
+            log("Adding " + Sessions[i].ID + " to " + Sessions[i].Users[j].Name + "'s sessions list", verbose);
+            AddSessionToUser(Sessions[i].Users[j].Name, Sessions[i].ID);
         }
 
     }
