@@ -319,5 +319,5 @@ function KeyPress(id, verbose = false) {
 }
 
 function DisplayError(val) {
-    document.getElementById('ErrorMessage').value = val;
+    document.getElementById('ErrorMessage').textContent = val;
 }
