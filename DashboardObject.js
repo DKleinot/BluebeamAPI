@@ -388,6 +388,7 @@ function displaySessionDataByUser(uName,verbose = false) {
 
         }
 
+        Document.getElementById('DashboardDisplayArea').innerHTML = htmlCode;
 
     } else {
         DisplayError("User <b>" + uName + "</b> not found");
