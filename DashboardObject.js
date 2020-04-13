@@ -98,6 +98,16 @@ function getSessionIndex(sID) {
 
 //  Users
 
+function getUserStatusInSession(uName, sID) {
+    //This will look in a session and get the users status
+    var sUsers = Sessions[getSessionIndex(sID)].Users;
+    for (i = 0; i < sUsers.length; i++) {
+        if (sUsers[i].Name == uName) {
+            return sUsers[i].Status;
+        }
+    }
+}
+
 function AddUser(id, name, email) {
     //This will add a user to the database
 
@@ -310,6 +320,11 @@ function displaySessionDataByUser(uName,verbose = false) {
         //Ok, user exists and has sessions, lets do this.
         var htmlCode = "";
         var RowColor = "";
+        var BarWidth = 0;
+        var dStart = new Date();
+        var dEnd = new Date();
+        var dDiff;
+
 
         /* This is the HTML code that I need to emulate.
         <div class="w3-bar" style="width:100%;background-color:lightgrey;display:flex;border:1px solid darkgray">                               //Outter wrapper.
@@ -335,21 +350,42 @@ function displaySessionDataByUser(uName,verbose = false) {
             htmlCode += me.mySessions[i].Name;
 
             //Title wrapper close
-            htmlCode += "</div>"
+            htmlCode += "</div>";
 
             //Bar outter wrapper start
-            htmlCode += "<div class=\"w3-bar-item\" style=\"width:75%;padding:3px 10px 3px 10px;display:flex;border-left:3px solid darkgray\">"
+            htmlCode += "<div class=\"w3-bar-item\" style=\"width:75%;padding:3px 10px 3px 10px;display:flex;border-left:3px solid darkgray\">";
 
             //Bar inner wrapper start
-            htmlCode += "<div class=\"w3-bar-item\" style=\"width:100%;display:flex;border:2px solid black;padding:0px\">"
+            htmlCode += "<div class=\"w3-bar-item\" style=\"width:100%;display:flex;border:2px solid black;padding:0px\">";
+
+            //Need to calc some stuff.
+            dStart = me.mySessions[i].CreatedDate;
+            dEnd = me.mySessions[i].ExpirationDate;
+            dDiff = Math.ceil((dEnd.getTime() - dStart.getTime()) / dEnd.getTime() * 100);
+
+            
 
             //Bar start
-            htmlCode += "<div style=\"width:20%;background-color:green;align-items:center;display:flex;padding-left:20px\">"
+            htmlCode += "<div style=\"width:" + dDiff;
+            htmlCode += "%;background-color:";
+            switch (true) {
+                case dDiff < 33: htmlCode += "green";
+                case dDiff < 66: htmlCode += "orange";
+                default: htmlCode += "red";
+            }
+            htmlCode += ";align-items:center;display:flex;padding-left:20px\">";
 
-            htmlCode += me.mySessions[i].Status;
+            htmlCode +="Status: " + getUserStatusInSession(uName, me.mySessions[i].ID);
 
             //Bar close
             htmlCode += "</div>"
+
+            //Inner wrapper close
+            htmlCode += "</div>"
+
+            //Outter wrapper close
+            htmlCode += "</div>"
+
         }
 
 
