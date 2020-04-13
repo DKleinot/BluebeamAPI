@@ -323,7 +323,7 @@ function displaySessionDataByUser(uName,verbose = false) {
         var BarWidth = 0;
         var dStart = new Date();
         var dEnd = new Date();
-        var dDiff = 67;
+        var dDiff = 50;
 
 
         /* This is the HTML code that I need to emulate.
@@ -389,6 +389,7 @@ function displaySessionDataByUser(uName,verbose = false) {
 
             //Outter wrapper close
             htmlCode += "</div>"
+
             htmlCode += "</div>"
 
         }
