@@ -320,12 +320,8 @@ function displaySessionDataByUser(uName, verbose = false) {
 
         //Ok, user exists and has sessions, lets do this.
         var htmlCode = "";
-        var RowColor = "";
-        var BarWidth = 0;
         var dStart = new Date();
         var dEnd = new Date();
-
-        var pocket;
 
         var dDiff = 0;
 
@@ -366,12 +362,12 @@ function displaySessionDataByUser(uName, verbose = false) {
             dStart = parseDate(me.mySessions[i].CreatedDate, verbose);
             dEnd = parseDate(me.mySessions[i].ExpirationDate, verbose);
 
-            log("Start " + dStart, verbose);
-            log("End " + dEnd, verbose);
+            log("Start1? " + dStart, verbose);
+            log("End2? " + dEnd, verbose);
 
             dDiff = calcDateDiffPercent(dStart, dEnd, verbose);
 
-            log("Diff " + dDiff, verbose);
+            log("Diff1? " + dDiff, verbose);
 
             //Bar start
             htmlCode += "<div style=\"width:" + dDiff;
@@ -399,8 +395,6 @@ function displaySessionDataByUser(uName, verbose = false) {
 
         }
 
-        //log(htmlCode, verbose);
-
         document.getElementById('DashboardDisplayArea').innerHTML = htmlCode;
 
     } else {
@@ -425,7 +419,7 @@ function calcDateDiffPercent(dStart, dEnd, verbose = false) {
 
 function parseDate(sDate, verbose = false) {
     //This will parse a date and return a date object
-    log("Parsing Date: " + sDate, verbose);
+    log("Parsing Date:? " + sDate, verbose);
 
     var pocket1 = [];
     var pocket2 = [];
