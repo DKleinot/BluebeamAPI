@@ -409,7 +409,7 @@ function displaySessionDataByUser(uName,verbose = false) {
 
 function parseDate(sDate, verbose = false) {
     //This will parse a date and return a date object
-    log(sDate, verbose);
+    log("Parsing Date: " + sDate, verbose);
 
     var pocket1 = [];
     var pocket2 = [];
@@ -419,8 +419,8 @@ function parseDate(sDate, verbose = false) {
     pocket2 = pocket1[0].split("-");
     pocket1 = pocket1[1].split(":");
 
-    log(pocket1, verbose);
-    log(pocket2, verbose);
+    log("Second Half: " + pocket1, verbose);
+    log("First Half: " + pocket2, verbose);
 
     y = pocket2[0].split("-")[0];
     m = pocket2[0].split("-")[1];
