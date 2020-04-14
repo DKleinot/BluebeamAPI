@@ -430,7 +430,6 @@ function parseDate(sDate, verbose = false) {
     var pocket2 = [];
 
     var y, d, m, h, mm, s;
-    //var mDate;
 
     pocket1 = sDate.split("T");
     pocket2 = pocket1[0].split("-");
@@ -446,9 +445,6 @@ function parseDate(sDate, verbose = false) {
     h = pocket1[0];
     mm = pocket1[1];
     s = pocket1[2];
-
-    console.log(y, m, d, h, mm, s);
-    //mDate = new Date(parseInt()
 
     return new Date(y, m-1, d, h, mm,s);
 }
