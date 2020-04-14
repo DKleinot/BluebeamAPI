@@ -323,7 +323,10 @@ function displaySessionDataByUser(uName,verbose = false) {
         var BarWidth = 0;
         var dStart = new Date();
         var dEnd = new Date();
-        var dDiff = 34;
+
+        var pocket;
+
+        var dDiff = 0;
 
 
         /* This is the HTML code that I need to emulate.
@@ -358,12 +361,15 @@ function displaySessionDataByUser(uName,verbose = false) {
             //Bar inner wrapper start
             htmlCode += "<div class=\"w3-bar-item\" style=\"width:100%;display:flex;border:2px solid black;padding:0px\">";
 
-            //Need to calc some stuff.
+            //Need to calc date complete.
+
+
+
             dStart = me.mySessions[i].CreatedDate;
             dEnd = me.mySessions[i].ExpirationDate;
 
-            log(dStart,true);
-            log(dEnd,true);
+            log(dStart, verbose);
+            log(dEnd, verbose);
 
             //dDiff = Math.ceil((dEnd.getTime() - dStart.getTime()) / dEnd.getTime() * 100);
 
@@ -394,12 +400,38 @@ function displaySessionDataByUser(uName,verbose = false) {
             htmlCode += "</div>"
 
         }
-        log(htmlCode,true);
+        log(htmlCode,verbose);
         document.getElementById('DashboardDisplayArea').innerHTML = htmlCode;
 
     } else {
         DisplayError("User <b>" + uName + "</b> not found");
     }
+}
+
+function parseDate(sDate, verbose = false) {
+    //This will parse a date and return a date object
+    log(sDate, verbose);
+
+    var pocket1 = [];
+    var pocket2 = [];
+
+    var y, d, m, h, mm, s;
+    pocket1 = sdate.split("T");
+    pocket2 = pocket1[0].split("-");
+    pocket1 = pocket1[1].split(":");
+
+    log(pocket1, verbose);
+    log(pocket2, verbose);
+
+    y = pocket2[0].split("-")[0];
+    m = pocket2[0].split("-")[1];
+    d = pocket2[0].split("-")[2];
+
+    h = pocket1[0].split("-")[0];
+    mm = pocket1[0].split("-")[mm];
+    s = pocket1[0].split("-")[s];
+
+    return new Date(y, m, d, h, mm, s);
 }
 
 function SelectText(id, verbose = false) {
