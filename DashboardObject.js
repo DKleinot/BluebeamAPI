@@ -25,6 +25,13 @@ const Users = [];
 
 var access_token = sessionStorage.getItem('Access_Token');
 
+//rgb(0,180,0)
+
+//Display Colors
+var colLow = rgb(0, 180, 0);   //This is a low priority (ie Finished or plenty of time to review)
+var colMed = "orange";  //This is a medium priority (ie Not much time left to review)
+var colHigh = "red";    //This is a high priority (ie very little time left to review)
+
 function AutoLoad(verbose = false) {
     checkAuthentication(verbose).then();
 
@@ -323,7 +330,7 @@ function displaySessionDataByUser(uName, verbose = false) {
         var dEnd = new Date();
 
         var myStatus = "";
-        var myColor = "red";
+        var myColor = colHigh;
 
         var dDiff = 0;
 
@@ -378,14 +385,15 @@ function displaySessionDataByUser(uName, verbose = false) {
             myStatus = getUserStatusInSession(uName, me.mySessions[i].ID);
 
             switch (true) {
-                case dDiff < 50: myColor = "green"; break;
-                case dDiff < 75: myColor  = "orange"; break;
-                default: myColor = "red";
+                case dDiff < 50: myColor = colLow; break;
+                case dDiff < 75: myColor = colMed; break;
+                default: myColor = colHigh;
             }
 
             //Override color if status is finished.
-            console.log(myStatus);
-            if (myStatus == "Finished") { myColor = "green"; }
+            if (myStatus == "Finished") { myColor = colLow; }
+
+            //Override status is empty.
             if (myStatus == "") { myStatus = "[NONE]"; }
 
             htmlCode += myColor;
