@@ -307,6 +307,8 @@ function displaySessionDataByUser(uName, verbose = false) {
     var i = 0;
 
     log(uName, verbose);
+    log("Hiiii", verbose);
+
     if (UserExists(uName)) {
 
         var me = Users[getUserIndex(uName)];
