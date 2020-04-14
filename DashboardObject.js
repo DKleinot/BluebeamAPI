@@ -301,7 +301,7 @@ function pullUsers() {
 
 //Dashboard Functions
 
-function displaySessionDataByUser(uName,verbose = false) {
+function displaySessionDataByUser(uName, verbose = false) {
     //This will pull the user from the database and display data about them.
 
     var i = 0;
@@ -362,8 +362,8 @@ function displaySessionDataByUser(uName,verbose = false) {
             htmlCode += "<div class=\"w3-bar-item\" style=\"width:100%;display:flex;border:2px solid black;padding:0px\">";
 
             //Need to calc date complete.
-            dStart = parseDate(me.mySessions[i].CreatedDate,verbose);
-            dEnd = parseDate(me.mySessions[i].ExpirationDate,verbose);
+            dStart = parseDate(me.mySessions[i].CreatedDate, verbose);
+            dEnd = parseDate(me.mySessions[i].ExpirationDate, verbose);
 
             log("Start " + dStart, verbose);
             log("End " + dEnd, verbose);
