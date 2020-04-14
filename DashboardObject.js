@@ -415,6 +415,8 @@ function parseDate(sDate, verbose = false) {
     var pocket2 = [];
 
     var y, d, m, h, mm, s;
+    //var mDate;
+
     pocket1 = sDate.split("T");
     pocket2 = pocket1[0].split("-");
     pocket1 = pocket1[1].split(":");
@@ -430,7 +432,9 @@ function parseDate(sDate, verbose = false) {
     mm = pocket1[0].split("-")[mm];
     s = pocket1[0].split("-")[s];
 
-    return new Date(y, m, d, h, mm);
+    //mDate = new Date(parseInt()
+
+    return new Date(parseInt(y), parseInt(m), parseInt(d), parseInt(h), parseInt(mm));
 }
 
 function SelectText(id, verbose = false) {
