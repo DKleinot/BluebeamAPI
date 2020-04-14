@@ -407,7 +407,7 @@ function displaySessionDataByUser(uName,verbose = false) {
     }
 }
 
-function calcDateDiffPercent(dStart, dEnd, verbose) {
+function calcDateDiffPercent(dStart, dEnd, verbose=false) {
     //This will get a percent complete between the start and end based on current time.
     //  If Now is after the end date, it will return 100%
 
