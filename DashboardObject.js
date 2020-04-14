@@ -424,13 +424,13 @@ function parseDate(sDate, verbose = false) {
     log("Second Half?: " + pocket1, verbose);
     log("First Half: " + pocket2, verbose);
 
-    y = pocket2[0].split("-")[0];
-    m = pocket2[0].split("-")[1];
-    d = pocket2[0].split("-")[2];
+    y = pocket2[0];
+    m = pocket2[1];
+    d = pocket2[2];
 
-    h = pocket1[0].split("-")[0];
-    mm = pocket1[0].split("-")[1];
-    s = pocket1[0].split("-")[2];
+    h = pocket1[0];
+    mm = pocket1[1];
+    s = pocket1[2];
 
     console.log(y, m, d, h, mm, s);
     //mDate = new Date(parseInt()
