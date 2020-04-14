@@ -13,6 +13,14 @@
 
 */
 
+/*TODO: A list of features to add to the Dashboard
+ *  Sorting / filtering of output
+ *      Filter Status (ie only NONE or Reviewing)
+ *      Sort by status (NONE>OTHER>Reviewing>Finished)
+ *      Sort by percent complete (ie time remaining until session expires)
+ *  Add AutoComplete to Name Field
+ */
+
 //This will make it easier to turn off debugging
 function log(Val, verbose = false) {
     //Simple function to help log stuff to the console.
@@ -418,6 +426,7 @@ function displaySessionDataByUser(uName, verbose = false) {
         document.getElementById('DashboardDisplayArea').innerHTML = htmlCode;
 
     } else {
+        document.getElementById("DashboardDisplayArea").style.display = "none";
         DisplayError("User <b>" + uName + "</b> not found");
     }
 }
