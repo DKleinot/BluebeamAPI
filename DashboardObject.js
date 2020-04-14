@@ -25,12 +25,10 @@ const Users = [];
 
 var access_token = sessionStorage.getItem('Access_Token');
 
-//rgb(0,180,0)
-
 //Display Colors
-var colLow = 'rgb(0, 120, 0)';   //This is a low priority (ie Finished or plenty of time to review)
+var colLow = 'rgb(0, 180, 0)';   //This is a low priority (ie Finished or plenty of time to review)
 var colMed = "orange";  //This is a medium priority (ie Not much time left to review)
-var colHigh = "red";    //This is a high priority (ie very little time left to review)
+var colHigh = 'rgb(255, 0, 0)';    //This is a high priority (ie very little time left to review)
 
 function AutoLoad(verbose = false) {
     checkAuthentication(verbose).then();
