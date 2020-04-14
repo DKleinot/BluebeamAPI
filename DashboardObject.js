@@ -322,10 +322,13 @@ function displaySessionDataByUser(uName, verbose = false) {
         var dStart = new Date();
         var dEnd = new Date();
 
+        var myStatus = "";
+        var myColor = "red";
+
         var dDiff = 0;
 
-
-        /* This is the HTML code that I need to emulate.
+        /*
+        This is the HTML code that I need to emulate.
         <div class="w3-bar" style="width:100%;background-color:lightgrey;display:flex;border:1px solid darkgray">                               //Outter wrapper.
             <div class="w3-bar-item" style="width:25%">                                                                                         //Title Wrapper
                 T123456789 - This is the name of the session, it is very long.  What will happen if its this long?
@@ -372,14 +375,23 @@ function displaySessionDataByUser(uName, verbose = false) {
             htmlCode += "<div style=\"width:" + dDiff;
             htmlCode += "%;background-color:";
 
+            myStatus = getUserStatusInSession(uName, me.mySessions[i].ID);
+
             switch (true) {
-                case dDiff < 50: htmlCode += "green"; break;
-                case dDiff < 66: htmlCode += "orange"; break;
-                default: htmlCode += "red";
+                case dDiff < 50: myColor = "green"; break;
+                case dDiff < 75: myColor  = "orange"; break;
+                default: myColor = "red";
             }
+
+            //Override color if status is finished.
+            if (myStatus == "Finished") { myColor = "green"; }
+            if (myStatus == "") { myStatus = "[NONE]"; }
+
+            htmlCode += myColor;
+
             htmlCode += ";align-items:center;display:flex;padding-left:20px\">";
 
-            htmlCode +="\"Status: " + getUserStatusInSession(uName, me.mySessions[i].ID) + "\"";
+            htmlCode += "\"Status: " + myStatus + "\"";
 
             //Bar close
             htmlCode += "</div>"
