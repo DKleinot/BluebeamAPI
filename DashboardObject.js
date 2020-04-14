@@ -431,7 +431,7 @@ function parseDate(sDate, verbose = false) {
     pocket1 = pocket1[1].split(":");
 
     log("Second Half?: " + pocket1, verbose);
-    log("First Half: " + pocket2, verbose);
+    log("First Half?: " + pocket2, verbose);
 
     y = pocket2[0];
     m = pocket2[1];
