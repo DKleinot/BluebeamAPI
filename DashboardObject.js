@@ -363,7 +363,7 @@ function displaySessionDataByUser(uName,verbose = false) {
 
             //Need to calc date complete.
             dStart = parseDate(me.mySessions[i].CreatedDate,verbose);
-            dEnd = parseDateme.mySessions[i].ExpirationDate,verbose);
+            dEnd = parseDate(me.mySessions[i].ExpirationDate,verbose);
 
             log(dStart, verbose);
             log(dEnd, verbose);
