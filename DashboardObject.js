@@ -429,8 +429,8 @@ function parseDate(sDate, verbose = false) {
     d = pocket2[0].split("-")[2];
 
     h = pocket1[0].split("-")[0];
-    mm = pocket1[0].split("-")[mm];
-    s = pocket1[0].split("-")[s];
+    mm = pocket1[0].split("-")[1];
+    s = pocket1[0].split("-")[2];
 
     //mDate = new Date(parseInt()
 
