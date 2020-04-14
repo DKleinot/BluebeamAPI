@@ -362,18 +362,15 @@ function displaySessionDataByUser(uName,verbose = false) {
             htmlCode += "<div class=\"w3-bar-item\" style=\"width:100%;display:flex;border:2px solid black;padding:0px\">";
 
             //Need to calc date complete.
-
-
-
-            dStart = me.mySessions[i].CreatedDate;
-            dEnd = me.mySessions[i].ExpirationDate;
+            dStart = parseDate(me.mySessions[i].CreatedDate,verbose);
+            dEnd = parseDateme.mySessions[i].ExpirationDate,verbose);
 
             log(dStart, verbose);
             log(dEnd, verbose);
 
-            //dDiff = Math.ceil((dEnd.getTime() - dStart.getTime()) / dEnd.getTime() * 100);
+            dDiff = Math.ceil((dEnd.getTime() - dStart.getTime()) / dEnd.getTime() * 100);
 
-            
+            log(dDiff, verbose);
 
             //Bar start
             htmlCode += "<div style=\"width:" + dDiff;
@@ -400,7 +397,9 @@ function displaySessionDataByUser(uName,verbose = false) {
             htmlCode += "</div>"
 
         }
-        log(htmlCode,verbose);
+
+        log(htmlCode, verbose);
+
         document.getElementById('DashboardDisplayArea').innerHTML = htmlCode;
 
     } else {
