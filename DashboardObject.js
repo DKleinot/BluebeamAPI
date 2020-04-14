@@ -384,6 +384,7 @@ function displaySessionDataByUser(uName, verbose = false) {
             }
 
             //Override color if status is finished.
+            console.log(myStatus);
             if (myStatus == "Finished") { myColor = "green"; }
             if (myStatus == "") { myStatus = "[NONE]"; }
 
