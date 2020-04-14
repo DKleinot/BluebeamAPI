@@ -415,7 +415,7 @@ function parseDate(sDate, verbose = false) {
     var pocket2 = [];
 
     var y, d, m, h, mm, s;
-    pocket1 = sdate.split("T");
+    pocket1 = sDate.split("T");
     pocket2 = pocket1[0].split("-");
     pocket1 = pocket1[1].split(":");
 
