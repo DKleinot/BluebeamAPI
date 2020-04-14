@@ -421,7 +421,7 @@ function parseDate(sDate, verbose = false) {
     pocket2 = pocket1[0].split("-");
     pocket1 = pocket1[1].split(":");
 
-    log("Second Half: " + pocket1, verbose);
+    log("Second Half?: " + pocket1, verbose);
     log("First Half: " + pocket2, verbose);
 
     y = pocket2[0].split("-")[0];
