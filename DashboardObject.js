@@ -23,7 +23,6 @@ function log(Val, verbose = false) {
 const Sessions = [];
 const Users = [];
 
-
 var access_token = sessionStorage.getItem('Access_Token');
 
 function AutoLoad(verbose = false) {
@@ -409,12 +408,12 @@ function displaySessionDataByUser(uName, verbose = false) {
     }
 }
 
-function calcDateDiffPercent(dStart, dEnd, verbose=false) {
+function calcDateDiffPercent(dStart, dEnd, verbose = false) {
     //This will get a percent complete between the start and end based on current time.
     //  If Now is after the end date, it will return 100%
 
-    log("Start " + dStart, verbose);
-    log("End " + dEnd, verbose);
+    log("Start? " + dStart, verbose);
+    log("End? " + dEnd, verbose);
     
     if (Date.now() > dEnd) { return 100; }
     if (Date.now() < dStart) { return 0; }
