@@ -432,6 +432,7 @@ function parseDate(sDate, verbose = false) {
     mm = pocket1[0].split("-")[1];
     s = pocket1[0].split("-")[2];
 
+    console.log(y, m, d, h, mm, s);
     //mDate = new Date(parseInt()
 
     return new Date(parseInt(y), parseInt(m), parseInt(d), parseInt(h), parseInt(mm));
