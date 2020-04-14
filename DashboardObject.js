@@ -368,7 +368,7 @@ function displaySessionDataByUser(uName,verbose = false) {
             log("Start " + dStart, verbose);
             log("End " + dEnd, verbose);
 
-            dDiff = Math.ceil((dEnd.getTime() - dStart.getTime()) / dEnd.getTime() * 100);
+            dDiff = calcDateDiffPercent(dStart, dEnd, verbose);
 
             log("Diff " + dDiff, verbose);
 
@@ -405,6 +405,21 @@ function displaySessionDataByUser(uName,verbose = false) {
     } else {
         DisplayError("User <b>" + uName + "</b> not found");
     }
+}
+
+function calcDateDiffPercent(dStart, dEnd, verbose) {
+    //This will get a percent complete between the start and end based on current time.
+    //  If Now is after the end date, it will return 100%
+
+    log("Start " + dStart, verbose);
+    log("End " + dEnd, verbose);
+    
+    if (Date.now() > dEnd) { return 100; }
+    if (Date.now() < dStart) { return 0; }
+
+    log(Math.ceil((Date.now() - dStart.getTime()) / (dEnd.getTime() - dStart.getTime()) * 100), verbose);
+
+    return Math.ceil((Date.now() - dStart.getTime()) / (dEnd.getTime() - dStart.getTime()) * 100);
 }
 
 function parseDate(sDate, verbose = false) {
