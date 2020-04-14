@@ -365,12 +365,12 @@ function displaySessionDataByUser(uName,verbose = false) {
             dStart = parseDate(me.mySessions[i].CreatedDate,verbose);
             dEnd = parseDate(me.mySessions[i].ExpirationDate,verbose);
 
-            log(dStart, verbose);
-            log(dEnd, verbose);
+            log("Start " + dStart, verbose);
+            log("End " + dEnd, verbose);
 
             dDiff = Math.ceil((dEnd.getTime() - dStart.getTime()) / dEnd.getTime() * 100);
 
-            log(dDiff, verbose);
+            log("Diff " + dDiff, verbose);
 
             //Bar start
             htmlCode += "<div style=\"width:" + dDiff;
@@ -398,7 +398,7 @@ function displaySessionDataByUser(uName,verbose = false) {
 
         }
 
-        log(htmlCode, verbose);
+        //log(htmlCode, verbose);
 
         document.getElementById('DashboardDisplayArea').innerHTML = htmlCode;
 
