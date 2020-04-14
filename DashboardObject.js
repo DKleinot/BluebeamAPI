@@ -306,7 +306,6 @@ function displaySessionDataByUser(uName, verbose = false) {
     var i = 0;
 
     log(uName, verbose);
-    log("Hiiii", verbose);
 
     if (UserExists(uName)) {
 
@@ -362,12 +361,12 @@ function displaySessionDataByUser(uName, verbose = false) {
             dStart = parseDate(me.mySessions[i].CreatedDate, verbose);
             dEnd = parseDate(me.mySessions[i].ExpirationDate, verbose);
 
-            log("Start1? " + dStart, verbose);
-            log("End2? " + dEnd, verbose);
+            log("Start " + dStart, verbose);
+            log("End " + dEnd, verbose);
 
             dDiff = calcDateDiffPercent(dStart, dEnd, verbose);
 
-            log("Diff1? " + dDiff, verbose);
+            log("Diff " + dDiff, verbose);
 
             //Bar start
             htmlCode += "<div style=\"width:" + dDiff;
@@ -406,8 +405,8 @@ function calcDateDiffPercent(dStart, dEnd, verbose = false) {
     //This will get a percent complete between the start and end based on current time.
     //  If Now is after the end date, it will return 100%
 
-    log("Start? " + dStart, verbose);
-    log("End? " + dEnd, verbose);
+    log("Start " + dStart, verbose);
+    log("End " + dEnd, verbose);
     
     if (Date.now() > dEnd) { return 100; }
     if (Date.now() < dStart) { return 0; }
@@ -419,7 +418,7 @@ function calcDateDiffPercent(dStart, dEnd, verbose = false) {
 
 function parseDate(sDate, verbose = false) {
     //This will parse a date and return a date object
-    log("Parsing Date:1? " + sDate, verbose);
+    log("Parsing Date: " + sDate, verbose);
 
     var pocket1 = [];
     var pocket2 = [];
@@ -430,8 +429,8 @@ function parseDate(sDate, verbose = false) {
     pocket2 = pocket1[0].split("-");
     pocket1 = pocket1[1].split(":");
 
-    log("Second Half?: " + pocket1, verbose);
-    log("First Half?: " + pocket2, verbose);
+    log("Second Half: " + pocket1, verbose);
+    log("First Half: " + pocket2, verbose);
 
     y = pocket2[0];
     m = pocket2[1];
