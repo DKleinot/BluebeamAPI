@@ -419,7 +419,7 @@ function calcDateDiffPercent(dStart, dEnd, verbose = false) {
 
 function parseDate(sDate, verbose = false) {
     //This will parse a date and return a date object
-    log("Parsing Date:? " + sDate, verbose);
+    log("Parsing Date:1? " + sDate, verbose);
 
     var pocket1 = [];
     var pocket2 = [];
