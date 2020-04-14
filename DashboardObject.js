@@ -314,6 +314,8 @@ function displaySessionDataByUser(uName, verbose = false) {
 
     if (UserExists(uName)) {
 
+        document.getElementById("DashboardDisplayArea").style.display = "normal";
+
         var me = Users[getUserIndex(uName)];
         log(me, verbose);
 
