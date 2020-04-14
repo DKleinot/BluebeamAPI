@@ -435,7 +435,7 @@ function parseDate(sDate, verbose = false) {
     console.log(y, m, d, h, mm, s);
     //mDate = new Date(parseInt()
 
-    return new Date(parseInt(y), parseInt(m), parseInt(d), parseInt(h), parseInt(mm));
+    return new Date(y, m, d, h, mm,s);
 }
 
 function SelectText(id, verbose = false) {
