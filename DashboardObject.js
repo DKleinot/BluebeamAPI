@@ -430,7 +430,7 @@ function parseDate(sDate, verbose = false) {
     mm = pocket1[0].split("-")[mm];
     s = pocket1[0].split("-")[s];
 
-    return new Date(y, m, d, h, mm, s);
+    return new Date(y, m, d, h, mm);
 }
 
 function SelectText(id, verbose = false) {
