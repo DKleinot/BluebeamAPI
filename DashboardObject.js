@@ -58,7 +58,7 @@ function AutoLoad(verbose = false, run = true) {
 
     console.log("Ready");
 
-    AutoComplete(document.getElementById('UserName'), TempUsers, true);
+    AutoComplete(document.getElementById('UserName'), verbose);
 }
 
 //Move this function lower down
