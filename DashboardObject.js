@@ -469,6 +469,7 @@ function displaySessionDataByUser(uName, verbose = false) {
     if (UserExists(uName)) {
 
         document.getElementById("DashboardDisplayArea").style.display = "block";
+        document.getElementById("TutorialInfoHolder").style.display = "flex";
 
         var me = Users[getUserIndex(uName)];
         log(me, verbose);
@@ -573,6 +574,7 @@ function displaySessionDataByUser(uName, verbose = false) {
 
     } else {
         document.getElementById("DashboardDisplayArea").style.display = "none";
+        document.getElementById("TutorialInfoHolder").style.display = "none";
         DisplayError("User <b>" + uName + "</b> not found");
     }
 }
