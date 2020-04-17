@@ -9,13 +9,77 @@
     <title>Bluebeam Dashboard v0.1</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-<body style="margin:5px" onload="AutoLoad(false)">
+
+<style>
+    
+    * {box-sizing: border-box;}
+    
+
+    body {
+        font: 16px Arial;
+    }
+
+    /*the container must be positioned relative:*/
+    .autocomplete {
+        position: relative;
+        display: inline-block;
+    }
+
+    input {
+        border: 1px solid transparent;
+        background-color: #f1f1f1;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    input[type=text] {
+        background-color: #f1f1f1;
+        width: 100%;
+    }
+
+    input[type=submit] {
+        background-color: DodgerBlue;
+        color: #fff;
+        cursor: pointer;
+    }
+    .autocomplete-items {
+        position: absolute;
+        border: 1px solid #d4d4d4;
+        border-bottom: none;
+        border-top: none;
+        z-index: 99;
+        /*position the autocomplete items to be the same width as the container:*/
+        top: 100%;
+        left: 0;
+        right: 0;
+    }
+    .autocomplete-items div {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #fff;
+        border-bottom: 1px solid #d4d4d4;
+    }
+
+    /*when hovering an item:*/
+    .autocomplete-items div:hover {
+        background-color: #e9e9e9;
+    }
+
+    /*when navigating through the items using the arrow keys:*/
+    .autocomplete-active {
+        background-color: DodgerBlue !important;
+        color: #ffffff;
+    }
+</style>
+
+<body style="margin:5px" onload="AutoLoad(false,true)">
     <!--<a href="https://thirsty-kepler-b52ade.netlify.com/">Home</a>-->
 
-    <form id="fmMain">
+    <form id="fmMain" autocomplete="off">
         <h1>This is still in the testing phase and should not be used.</h1>
 
-        <h4>For questions, comments, suggestions or more information, contact
+        <h4>
+            For questions, comments, suggestions or more information, contact
             <a href="mailto:David.Kleinot@delaware.gov?subject=BluebeamDashboard&body=[Enter your message here.  Please be specific]">
                 David.Kleinot@delaware.gov
             </a>
@@ -25,9 +89,12 @@
         <i><a id="ErrorMessage">No Errors</a></i>
         <br />
         <br />
-        User Name (First Last):  <input type="text" id="UserName" name="UserName" value="David Kleinot" onclick="SelectText('UserName',false)">
+        <div class="autocomplete" id="AutoCompleteDIV">
+            User Name (First Last):  <input type="text" id="UserName" name="UserName" value="David Kleinot" onclick="SelectText('UserName',false) ">
+        </div>
+        <button id="btnMain" type="button" style="padding:10px" onclick="displaySessionDataByUser(document.getElementById('UserName').value,false)">Get Session data for user</button>
 
-        <button id="btnMain" type="button" onclick="displaySessionDataByUser(document.getElementById('UserName').value,false)">Get Session data for user</button>
+
 
     </form>
 
