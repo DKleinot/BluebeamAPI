@@ -44,6 +44,19 @@ var TempUsers = ["Aaron Bell", "Ahmed Abdelmoteleb", "Alexandra Tarantino", "Ann
 
 function AutoLoad(verbose = false, run = true) {
 
+    var input = document.getElementById("UserName");
+
+    input.addEventListener("keyup", function (event) {
+        // Execute a function when the user releases a key on the keyboard
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            document.getElementById("btnMain").click();
+        }
+    });
+
     if (!run) {
         DisplayError("Running in Offline Mode");
         return;
@@ -324,19 +337,6 @@ function pullUsers() {
 }
 
 //Dashboard Functions
-
-var input = document.getElementById("UserName");
-
-input.addEventListener("keyup", function (event) {
-    // Execute a function when the user releases a key on the keyboard
-    // Number 13 is the "Enter" key on the keyboard
-    if (event.keyCode === 13) {
-        // Cancel the default action, if needed
-        event.preventDefault();
-        // Trigger the button element with a click
-        document.getElementById("btnMain").click();
-    }
-});
 
 function AutoComplete(inp, verbose = false) {
     log(inp, verbose);
