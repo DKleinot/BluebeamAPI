@@ -325,7 +325,9 @@ function pullUsers() {
 
 //Dashboard Functions
 
-var input = document.getElementById("UserName").addEventListener("keyup", function (event) {
+var input = document.getElementById("UserName");
+
+input.addEventListener("keyup", function (event) {
     // Execute a function when the user releases a key on the keyboard
     // Number 13 is the "Enter" key on the keyboard
     if (event.keyCode === 13) {
