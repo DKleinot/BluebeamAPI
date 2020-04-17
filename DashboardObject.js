@@ -555,7 +555,7 @@ function displaySessionDataByUser(uName, verbose = false) {
 
             htmlCode += ";align-items:center;display:flex;padding-left:20px\">";
 
-            htmlCode += "\"Status: " + myStatus + "\"";
+            htmlCode += "\"My Status: " + myStatus + "\"";
 
             //Bar close
             htmlCode += "</div>"
