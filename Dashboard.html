@@ -72,7 +72,7 @@
     }
 </style>
 
-<body style="margin:5px" onload="AutoLoad(false,true)">
+<body style="margin:5px" onload="AutoLoad(false,false)">
     <!--<a href="https://thirsty-kepler-b52ade.netlify.com/">Home</a>-->
 
     <form id="fmMain" autocomplete="off">
@@ -102,38 +102,50 @@
     <br />
 
     <!--This is the area that javascript will be adding information to-->
-    <div id="DashboardDisplayArea" style="width:100%;border:3px solid black;display:none">
-        <!--
-            <div class="w3-bar" style="width:100%;background-color:lightgrey;display:flex;border:1px solid darkgray">
-                <div class="w3-bar-item" style="width:25%">
-                    T123456789 - This is the name of the session, it is very long.  What will happen if its this long?
-                </div>
-                <div class="w3-bar-item" style="width:75%;padding:3px 10px 3px 10px;display:flex;border-left:3px solid darkgray">
-                    <div class="w3-bar-item" style="width:100%;display:flex;border:2px solid black;padding:0px">
-                        <div style="width:20%;background-color:green;align-items:center;display:flex;padding-left:20px">This is some content</div>
-                    </div>
+    <div id="TutorialInfoHolder" style="width:100%;height:40px;border:0px solid black;display:flex;">
+        <div id="TutorialInfoHolder1" style="width:25%;border:0px solid black;text-align:center">
+            <p><b>Session Title</b></p>
+        </div>
+        <div id="TutorialInfoHolder2" style="width:25%;border:0px solid black;padding-left:15px;vertical-align:bottom">
+            <p>|< Session Start</p>
+        </div>
+        <div id="TutorialInfoHolde3" style="text-align:right;width:50%;border:0px solid black;padding-right:15px;vertical-align:bottom">
+            <p>Session End >|</p>
+        </div>
+    </div>
+
+    <div id="DashboardDisplayArea" style="width:100%;border:3px solid black;display:block">
+
+        <div class="w3-bar" style="width:100%;background-color:lightgrey;display:flex;border:1px solid darkgray">
+            <div class="w3-bar-item" style="width:25%">
+                T123456789 - This is the name of the session, it is very long.  What will happen if its this long?
+            </div>
+            <div class="w3-bar-item" style="width:75%;padding:3px 10px 3px 10px;display:flex;border-left:3px solid darkgray">
+                <div class="w3-bar-item" style="width:100%;display:flex;border:2px solid black;padding:0px">
+                    <div style="width:20%;background-color:green;align-items:center;display:flex;padding-left:20px">This is some content</div>
                 </div>
             </div>
-            <div class="w3-bar" style="width:100%;background-color:lightgrey;display:flex;border:1px solid darkgray">
-                <div class="w3-bar-item" style="width:25%">
-                    T123456789 - This is the name of the session, it is very long.  What will happen if its this long?
-                </div>
-                <div class="w3-bar-item" style="width:75%;padding:3px 10px 3px 10px;display:flex;border-left:3px solid darkgray">
-                    <div class="w3-bar-item" style="width:100%;display:flex;border:2px solid black;padding:0px">
-                        <div style="width:20%;background-color:green;align-items:center;display:flex;padding-left:20px">This is some content</div>
-                    </div>
+        </div>
+        <div class="w3-bar" style="width:100%;display:flex;border:1px solid darkgray">
+            <div class="w3-bar-item" style="width:25%">
+                T123456789 - This is the name of the session, it is very long.  What will happen if its this long?
+            </div>
+            <div class="w3-bar-item" style="width:75%;padding:3px 10px 3px 10px;display:flex;border-left:3px solid darkgray">
+                <div class="w3-bar-item" style="width:100%;display:flex;border:2px solid black;padding:0px">
+                    <div style="width:20%;background-color:green;align-items:center;display:flex;padding-left:20px">This is some content</div>
                 </div>
             </div>
-            <div class="w3-bar" style="width:100%;background-color:lightgrey;display:flex;border:1px solid darkgray">
-                <div class="w3-bar-item" style="width:25%">
-                    T123456789 - This is the name of the session, it is very long.  What will happen if its this long?
+        </div>
+        <div class="w3-bar" style="width:100%;background-color:lightgrey;display:flex;border:1px solid darkgray">
+            <div class="w3-bar-item" style="width:25%">
+                T123456789 - This is the name of the session, it is very long.  What will happen if its this long?
+            </div>
+            <div class="w3-bar-item" style="width:75%;padding:3px 10px 3px 10px;display:flex;border-left:3px solid darkgray">
+                <div class="w3-bar-item" style="width:100%;display:flex;border:2px solid black;padding:0px">
+                    <div style="width:20%;background-color:green;align-items:center;display:flex;padding-left:20px">This is some content</div>
                 </div>
-                <div class="w3-bar-item" style="width:75%;padding:3px 10px 3px 10px;display:flex;border-left:3px solid darkgray">
-                    <div class="w3-bar-item" style="width:100%;display:flex;border:2px solid black;padding:0px">
-                        <div style="width:20%;background-color:green;align-items:center;display:flex;padding-left:20px">This is some content</div>
-                    </div>
-                </div>
-            </div>-->
+            </div>
+        </div>
     </div>
 
 </body>
