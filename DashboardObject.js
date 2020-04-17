@@ -38,7 +38,16 @@ var colLow = 'rgb(0, 180, 0)';   //This is a low priority (ie Finished or plenty
 var colMed = "orange";  //This is a medium priority (ie Not much time left to review)
 var colHigh = 'rgb(255, 0, 0)';    //This is a high priority (ie very little time left to review)
 
-function AutoLoad(verbose = false) {
+var TempUsers = ["Aaron Bell", "Ahmed Abdelmoteleb", "Alexandra Tarantino", "Ann Gravatt", "Belkis Cuevas", "Bernie Gilbert", "Billy Sweeney", "Bobby Reed", "Bruce Allen", "Catherine Weishaupt", "Chetna Dave", "Chetna Dave", "Christie Bonniwell", "Chuck Ferguson", "Claudy Joinville", "Colton Phillips", "Craig Stevens", "Dan Thompson", "Daniel Sturgeon", "Danna Belshaw", "Darin Dell", "David Wynn", "Deborah Kukulich", "Dennis Rodgers", "Devon Norwood", "Don Finney", "Drew Boyce", "Emory Miller", "Eric Cimo", "George Haldas", "George Spadafino", "Georgea Pierce", "Hayden Compton", "Heather Mantz", "Jacob Kulhanek", "James Osborne", "Jamie Miller", "Jason Arndt", "Jason Mccluskey", "Jason Vogl", "Jeff Armstrong", "Jeffrey Vanhorn", "Jerri Fleetwood", "Jillian Mathews", "John Andrescavage", "John Fiori", "John Weaver", "Jonathan Moore", "Joseph Masten", "Josephus Vanboekhold", "Joshua Schwartz", "Joshua Thomas", "Karl Brown", "Karynn Reed", "Keith Durham", "Ken Rife", "Kevin Hickman", "Latonya Gilliam", "Lei Xu", "Marc Cote", "Mark Galipo", "Mark Harbeson", "Marvin Pedigo", "Matt Buckley", "Max Saintil", "Michael Fleming", "Michael Rivera", "Michael Rivera", "Michaelc Hahn", "Mike Beulah", "Naa-atswei Tetteh", "Naseem Stanford", "Nathan Draper", "Nathan Rahaim", "Omar Simpson", "Pamela Steinebach", "Pao Lin", "Paul Mcnamire", "Ping Jiang", "Raymond Eskaros", "Renford Brevett", "Richard Barchock", "Richard Sinegar", "Rob Williams", "Robby Brown", "Ryan Kendzierski", "Ryan Shaver", "Sara Esposito", "Scott Neidert", "Sean Duphily", "Shehnaz Chaudhri", "Sheila Donovan", "Skip Sanders", "Stephen Wright", "Steve Harr", "Stewart Megee", "Susanne Laws", "Taylor King", "Tim Hackett", "Timothy Stynchula", "Ting Guo", "Tom Brooks", "Vince Davis", "Warren Ziegler", "Will Mobley", "William Williamson", "Youcef Hamroun"];
+
+//AutoComplete(document.getElementById('UserName'), TempUsers);
+
+function AutoLoad(verbose = false, run = true) {
+
+    if (!run) {
+        DisplayError("Running in Offline Mode");
+        return;
+    }
     checkAuthentication(verbose).then();
 
     pullDatafromAPI(verbose).then();
@@ -48,6 +57,130 @@ function AutoLoad(verbose = false) {
     PopulateUsers(verbose).then();
 
     console.log("Ready");
+
+    AutoComplete(document.getElementById('UserName'), TempUsers, true);
+}
+
+//Move this function lower down
+function AutoComplete(inp, verbose = false) {
+    log(inp, verbose);
+
+    log(Users, verbose);
+
+    /*the autocomplete function takes two arguments,
+      the text field element and an array of possible autocompleted values:*/
+    var currentFocus;
+    /*execute a function when someone writes in the text field:*/
+    inp.addEventListener("input", function (e) {
+        var a, b, i, val = this.value;
+
+        var searchUpper = "";
+        var valUpper = val.toUpperCase();
+
+        /*close any already open lists of autocompleted values*/
+
+        closeAllLists();
+
+        if (!val) { return false; }
+        currentFocus = -1;
+        /*create a DIV element that will contain the items (values):*/
+        a = document.createElement("DIV");
+        a.setAttribute("id", this.id + "autocomplete-list");
+        a.setAttribute("class", "autocomplete-items");
+        /*append the DIV element as a child of the autocomplete container:*/
+        this.parentNode.appendChild(a);
+
+        /*for each item in the array...*/
+        for (i = 0; i < Users.length; i++) {
+            /*find the text field value in the list:*/
+
+            //for simplicity
+            searchUpper = Users[i].Name.toUpperCase();
+
+            if (searchUpper.substr(searchUpper.search(valUpper), valUpper.length) == valUpper) {
+                /*create a DIV element for each matching element:*/
+                b = document.createElement("DIV");
+
+                /*make the matching letters bold:*/
+
+                //Need to add the regular letters first, up to the search val.
+                b.innerHTML = Users[i].Name.substr(0, searchUpper.search(valUpper));
+
+                //Now for the bold vals
+                b.innerHTML += "<strong>" + Users[i].Name.substr(searchUpper.search(valUpper), val.length) + "</strong>";
+
+                //Ok and the rest...
+                b.innerHTML += Users[i].Name.substr(searchUpper.search(valUpper) + val.length, Users[i].Name.length);
+
+                /*insert a input field that will hold the current array item's value:*/
+                b.innerHTML += "<input type='hidden' value='" + Users[i].Name + "'>";
+                /*execute a function when someone clicks on the item value (DIV element):*/
+                b.addEventListener("click", function (e) {
+                    /*insert the value for the autocomplete text field:*/
+                    inp.value = this.getElementsByTagName("input")[0].value;
+                    /*close the list of autocompleted values,
+                    (or any other open lists of autocompleted values:*/
+                    closeAllLists();
+                });
+                a.appendChild(b);
+            }
+        }
+    });
+    /*execute a function presses a key on the keyboard:*/
+    inp.addEventListener("keydown", function (e) {
+        var x = document.getElementById(this.id + "autocomplete-list");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.keyCode == 40) {
+            /*If the arrow DOWN key is pressed,
+            increase the currentFocus variable:*/
+            currentFocus++;
+            /*and and make the current item more visible:*/
+            addActive(x);
+        } else if (e.keyCode == 38) { //up
+            /*If the arrow UP key is pressed,
+            decrease the currentFocus variable:*/
+            currentFocus--;
+            /*and and make the current item more visible:*/
+            addActive(x);
+        } else if (e.keyCode == 13) {
+            /*If the ENTER key is pressed, prevent the form from being submitted,*/
+            e.preventDefault();
+            if (currentFocus > -1) {
+                /*and simulate a click on the "active" item:*/
+                if (x) x[currentFocus].click();
+            }
+        }
+    });
+    function addActive(x) {
+        /*a function to classify an item as "active":*/
+        if (!x) return false;
+        /*start by removing the "active" class on all items:*/
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (x.length - 1);
+        /*add class "autocomplete-active":*/
+        x[currentFocus].classList.add("autocomplete-active");
+    }
+    function removeActive(x) {
+        /*a function to remove the "active" class from all autocomplete items:*/
+        for (var i = 0; i < x.length; i++) {
+            x[i].classList.remove("autocomplete-active");
+        }
+    }
+    function closeAllLists(elmnt) {
+        /*close all autocomplete lists in the document,
+        except the one passed as an argument:*/
+        var x = document.getElementsByClassName("autocomplete-items");
+        for (var i = 0; i < x.length; i++) {
+            if (elmnt != x[i] && elmnt != inp) {
+                x[i].parentNode.removeChild(x[i]);
+            }
+        }
+    }
+    /*execute a function when someone clicks in the document:*/
+    document.addEventListener("click", function (e) {
+        closeAllLists(e.target);
+    });
 }
 
 //Datastructure functions
@@ -493,5 +626,8 @@ function DisplayError(val) {
     document.getElementById('ErrorMessage').innerHTML = val;
 }
 
+function NameAutoComplete(val) {
+    //This will search the available users and try to auto complete the text box.
 
+}
 
