@@ -28,7 +28,7 @@ function test() {
 
     console.log("Testing12345");
     //pushToLog("This is a test");
-
+    var fs = require('fs');
 
 }
 
