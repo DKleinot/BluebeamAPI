@@ -28,9 +28,9 @@ function test() {
 
     console.log("Testing1234");
     //pushToLog("This is a test");
-    var express = require('express'),
-        fs = require('fs')
-        url = require('url');
+    var express = require('express');
+    var fs = require('fs');
+    var url = require('url');
     var app = express();
 
     app.use('/public', express.static(__dirname + '/public'));
