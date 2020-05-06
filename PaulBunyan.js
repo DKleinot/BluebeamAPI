@@ -24,7 +24,10 @@
 function test() {
     //This is just intended to test this system.
     console.log("Testing123");
-    pushToLog("This is a test");
+    //pushToLog("This is a test");
+
+    openFile = fopen()
+
 }
 
 function pushToLog(value,args=[]) {

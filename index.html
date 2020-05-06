@@ -7,34 +7,31 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
-
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-    <?php
-        function writeToFile($file, $data) {
-            file_put_contents($file, $data);
-        }
-    ?>
-
-</head>
-
-<body>
-
-    <h2>External JavaScript1234</h2>
-
-    <p id="demo">A Paragraph.</p>
-
-    <button id="btnMain" type="button" onclick="Athuenticate()">
-        Authenticate
-    </button>
-
-    <button id="btnMain" type="button" onclick="test()">
-        Test Logging123
-    </button>
-
-    <p>(myFunction is stored in an external file called "Dashboard.js")</p>
+<object type="text/html"        data="/.netlify/functions/server"        style="width:100%;height:100%;"></object>
 
 
-</body>
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+
+    </head>
+
+    <body>
+
+        <h2>External JavaScript1234</h2>
+
+        <p id="demo">A Paragraph.</p>
+
+        <button id="btnMain" type="button" onclick="Athuenticate()">
+            Authenticate
+        </button>
+
+        <button id="btnMain" type="button" onclick="test()">
+            Test Logging1234
+        </button>
+
+        <p>(myFunction is stored in an external file called "Dashboard.js")</p>
+
+
+    </body>
 </html>
