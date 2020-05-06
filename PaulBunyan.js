@@ -21,6 +21,12 @@
 //API request or response that triggered an error or pop - up sent to the user
 //Authentication errors that include the Studio API response body
 
+function test() {
+    //This is just intended to test this system.
+    console.log("Testing123");
+    pushToLog("This is a test");
+}
+
 function pushToLog(value,args=[]) {
     //This will push data to the log.
     //  Need to figure out how to append data to a file on a server...
