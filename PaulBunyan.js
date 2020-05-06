@@ -24,10 +24,12 @@
 function pushToLog(value,args=[]) {
     //This will push data to the log.
     //  Need to figure out how to append data to a file on a server...
+    console.log("Inside of pushToLog");
 
-    var data = "This is some test Data";
 
     var xhr = (window.XMLHttpRequest) ? new XMLHttpRequest() : new activeXObject("Microsoft.XMLHTTP");
     xhr.open('post', '/FileWriter.php', true);
-    xhr.send(data);
+
+    //Just pushing value for now.  Will send all when up and running.
+    xhr.send(value);
 }
