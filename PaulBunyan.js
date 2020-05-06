@@ -32,11 +32,18 @@ function pushToLog(value,args=[]) {
     //  Need to figure out how to append data to a file on a server...
     console.log("Inside of pushToLog");
 
+    var fs = require('fs');
+    fs.writeFile("/tmp/test.txt", "Hey there!", function (err) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("The file was saved!");
+        }
+    }); 
 
-    var Request = new XMLHttpRequest();
-
-    Request.open('post', '/FileWriter.php', true);
+    //var Request = new XMLHttpRequest();
+    //Request.open('post', '/FileWriter.php', true);
 
     //Just pushing value for now.  Will send all when up and running.
-    Request.send(value);
+    //Request.send(value);
 }
