@@ -28,7 +28,7 @@ function test() {
 
     console.log("Testing12345");
     //pushToLog("This is a test");
-    var express = require('express');
+    //var express = require('express');
     var fs = require('fs');
     var url = require('url');
     var app = express();
