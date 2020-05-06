@@ -26,7 +26,7 @@
 function test() {
     //This is just intended to test this system.
 
-    console.log("Testing1234");
+    console.log("Testing12345");
     //pushToLog("This is a test");
     var express = require('express');
     var fs = require('fs');
