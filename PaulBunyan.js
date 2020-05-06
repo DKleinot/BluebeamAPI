@@ -33,10 +33,10 @@ function pushToLog(value,args=[]) {
     console.log("Inside of pushToLog");
 
 
+    var Request = new XMLHttpRequest();
 
-    var xhr = (window.XMLHttpRequest) ? new XMLHttpRequest() : new activeXObject("Microsoft.XMLHTTP");
-    xhr.open('post', '/FileWriter.php', true);
+    Request.open('post', '/FileWriter.php', true);
 
     //Just pushing value for now.  Will send all when up and running.
-    xhr.send(value);
+    Request.send(value);
 }
