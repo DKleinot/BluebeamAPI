@@ -73,6 +73,8 @@ function GenerateState() {
 function Athuenticate() {
     log("This will Authenticate the user?");
 
+    pushToLog("This is some data");
+
     var args = "";
 
     args = "https://authserver.bluebeam.com/auth/oauth/authorize?response_type=";

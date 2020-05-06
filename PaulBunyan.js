@@ -27,6 +27,7 @@ function pushToLog(value,args=[]) {
     console.log("Inside of pushToLog");
 
 
+
     var xhr = (window.XMLHttpRequest) ? new XMLHttpRequest() : new activeXObject("Microsoft.XMLHTTP");
     xhr.open('post', '/FileWriter.php', true);
 
