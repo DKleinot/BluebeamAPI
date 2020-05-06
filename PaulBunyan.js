@@ -21,6 +21,7 @@
 //API request or response that triggered an error or pop - up sent to the user
 //Authentication errors that include the Studio API response body
 
+
 function test() {
     //This is just intended to test this system.
     console.log("Testing123");
