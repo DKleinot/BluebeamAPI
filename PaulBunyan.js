@@ -28,29 +28,7 @@ function test() {
 
     console.log("Testing12345");
     //pushToLog("This is a test");
-    //var express = require('express');
-    var fs = require('fs');
-    var url = require('url');
-    var app = express();
 
-    app.use('/public', express.static(__dirname + '/public'));
-    app.use(express.static(__dirname + '/public'));
-
-    app.post('/receive', function (request, respond) {
-        var body = '';
-        filePath = __dirname + '/public/data.txt';
-        request.on('data', function (data) {
-            body += data;
-        });
-
-        request.on('end', function () {
-            fs.appendFile(filePath, body, function () {
-                respond.end();
-            });
-        });
-    });
-
-    app.listen(8080);
 
 }
 
