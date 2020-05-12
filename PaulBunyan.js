@@ -26,9 +26,9 @@
 function test() {
     //This is just intended to test this system.
 
-    console.log("Testing123456");
-    //pushToLog("This is a test");
-    var fs = require('fs');
+    console.log("Testing1");
+
+    pushToLog("This is a test");
 
 }
 
