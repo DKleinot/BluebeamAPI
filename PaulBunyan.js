@@ -28,18 +28,23 @@ function test() {
 
     console.log("Testing12");
 
-    pushToLog("This is a test", ["Arg1", "Arg4", "Arg3", "Arg2"]);
+    pushToLog();
+    pushToLog("GET","website?","This is the header","This is the body of the message",true);
 
 }
 
-function pushToLog(value,args=[]) {
-    //This will push data to the log.
-    //  Need to figure out how to append data to a file on a server...
+function pushToLog(Method = "", Endpoint = "", Header = "", Body = "", verbose = false) {
+    //This will push data to the console for now...
+    //  Need to get a server that supports PHP.
+    var pocket = "";
 
-    console.log("Inside of pushToLog");
+    if (verbose) { console.log("Inside of pushToLogRequest"); }
 
-    console.log(value);
-    console.log(args);
+    /* Format for log will be as follows:
+     *  [TIMESTAMP];[METHOD];[ENDPOINT];[HEADER];[BODY]
+     *  These will always be here, even if empty.
+     */
 
-    
+    pocket = Date.now();
+    pocket += Method + ";" + Endpoint + ";" + Header + ";" + Body;
 }
