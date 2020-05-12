@@ -38,7 +38,7 @@ function pushToLog(Method = "", Endpoint = "", Header = "", Body = "", verbose =
     //  Need to get a server that supports PHP.
     var pocket = "";
 
-    if (verbose) { console.log("Inside of pushToLogRequest"); }
+    if (verbose) { console.log("Inside of pushToLog"); }
 
     /* Format for log will be as follows:
      *  [TIMESTAMP];[METHOD];[ENDPOINT];[HEADER];[BODY]
