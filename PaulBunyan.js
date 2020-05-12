@@ -26,7 +26,7 @@
 function test() {
     //This is just intended to test this system.
 
-    console.log("Testing1");
+    console.log("Testing12");
 
     pushToLog("This is a test", ["Arg1", "Arg4", "Arg3", "Arg2"]);
 
