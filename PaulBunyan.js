@@ -26,7 +26,7 @@
 function test() {
     //This is just intended to test this system.
 
-    console.log("Testing12");
+    console.log("Testing123");
 
     pushToLog();
     pushToLog("GET", "website?", "This is the header", "This is the body of the message", true);
