@@ -39,7 +39,7 @@ function pushToLog(value,args=[]) {
     console.log("Inside of pushToLog");
 
     console.log(value);
-    cons.log(args);
+    console.log(args);
 
     
 }
