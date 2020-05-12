@@ -47,4 +47,5 @@ function pushToLog(Method = "", Endpoint = "", Header = "", Body = "", verbose =
 
     pocket = Date.now();
     pocket += Method + ";" + Endpoint + ";" + Header + ";" + Body;
+    console.log(pocket);
 }
