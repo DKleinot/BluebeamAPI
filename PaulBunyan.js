@@ -42,8 +42,10 @@ function pushToLog(Method = "", Endpoint = "", Header = "", Body = "", verbose =
     //  Need to get a server that supports PHP.
     var pocket = "";
 
+    console.group("pushToLog");
+
     console.assert(!verbose, "This is an assertion");
-    console.debug("This is a debug");
+    console.debug("This is a debug");//FUCK!  This is much better.
     if (verbose) { console.log("Inside of pushToLog"); }
 
     /* Format for log will be as follows:
@@ -52,10 +54,17 @@ function pushToLog(Method = "", Endpoint = "", Header = "", Body = "", verbose =
      */
 
     var d = new Date();
-    
+
+    console.debug(pocket);
+
     pocket = d.getMonth() + 1 + ":" + d.getDate() + ":" + d.getFullYear() + "_" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ":" + d.getMilliseconds();
     pocket += ";";
+
+    console.debug(pocket);
+
     pocket += Method + ";" + Endpoint + ";" + Header + ";" + Body;
 
     console.log(pocket);
+
+    console.groupEnd();
 }
