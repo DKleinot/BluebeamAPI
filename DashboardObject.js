@@ -53,6 +53,8 @@ function AutoLoad(verbose = false, run = true) {
 
     if (!run) {
         DisplayError("Running in Offline Mode");
+
+        console.groupEnd();
         return;
     }
 
@@ -243,11 +245,13 @@ async function PopulateUsers() {
 
 //API functions
 
-async function checkAuthentication(verbose = false) {
+async function checkAuthentication() {
+    console.group("checkAuthentication");
+
     //This will check to see if the Authentication is still valid.
     var Request = new XMLHttpRequest();
 
-    log("Checking Auth.", verbose);
+    console.debug("Checking Auth.");
 
     Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/users/me', false);
     Request.setRequestHeader("Authorization", "Bearer " + access_token);
@@ -265,9 +269,13 @@ async function checkAuthentication(verbose = false) {
         }
     }
     Request.send();
+
+    console.groupEnd();
 }
 
-async function pullDatafromAPI(verbose = false) {
+async function pullDatafromAPI() {
+    console.group("pullDatafromAPI");
+
     //Pull all sessions from the API and store them locally.
     var Request = new XMLHttpRequest();
     var i = 0;
@@ -281,8 +289,8 @@ async function pullDatafromAPI(verbose = false) {
 
         if (Request.status = 200) {
 
-            log("Loading each Session:", verbose);
-            log(data, verbose);
+            console.debug("Loading each Session:");
+            console.debug(data, verbose);
 
             //To get individual sessions from the all sessions command:
             data.Sessions.forEach(s => {
@@ -291,13 +299,17 @@ async function pullDatafromAPI(verbose = false) {
             });
             pullUsers();
         } else {
-            log('error', verbose);
+            console.debug('error');
         }
     }
     Request.send();
+
+    console.groupEnd();
 }
 
 function pullUsers() {
+    console.group("pullUsers");
+
     //This will pull all the users from the sessions stored and store them locally.
     //log("Inside pullUsers.  Session count is " + Sessions.length);
     //log(Sessions);
@@ -309,7 +321,7 @@ function pullUsers() {
 
     for (i = 0; i < Sessions.length; i++) {
 
-        //log("Prepping to extract user data for Session " + Sessions[i].ID);
+        console.debug("Prepping to extract user data for Session " + Sessions[i].ID);
 
         arg = "https://studioapi.bluebeam.com:443/publicapi/v1/sessions/" + Sessions[i].ID + "/users?";
         Request.open('GET', arg, false);
@@ -321,8 +333,8 @@ function pullUsers() {
 
             if (Request.status = 200) {
 
-                //log("Loading user data for Session " + Sessions[i].ID);
-                //log(data);
+                console.debug("Loading user data for Session " + Sessions[i].ID);
+                console.debug(data);
 
                 sID = getSessionIndex(Sessions[i].ID);
 
@@ -331,20 +343,23 @@ function pullUsers() {
                     AddUsertoSessionByIndex(sID, u.Id, u.Name, u.Email, u.StatusMessage);
                 });
             } else {
-                //log('error');
+                console.debug('error');
             }
         }
         Request.send();
     }
-    //log(Sessions);
+    console.debug(Sessions);
+
+    console.groupEnd();
 }
 
 //Dashboard Functions
 
-function AutoComplete(inp, verbose = false) {
-    log(inp, verbose);
+function AutoComplete(inp) {
+    console.group("AutoComplete");
 
-    log(Users, verbose);
+    console.debug(inp);
+    console.debug(Users);
 
     /*the autocomplete function takes two arguments,
       the text field element and an array of possible autocompleted values:*/
@@ -460,14 +475,21 @@ function AutoComplete(inp, verbose = false) {
     document.addEventListener("click", function (e) {
         closeAllLists(e.target);
     });
+
+
+    console.groupEnd();
 }
 
-function displaySessionDataByUser(uName, verbose = false) {
+function displaySessionDataByUser(uName) {
+    console.group("displaySessionDataByUser");
+
+
+
     //This will pull the user from the database and display data about them.
 
     var i = 0;
 
-    log(uName, verbose);
+    console.debug(uName);
 
     if (UserExists(uName)) {
 
@@ -475,7 +497,7 @@ function displaySessionDataByUser(uName, verbose = false) {
         document.getElementById("TutorialInfoHolder").style.display = "flex";
 
         var me = Users[getUserIndex(uName)];
-        log(me, verbose);
+        console.debug(me);
 
         DisplayError("Displaying data for " + uName);
 
@@ -529,12 +551,12 @@ function displaySessionDataByUser(uName, verbose = false) {
             dStart = parseDate(me.mySessions[i].CreatedDate, verbose);
             dEnd = parseDate(me.mySessions[i].ExpirationDate, verbose);
 
-            log("Start " + dStart, verbose);
-            log("End " + dEnd, verbose);
+            console.debug("Start " + dStart);
+            console.debug("End " + dEnd);
 
             dDiff = calcDateDiffPercent(dStart, dEnd, verbose);
 
-            log("Diff " + dDiff, verbose);
+            console.debug("Diff " + dDiff);
 
             //Bar start
             htmlCode += "<div style=\"width:" + dDiff;
@@ -580,26 +602,36 @@ function displaySessionDataByUser(uName, verbose = false) {
         document.getElementById("TutorialInfoHolder").style.display = "none";
         DisplayError("User <b>" + uName + "</b> not found");
     }
+
+    console.groupEnd();
 }
 
-function calcDateDiffPercent(dStart, dEnd, verbose = false) {
+function calcDateDiffPercent(dStart, dEnd) {
+    console.group("calcDateDiffPercent");
+
+
     //This will get a percent complete between the start and end based on current time.
     //  If Now is after the end date, it will return 100%
 
-    log("Start " + dStart, verbose);
-    log("End " + dEnd, verbose);
+    console.debug("Start " + dStart);
+    console.debug("End " + dEnd);
     
     if (Date.now() > dEnd) { return 100; }
     if (Date.now() < dStart) { return 0; }
 
-    log(Math.ceil((Date.now() - dStart.getTime()) / (dEnd.getTime() - dStart.getTime()) * 100), verbose);
+    console.debug(Math.ceil((Date.now() - dStart.getTime()) / (dEnd.getTime() - dStart.getTime()) * 100));
 
+    console.groupEnd();
     return Math.ceil((Date.now() - dStart.getTime()) / (dEnd.getTime() - dStart.getTime()) * 100);
 }
 
-function parseDate(sDate, verbose = false) {
+function parseDate(sDate) {
+    console.group("parseDate");
+
+
+
     //This will parse a date and return a date object
-    log("Parsing Date: " + sDate, verbose);
+    console.debug("Parsing Date: " + sDate);
 
     var pocket1 = [];
     var pocket2 = [];
@@ -610,8 +642,8 @@ function parseDate(sDate, verbose = false) {
     pocket2 = pocket1[0].split("-");
     pocket1 = pocket1[1].split(":");
 
-    log("Second Half: " + pocket1, verbose);
-    log("First Half: " + pocket2, verbose);
+    console.debug("Second Half: " + pocket1);
+    console.debug("First Half: " + pocket2);
 
     y = pocket2[0];
     m = pocket2[1];
@@ -621,23 +653,34 @@ function parseDate(sDate, verbose = false) {
     mm = pocket1[1];
     s = pocket1[2];
 
-    return new Date(y, m-1, d, h, mm,s);
+    console.groupEnd();
+    return new Date(y, m - 1, d, h, mm, s);
 }
 
-function SelectText(id, verbose = false) {
+function SelectText(id) {
+    console.group("SelectText");
+
+
+
     //This will select the text of the box on click
-    log(id, verbose);
+    console.debug(id);
 
     const input = document.getElementById(id);
     input.focus();
     input.select();
+
+    console.groupEnd();
 }
 
-function KeyPress(id, verbose = false) {
-    //This will modify the title of the button when a name is entered in.
-    log(document.getElementById(id).value, verbose);
+function KeyPress(id) {
+    console.group("KeyPress");
 
-    document.getElementById('btnMain').textContent = "Get Session data for " + document.getElementById(id).value
+    //This will modify the title of the button when a name is entered in.
+    console.debug(document.getElementById(id).value);
+
+    document.getElementById('btnMain').textContent = "Get Session data for " + document.getElementById(id).value;
+
+    console.groupEnd();
 }
 
 function DisplayError(val) {
