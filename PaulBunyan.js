@@ -28,7 +28,7 @@ function test() {
 
     console.log("Testing");
 
-    pushToLog();
+    //pushToLog();
     pushToLog("GET", "website?", "This is the header", "This is the body of the message", true);
 
 }
