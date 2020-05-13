@@ -256,6 +256,8 @@ async function checkAuthentication() {
     Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/users/me', false);
     Request.setRequestHeader("Authorization", "Bearer " + access_token);
 
+    pushToLog("GET", 'https://studioapi.bluebeam.com:443/publicapi/v1/users/me', "Authorization" + "," + "Bearer " + access_token, "Checking to see if Re-Authentication is needed");
+
     Request.onload = function () {
         // Begin accessing JSON data here
         var data = JSON.parse(this.response);
@@ -282,6 +284,8 @@ async function pullDatafromAPI() {
 
     Request.open('GET', 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=false', false);
     Request.setRequestHeader("Authorization", "Bearer " + access_token);
+
+    pushToLog("GET", 'https://studioapi.bluebeam.com:443/publicapi/v1/sessions?includeDeleted=false', "Authorization" + "," + "Bearer " + access_token, "Pulling all Session Data and storing internally");
 
     Request.onload = function () {
         // Begin accessing JSON data here
@@ -327,6 +331,8 @@ function pullUsers() {
         Request.open('GET', arg, false);
         Request.setRequestHeader("Authorization", "Bearer " + access_token);
 
+        pushToLog("GET", arg, "Authorization" + "," + "Bearer " + access_token, "Pulling all User Data for Session [" + Sessions[i].ID +  "] and storing internally");
+
         Request.onload = function () {
             // Begin accessing JSON data here
             var data = JSON.parse(this.response);
@@ -354,6 +360,21 @@ function pullUsers() {
 }
 
 //Dashboard Functions
+
+function pushToLog(Method = "", Endpoint = "", Header = "", Body = "") {
+    console.group("pushToLog");
+
+    var pocket = "";
+    var d = new Date();
+
+    pocket = d.getMonth() + 1 + ":" + d.getDate() + ":" + d.getFullYear() + "_" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ":" + d.getMilliseconds();
+    pocket += ";";
+    pocket += Method + ";" + Endpoint + ";" + Header + ";" + Body;
+
+    console.log(pocket);
+
+    console.groupEnd();
+}
 
 function AutoComplete(inp) {
     console.group("AutoComplete");

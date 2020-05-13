@@ -47,21 +47,6 @@ const scope = "read_prime";
 
 var state = "";
 
-function pushToLog(Method = "", Endpoint = "", Header = "", Body = "") {
-    console.group("pushToLog");
-
-    var pocket = "";
-    var d = new Date();
-
-    pocket = d.getMonth() + 1 + ":" + d.getDate() + ":" + d.getFullYear() + "_" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ":" + d.getMilliseconds();
-    pocket += ";";
-    pocket += Method + ";" + Endpoint + ";" + Header + ";" + Body;
-
-    console.log(pocket);
-
-    console.groupEnd();
-}
-
 function GenerateState() {
     console.group("GenerateState");
     //This will generate a state and return a random string
@@ -85,8 +70,6 @@ function Athuenticate() {
     console.group("Athuenticate");
 
     console.debug("This will Authenticate the user?");
-
-    //pushToLog("This is some data");
 
     var args = "";
 
