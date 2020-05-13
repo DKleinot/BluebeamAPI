@@ -70,6 +70,7 @@ function GenerateState() {
     //log(state);
 }
 
+
 function Athuenticate() {
     log("This will Authenticate the user?");
 

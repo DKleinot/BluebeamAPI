@@ -7,13 +7,17 @@
 //Logging requirements from Bluebeam:
 //
 //Record of every Studio API Endpoint that is called
+
 //For every Studio API request:
-//  Timestamp
-//  Method
-//  Endpoint
-//  Header
+
+//  Timestamp   
+//  Method      GET or POST
+//  Endpoint    The API call
+//  Header      The Header information passed
 //  Body(be selective with the body for successful calls, as the body sometimes includes entire PDFs)
+
 //For every response from the Studio API:
+
 //  Timestamp
 //  Header
 //  Body
@@ -38,6 +42,7 @@ function pushToLog(Method = "", Endpoint = "", Header = "", Body = "", verbose =
     //  Need to get a server that supports PHP.
     var pocket = "";
 
+    console.assert(!verbose, "Inside PushToLog");
     if (verbose) { console.log("Inside of pushToLog"); }
 
     /* Format for log will be as follows:
