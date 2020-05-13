@@ -58,17 +58,17 @@ function AutoLoad(verbose = false, run = true) {
         return;
     }
 
-    checkAuthentication(verbose).then();
+    checkAuthentication().then();
 
-    pullDatafromAPI(verbose).then();
+    pullDatafromAPI().then();
 
     console.debug("Pull users");
 
-    PopulateUsers(verbose).then();
+    PopulateUsers().then();
 
     console.debug("Ready");
 
-    AutoComplete(document.getElementById('UserName'), verbose);
+    AutoComplete(document.getElementById('UserName'));
 
     console.groupEnd();
 }
@@ -548,13 +548,13 @@ function displaySessionDataByUser(uName) {
             htmlCode += "<div class=\"w3-bar-item\" style=\"width:100%;display:flex;border:2px solid black;padding:0px\">";
 
             //Need to calc date complete.
-            dStart = parseDate(me.mySessions[i].CreatedDate, verbose);
-            dEnd = parseDate(me.mySessions[i].ExpirationDate, verbose);
+            dStart = parseDate(me.mySessions[i].CreatedDate);
+            dEnd = parseDate(me.mySessions[i].ExpirationDate);
 
             console.debug("Start " + dStart);
             console.debug("End " + dEnd);
 
-            dDiff = calcDateDiffPercent(dStart, dEnd, verbose);
+            dDiff = calcDateDiffPercent(dStart, dEnd);
 
             console.debug("Diff " + dDiff);
 
