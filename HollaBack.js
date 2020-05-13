@@ -10,14 +10,10 @@ var access_token;
 var code;
 var state;
 
-//This will make it easier to turn off debugging
-function log(Val, verbose = false) {
-    //Simple function to help log stuff to the console.
-    if (verbose) { console.log(Val); }
-}
-
 function AutoLoad() {
-    log("Load");
+    console.group("AutoLoad");
+
+    console.debug("Load");
 
     var MyURL = new URL(window.location.href);
 
@@ -59,24 +55,24 @@ function AutoLoad() {
     })
     */
 
-    log("Hash Brown2:");
+    console.debug("Hash Brown2:");
 
     var pocket;
     pocket = MyURL.hash.split('#');
-    log(pocket);
+    console.debug(pocket);
 
     pocket = pocket[1].split('&');
-    log(pocket);
+    console.debug(pocket);
 
 
-    log("Parse that shit.");
+    console.debug("Parse that shit.");
     for (var i = 0; i < pocket.length; i++) {
         //Appears to go access_token, token_type, expires_in, state
-        log(pocket[i].split('='));
+        console.debug(pocket[i].split('='));
     }
 
     access_token = pocket[0].split('=')[1];
-    log(access_token);
+    console.debug(access_token);
 
     sessionStorage.setItem("Access_Token", access_token);
 
@@ -107,4 +103,7 @@ function AutoLoad() {
     log("Hash");
     log(parser.hash);
     */
+
+
+    console.groupEnd();
 }
