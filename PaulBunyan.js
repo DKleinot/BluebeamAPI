@@ -47,7 +47,7 @@ function pushToLog(Method = "", Endpoint = "", Header = "", Body = "", verbose =
 
     var d = new Date();
     
-    pocket = d.getMonth() + ":" + d.getDate() + ":" + d.getFullYear() + "_" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ":" + d.getSeconds();
+    pocket = d.getMonth() + 1 + ":" + d.getDate() + ":" + d.getFullYear() + "_" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ":" + d.getSeconds();
     pocket += ";";
     pocket += Method + ";" + Endpoint + ";" + Header + ";" + Body;
 
