@@ -45,9 +45,9 @@ function pushToLog(Method = "", Endpoint = "", Header = "", Body = "", verbose =
      *  These will always be here, even if empty.
      */
 
-    //var d = new Date.now();
+    var d = new Date();
     
-    pocket = Date.getMonth() + ":" + Date.getDate() + ":" + Date.getFullYear() + "_" + Date.getHours() + ":" + Date.getMinutes() + ":" + Date.getSeconds() + ":" + Date.getSeconds();
+    pocket = d.getMonth() + ":" + d.getDate() + ":" + d.getFullYear() + "_" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ":" + d.getSeconds();
     pocket += ";";
     pcoket += Method + ";" + Endpoint + ";" + Header + ";" + Body;
 
