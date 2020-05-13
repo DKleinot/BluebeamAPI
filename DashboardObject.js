@@ -290,7 +290,7 @@ async function pullDatafromAPI() {
         if (Request.status = 200) {
 
             console.debug("Loading each Session:");
-            console.debug(data, verbose);
+            console.debug(data);
 
             //To get individual sessions from the all sessions command:
             data.Sessions.forEach(s => {
