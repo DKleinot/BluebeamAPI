@@ -36,7 +36,7 @@ var TempUsers = ["Aaron Bell", "Ahmed Abdelmoteleb", "Alexandra Tarantino", "Ann
 
 //AutoComplete(document.getElementById('UserName'), TempUsers);
 
-function AutoLoad(verbose = false, run = true) {
+function AutoLoad(run = true) {
     console.group("AutoLoad");
     var input = document.getElementById("UserName");
 
