@@ -26,7 +26,7 @@
 function test() {
     //This is just intended to test this system.
 
-    console.log("Testing123");
+    console.log("Testing");
 
     pushToLog();
     pushToLog("GET", "website?", "This is the header", "This is the body of the message", true);
@@ -44,8 +44,11 @@ function pushToLog(Method = "", Endpoint = "", Header = "", Body = "", verbose =
      *  [TIMESTAMP];[METHOD];[ENDPOINT];[HEADER];[BODY]
      *  These will always be here, even if empty.
      */
+    var d = new Date.now();
+    
+    pocket = Date.getMonth() + ":" + Date.getDate() + ":" + Date.getFullYear() + "_" + Date.getHours() + ":" + Date.getMinutes() + ":" + Date.getSeconds() + ":" + Date.getSeconds();
+    pocket += ";";
+    pcoket += Method + ";" + Endpoint + ";" + Header + ";" + Body;
 
-    pocket = Date.now();
-    pocket += Method + ";" + Endpoint + ";" + Header + ";" + Body;
     console.log(pocket);
 }
