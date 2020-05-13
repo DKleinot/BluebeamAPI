@@ -45,15 +45,25 @@ const scope = "read_prime";
 
 //  Variables
 
-//This will make it easier to turn off debugging
-function log(Val, verbose = false) {
-    //Simple function to help log stuff to the console.
-    if (verbose) { console.log(Val); }
-}
-
 var state = "";
 
+function pushToLog(Method = "", Endpoint = "", Header = "", Body = "") {
+    console.group("pushToLog");
+
+    var pocket = "";
+    var d = new Date();
+
+    pocket = d.getMonth() + 1 + ":" + d.getDate() + ":" + d.getFullYear() + "_" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ":" + d.getMilliseconds();
+    pocket += ";";
+    pocket += Method + ";" + Endpoint + ";" + Header + ";" + Body;
+
+    console.log(pocket);
+
+    console.groupEnd();
+}
+
 function GenerateState() {
+    console.group("GenerateState");
     //This will generate a state and return a random string
     //Math.floor(Math.random() * (36 - 2 + 1) + 2);//generates a random number between 2 and 36.
 
@@ -65,14 +75,16 @@ function GenerateState() {
     state += "-" + Math.random().toString(Math.floor(Math.random() * (36 - 2 + 1) + 2)).slice(2);
     state += "-" + Math.random().toString(Math.floor(Math.random() * (36 - 2 + 1) + 2)).slice(2);
 
-
     sessionStorage.setItem("state", state);
-    //log(state);
+
+    console.groupEnd();
 }
 
 
 function Athuenticate() {
-    log("This will Authenticate the user?");
+    console.group("Athuenticate");
+
+    console.debug("This will Authenticate the user?");
 
     //pushToLog("This is some data");
 
@@ -92,42 +104,12 @@ function Athuenticate() {
     args += "&state=";
     args += state;
 
-
-
-    //var Request = new XMLHttpRequest();
-
-    log(args);
-    log("returning a website????????????????????");
-
-
-    //return ("GET " + args);
+    console.debug(args);
+    console.debug("returning a website????????????????????");
 
     window.location.href = args;
 
-    //window.location.href ="GET" + args;
+    console.debug("Link done...");
 
-    log("Link done...");
-
-    //Request.open('GET', API_GET_Session + '843-381-486' + '?' + API_KEY , true)
-    /*
-    Request.open('GET', args, true);
-    
-    Request.onload = function () {
-        // Begin accessing JSON data here
-        //var data = JSON.parse(this.response);
-
-        log(this.response);
-
-
-        if (Request.status = 200) {
-            log(data);
-        } else {
-            console.log('error');
-        }
-    }
-
-    Request.send();
-    */
-
-
+    console.groupEnd();
 }
