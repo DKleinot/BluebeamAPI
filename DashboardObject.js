@@ -21,12 +21,6 @@
  *  Add AutoComplete to Name Field
  */
 
-//This will make it easier to turn off debugging
-function log(Val, verbose = false) {
-    //Simple function to help log stuff to the console.
-    if (verbose) { console.log(Val); }
-}
-
 //Variables
 const Sessions = [];
 const Users = [];
@@ -43,7 +37,7 @@ var TempUsers = ["Aaron Bell", "Ahmed Abdelmoteleb", "Alexandra Tarantino", "Ann
 //AutoComplete(document.getElementById('UserName'), TempUsers);
 
 function AutoLoad(verbose = false, run = true) {
-
+    console.group("AutoLoad");
     var input = document.getElementById("UserName");
 
     input.addEventListener("keyup", function (event) {
@@ -66,13 +60,15 @@ function AutoLoad(verbose = false, run = true) {
 
     pullDatafromAPI(verbose).then();
 
-    log("Pull users", verbose);
+    console.debug("Pull users");
 
     PopulateUsers(verbose).then();
 
-    console.log("Ready");
+    console.debug("Ready");
 
     AutoComplete(document.getElementById('UserName'), verbose);
+
+    console.groupEnd();
 }
 
 //Datastructure functions
@@ -180,45 +176,50 @@ function getUserIndex(uName) {
     }
 }
 
-function AddSessionToUser(uName, sID, verbose = false) {
+function AddSessionToUser(uName, sID) {
+    console.group("AddSessionToUser");
     //This will check to see if the User exists
     //This will check to see if the Session exists
     //  If so, it will add that session ID to the Users list of Sessions
 
     var iMySessions;
 
-    log(">Adding " + sID + " to " + uName + "'s sessions list", verbose);
+    console.debug(">Adding " + sID + " to " + uName + "'s sessions list");
 
     if (UserExists(uName)) {
         if (SessionExists(sID)) {
             //Ok, the user exists and the session exists, lets store this to make things easier to understand
             iMySessions = Users[getUserIndex(uName)].mySessions
             if (iMySessions.length > 0) {
-                log(uName + " has " + iMySessions.length + " sessions", verbose);
-                log(Users[getUserIndex(uName)].mySessions, verbose);
+                console.debug(uName + " has " + iMySessions.length + " sessions");
+                console.debug(Users[getUserIndex(uName)].mySessions);
                 for (i = 0; i < iMySessions.length; i++) {
                     if (iMySessions[i].ID == sID) {
-                        log("already has it, do nothing", verbose);
+                        console.debug("already has it, do nothing");
                     } else {
                         iMySessions[iMySessions.length++] = Sessions[getSessionIndex(sID)];
                     }
                 }
             } else {
-                log(uName + "'s Session count is 0", verbose);
+                console.debug(uName + "'s Session count is 0");
                 iMySessions[iMySessions.length++] = Sessions[getSessionIndex(sID)];
             }
         }
     } else {
         //User does not exist.
-        log("Hey, the user does not exist!", verbose);
+        console.debug("Hey, the user does not exist!");
     }
+
+    console.groupEnd();
 }
 
-async function PopulateUsers(verbose = false) {
+async function PopulateUsers() {
+    console.group("PopulateUsers");
+
     //This will create the Users data structure
     var i = 0, j = 0;
 
-    log("Populating users", verbose);
+    console.debug("Populating users");
 
     //I feel like this is going to be very inefficient...
     //Iterate through each session
@@ -227,15 +228,17 @@ async function PopulateUsers(verbose = false) {
         for (j = 0; j < Sessions[i].Users.length; j++) {
             AddUser(Sessions[i].Users[j].ID, Sessions[i].Users[j].Name, Sessions[i].Users[j].Email);
 
-            log("Adding " + Sessions[i].ID + " to " + Sessions[i].Users[j].Name + "'s sessions list", verbose);
+            console.debug("Adding " + Sessions[i].ID + " to " + Sessions[i].Users[j].Name + "'s sessions list");
 
             AddSessionToUser(Sessions[i].Users[j].Name, Sessions[i].ID);
         }
 
     }
 
-    log("Done, lets check it", verbose);
-    log(Users, verbose);
+    console.debug("Done, lets check it");
+    console.debug(Users);
+
+    console.groupEnd();
 }
 
 //API functions
