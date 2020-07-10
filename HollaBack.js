@@ -10,9 +10,15 @@ var access_token;
 var code;
 var state;
 var CheckState;
+
+
+//Credentials for the new one.
+const ClientID = "d48c90a5-8752-46e1-ae3b-b0d7caecb7fd";
+const Secret = "7a03638f-ed46-45b1-946f-e2dafa7de7e0";
+
 //Added 071020
-const response_type = "token";
-const redirect_uri = "https://thirsty-kepler-b52ade.netlify.com/Holla_Back.html";
+//const response_type = "token";
+//const redirect_uri = "https://thirsty-kepler-b52ade.netlify.com/Holla_Back.html";
 
 function AutoLoad() {
     console.group("AutoLoad");
@@ -88,7 +94,7 @@ function GetRefresh() {
         console.debug(state + " is not equal to " + CheckState);
     }
 
-    sessionStorage.setItem("Access_Token", access_token);
+    //sessionStorage.setItem("Access_Token", access_token);
 
 
 
@@ -96,11 +102,15 @@ function GetRefresh() {
     var args = "";
 
     args = "https://authserver.bluebeam.com/auth/token";
-    args += response_type;
+    args += "authorization_code&code=";
+    args += code;
     args += "&client_id=";
     args += ClientID;
+    args += "&client_secret=";
+    args += Secret;
     args += "&redirect_uri=";
     args += redirect_uri;
+    /*
     args += "&scope=";
     args += scope;
 
@@ -108,11 +118,11 @@ function GetRefresh() {
 
     args += "&state=";
     args += state;
-
+    */
     console.debug(args);
     console.debug("returning a website????????????????????");
 
-    window.location.href = args;
+    //window.location.href = args;
 
     console.debug("Link done...");
 
