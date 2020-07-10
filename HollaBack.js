@@ -9,7 +9,7 @@ var bDebug = true;
 var access_token;
 var code;
 var state;
-
+var CheckState;
 //Added 071020
 const response_type = "token";
 const redirect_uri = "https://thirsty-kepler-b52ade.netlify.com/Holla_Back.html";
@@ -21,7 +21,10 @@ function AutoLoad() {
 
     var MyURL = new URL(window.location.href);
 
+    //should probably check to see if the state matches...
     state = sessionStorage.getItem("state", state);
+
+    GetRefresh();
 
     console.debug("Hash Brown2:");
 
@@ -44,7 +47,6 @@ function AutoLoad() {
 
     sessionStorage.setItem("Access_Token", access_token);
 
-    GetRefresh();
 
     //window.location.href = "https://thirsty-kepler-b52ade.netlify.com/Dashboard.html";
 
@@ -59,6 +61,37 @@ function GetRefresh() {
     //  How do I determine that I am requesting the Refresh token?  Or do I just hard code it in?
 
     console.debug("Requesting Refresh_token");
+
+    var pocket;
+    pocket = MyURL.hash.split('?');
+    console.debug(pocket);
+
+    pocket = pocket[1].split('&');
+    console.debug(pocket);
+
+
+    console.debug("Parse that shit.");
+    for (var i = 0; i < pocket.length; i++) {
+        //Appears to go access_token, token_type, expires_in, state
+        console.debug(pocket[i].split('='));
+    }
+
+    code = pocket[0].split('=')[1];
+    console.debug(code);
+
+    CheckState = pocket[0].split('=')[1];
+    console.debug("Checking if states are equal");
+    if (CheckState == state) {
+        console.debug("states are equal");
+    } else {
+        console.debug("States are not equal:");
+        console.debug(state + " is not equal to " + CheckState);
+    }
+
+    sessionStorage.setItem("Access_Token", access_token);
+
+
+
 
     var args = "";
 
