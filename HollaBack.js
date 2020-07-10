@@ -131,7 +131,8 @@ function GetRefresh() {
 
     var Request = new XMLHttpRequest();
     Request.open('POST', args, false);
-    //Request.setRequestHeader("Authorization", "Bearer " + access_token);
+    Request.setRequestHeader("Authorization", "Bearer " + access_token);
+
     Request.onload = function () {
         // Begin accessing JSON data here
         var data = JSON.parse(this.response);
