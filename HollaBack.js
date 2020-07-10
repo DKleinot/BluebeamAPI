@@ -68,6 +68,8 @@ function GetRefresh() {
 
     console.debug("Requesting Refresh_token");
 
+    var MyURL = new URL(window.location.href);
+
     var pocket;
     pocket = MyURL.hash.split('?');
     console.debug(pocket);
