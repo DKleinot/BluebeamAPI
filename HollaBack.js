@@ -40,7 +40,7 @@ function AutoLoad() {
 
     sessionStorage.setItem("Access_Token", access_token);
 
-    window.location.href = "https://thirsty-kepler-b52ade.netlify.com/Dashboard.html";
+    //window.location.href = "https://thirsty-kepler-b52ade.netlify.com/Dashboard.html";
 
 
     console.groupEnd();
