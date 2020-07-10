@@ -17,8 +17,7 @@ const ClientID = "d48c90a5-8752-46e1-ae3b-b0d7caecb7fd";
 const Secret = "7a03638f-ed46-45b1-946f-e2dafa7de7e0";
 
 //Added 071020
-//const response_type = "token";
-//const redirect_uri = "https://thirsty-kepler-b52ade.netlify.com/Holla_Back.html";
+const redirect_uri = "https://thirsty-kepler-b52ade.netlify.com/Holla_Back.html";
 
 function AutoLoad() {
     console.group("AutoLoad");
