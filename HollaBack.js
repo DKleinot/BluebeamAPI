@@ -58,6 +58,11 @@ function AutoLoad() {
 
     console.groupEnd();
 }
+
+function CheckIfRefreshing() {
+
+}
+
 function GetRefresh() {
     console.group("GetRefresh");
 
@@ -124,7 +129,7 @@ function GetRefresh() {
     console.debug(args);
     console.debug("returning a website????????????????????");
 
-    //window.location.href = args;
+    window.location.href = args;
 
     console.debug("Link done...");
 
