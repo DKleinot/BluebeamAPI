@@ -108,7 +108,7 @@ function GetRefresh() {
 
     var args = "";
 
-    args = "https://authserver.bluebeam.com/auth/token";
+    args = "https://authserver.bluebeam.com/auth/token/?";
     args += "authorization_code&code=";
     args += code;
     args += "&client_id=";
