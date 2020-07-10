@@ -72,7 +72,7 @@ function GetRefresh() {
     console.debug(MyURL);
 
     var pocket;
-    pocket = MyURL.hash.split('?');
+    pocket = MyURL.search.split('?');
     console.debug(pocket);
 
     pocket = pocket[1].split('&');
