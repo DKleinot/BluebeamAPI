@@ -10,6 +10,10 @@ var access_token;
 var code;
 var state;
 
+//Added 071020
+const response_type = "token";
+const redirect_uri = "https://thirsty-kepler-b52ade.netlify.com/Holla_Back.html";
+
 function AutoLoad() {
     console.group("AutoLoad");
 
@@ -40,8 +44,44 @@ function AutoLoad() {
 
     sessionStorage.setItem("Access_Token", access_token);
 
+    GetRefresh();
+
     //window.location.href = "https://thirsty-kepler-b52ade.netlify.com/Dashboard.html";
 
+
+    console.groupEnd();
+}
+function GetRefresh() {
+    console.group("GetRefresh");
+
+    //Ok, testing grabbing and storing the refresh token
+    //  I believe this will need to be done every 60 days by me?
+    //  How do I determine that I am requesting the Refresh token?  Or do I just hard code it in?
+
+    console.debug("Requesting Refresh_token");
+
+    var args = "";
+
+    args = "https://authserver.bluebeam.com/auth/token";
+    args += response_type;
+    args += "&client_id=";
+    args += ClientID;
+    args += "&redirect_uri=";
+    args += redirect_uri;
+    args += "&scope=";
+    args += scope;
+
+    GenerateState();
+
+    args += "&state=";
+    args += state;
+
+    console.debug(args);
+    console.debug("returning a website????????????????????");
+
+    window.location.href = args;
+
+    console.debug("Link done...");
 
     console.groupEnd();
 }

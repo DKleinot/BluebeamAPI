@@ -34,7 +34,9 @@ const Secret = "9c0ae51c-1926-4759-8bf2-f8514691431b";
 const ClientID = "d48c90a5-8752-46e1-ae3b-b0d7caecb7fd";
 const Secret = "7a03638f-ed46-45b1-946f-e2dafa7de7e0";
 
-const response_type = "token";
+//const response_type = "token";
+const response_type = "code";//modified 7/10/20
+
 const redirect_uri = "https://thirsty-kepler-b52ade.netlify.com/Holla_Back.html";
 
 //The old app
