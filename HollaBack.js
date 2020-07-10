@@ -129,7 +129,24 @@ function GetRefresh() {
     console.debug(args);
     console.debug("returning a website????????????????????");
 
-    window.location.href = args;
+    var Request = new XMLHttpRequest();
+    Request.open('POST', args, false);
+    //Request.setRequestHeader("Authorization", "Bearer " + access_token);
+    Request.onload = function () {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response);
+
+        if (Request.status = 200) {
+
+            console.debug(data);
+
+        } else {
+            console.debug('error');
+        }
+    }
+    Request.send();
+
+    //window.location.href = args;
 
     console.debug("Link done...");
 
