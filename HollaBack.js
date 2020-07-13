@@ -52,10 +52,12 @@ function AutoLoad() {
 
     sessionStorage.setItem("Access_Token", access_token);
 
+    if (confirm("Continue?")) {
+        console.groupEnd();
+        window.location.href = "https://thirsty-kepler-b52ade.netlify.com/Dashboard.html";
+    }
 
-    //window.location.href = "https://thirsty-kepler-b52ade.netlify.com/Dashboard.html";
-
-
+    console.debug("Should this be shown?");
     console.groupEnd();
 }
 

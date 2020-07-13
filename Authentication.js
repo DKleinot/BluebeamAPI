@@ -92,6 +92,8 @@ function Athuenticate() {
     console.debug(args);
     console.debug("returning a website????????????????????");
 
+    confirm("Continue?");
+
     window.location.href = args;
 
     console.debug("Link done...");
